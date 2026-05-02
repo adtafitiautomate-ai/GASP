@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#e5e2dd",
+                        "surface-container-low": "#f6f3f2",
+                        "background": "#fcf9f8",
+                        "on-surface-variant": "#424844",
+                        "secondary-fixed": "#eaddff",
+                        "on-surface": "#1c1b1b",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#c9ead8",
+                        "on-tertiary-fixed-variant": "#474743",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#adcebc",
+                        "tertiary-fixed-dim": "#c9c6c2",
+                        "on-background": "#1c1b1b",
+                        "surface-variant": "#e5e2e1",
+                        "surface-container-high": "#eae7e7",
+                        "primary-container": "#0f2d21",
+                        "secondary-container": "#e4d7fd",
+                        "on-primary-fixed": "#022015",
+                        "surface-container": "#f0eded",
+                        "secondary": "#635979",
+                        "on-secondary-container": "#665c7c",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#4b4260",
+                        "on-primary-fixed-variant": "#2f4d3f",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#313030",
+                        "surface-tint": "#476556",
+                        "primary": "#00170e",
+                        "on-primary-container": "#769686",
+                        "surface": "#fcf9f8",
+                        "primary-fixed-dim": "#adcebc",
+                        "surface-bright": "#fcf9f8",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#cdc1e5",
+                        "on-tertiary-container": "#908f8b",
+                        "inverse-on-surface": "#f3f0ef",
+                        "tertiary": "#131411",
+                        "outline": "#727974",
+                        "on-secondary-fixed": "#1f1732",
+                        "surface-dim": "#dcd9d9",
+                        "tertiary-container": "#282825",
+                        "outline-variant": "#c1c8c2",
+                        "on-tertiary-fixed": "#1c1c19",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-x": "64px",
+                        "stack-sm": "8px",
+                        "stack-lg": "80px",
+                        "stack-md": "24px",
+                        "gutter": "24px",
+                        "section-padding": "160px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Manrope"],
+                        "headline-xl": ["Space Grotesk"],
+                        "body-lg": ["Manrope"],
+                        "display-lg": ["Space Grotesk"],
+                        "label-sm": ["Manrope"],
+                        "headline-md": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 border-b border-emerald-900/30 bg-emerald-950/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20">
+<div class="text-2xl font-bold tracking-tighter text-emerald-50">GASP</div>
+<div class="hidden md:flex items-center gap-12">
+<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold text-emerald-100/70 hover:text-emerald-50 transition-colors hover:scale-[1.02] transition-transform duration-200" href="#">Mission</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold text-emerald-100/70 hover:text-emerald-50 transition-colors hover:scale-[1.02] transition-transform duration-200" href="#">Impact</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold text-emerald-100/70 hover:text-emerald-50 transition-colors hover:scale-[1.02] transition-transform duration-200" href="#">Value Chain</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold text-emerald-100/70 hover:text-emerald-50 transition-colors hover:scale-[1.02] transition-transform duration-200" href="#">Explore</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold text-emerald-400 border-b border-emerald-400 pb-1 hover:scale-[1.02] transition-transform duration-200" href="#">Gallery &amp; Events</a>
+</div>
+<button class="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-full font-['Space_Grotesk'] text-sm uppercase font-bold hover:scale-[1.02] active:scale-[0.98] transition-all">Contact</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative pt-40 pb-32 bg-primary-container overflow-hidden">
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, #769686 1px, transparent 0); background-size: 40px 40px;"></div>
+<div class="max-w-7xl mx-auto px-8 relative z-10">
+<div class="max-w-4xl">
+<span class="inline-block px-4 py-1 rounded-full bg-on-primary-container/10 text-on-primary-container font-label-sm uppercase mb-8">Our Collective Intelligence</span>
+<h1 class="font-display-lg text-display-lg text-emerald-50 mb-12">
+                    Teamwork is the ability to work together toward a common vision.
+                </h1>
+<div class="w-24 h-1 bg-secondary mb-8"></div>
+<p class="font-body-lg text-body-lg text-on-primary-container max-w-2xl">
+                    Our leadership represents the intersection of industrial precision and biological regeneration, driving the circular economy forward through expert governance and shared purpose.
+                </p>
+</div>
+</div>
+</header>
+<!-- Marquee Logic (Sustainability Narrative) -->
+<section class="py-12 bg-surface-container border-y border-outline-variant/30 overflow-hidden">
+<div class="flex whitespace-nowrap gap-16 animate-marquee">
+<span class="font-headline-md text-emerald-900/10 uppercase tracking-widest flex items-center gap-4">
+                Circular Economy <span class="w-3 h-3 rounded-full bg-emerald-500/20"></span>
+                Regenerative Future <span class="w-3 h-3 rounded-full bg-emerald-500/20"></span>
+                Social Enterprise <span class="w-3 h-3 rounded-full bg-emerald-500/20"></span>
+                Mass Flow Management <span class="w-3 h-3 rounded-full bg-emerald-500/20"></span>
+                EPR Models <span class="w-3 h-3 rounded-full bg-emerald-500/20"></span>
+                Circular Economy <span class="w-3 h-3 rounded-full bg-emerald-500/20"></span>
+                Regenerative Future <span class="w-3 h-3 rounded-full bg-emerald-500/20"></span>
+                Social Enterprise <span class="w-3 h-3 rounded-full bg-emerald-500/20"></span>
+                Mass Flow Management
+            </span>
+</div>
+</section>
+<main class="max-w-7xl mx-auto px-8 py-section-padding">
+<!-- Board Team Section -->
+<section class="mb-32">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-primary mb-4">Board of Directors</h2>
+<p class="font-body-md text-on-surface-variant max-w-lg">The governing body steering GASP toward high-impact sustainable development and ethical oversight.</p>
+</div>
+<div class="h-px bg-outline-variant flex-grow ml-12 hidden md:block mb-6"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap- gutter">
+<!-- Tony Gadhoke -->
+<div class="group border border-outline-variant p-6 hover:bg-surface-container-low transition-all duration-300">
+<div class="aspect-square bg-surface-variant mb-6 relative overflow-hidden">
+<img class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A professional and authoritative portrait of a mature male leader in a high-end corporate setting with soft architectural lighting. The scene uses a sophisticated palette of deep emerald and slate tones to match the GASP brand. The mood is serious, professional, and suggests high-level environmental governance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA28fhQQvA_XHQRnvf0B7XgY88ryl0TaCW4wVdtVgrNlWLk4l89_74MdHWvCRhpehLiTDltS-xceBUcvzOqeonxQqCST9v2f15-pvxnQNLLwFyRGBwpPkg2qpO6lX0x_HFVUDl_FmJGdhkqFO1SlG4Hsex8zsw46PZcWkM90i01PPNTa89mU4fFk8X6aeyG0XBk1ZuiXc_W6Sb20vEe2XsuURqXwH04DUIDFtIJ6xPVDsmCq8oy9Eifsf-U5gNlRkFA4QcsMfXbkJc"/>
+</div>
+<h3 class="font-headline-md text-xl text-primary mb-1">Tony Gadhoke</h3>
+<p class="font-label-sm text-secondary uppercase tracking-widest">Board Chair</p>
+</div>
+<!-- Kirunda Magoola -->
+<div class="group border border-outline-variant p-6 hover:bg-surface-container-low transition-all duration-300">
+<div class="aspect-square bg-surface-variant mb-6 relative overflow-hidden">
+<img class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A professional, high-fidelity portrait of a confident male executive in a minimalist architectural environment. The lighting is bright and modern, creating a clean light-mode aesthetic. The color scheme is grounded in professional neutrals with subtle emerald accents, reflecting an authoritative leadership style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDXbmYbIsUHqQv5loPX2xdyv1IDS2XaI_V4KXi_wNJYLD4Ulf7l4oohaSkkKW1P0JbvdpM4MaJnGgjEXH3CqvL0gVNIKW_VT9e8dyzZ9_DeMcqJk4-U_nXVvZCHlTsnFlIKHE_DCH4F-_0vkeq0HBtmbRFQopTKUBV7yPrg5xvrU1ZvuNX6XPX-ZAGBIQj55ppgKjhMrc7ggsM6o5NDUxAO-_wgxc865xfINSZp9ZSxDFaSnmPMEBAU4IojjHV_tOlKX4iElszcPE"/>
+</div>
+<h3 class="font-headline-md text-xl text-primary mb-1">Kirunda Magoola</h3>
+<p class="font-label-sm text-secondary uppercase tracking-widest">Board Vice Chair</p>
+</div>
+<!-- Mahdi Mshaimesh -->
+<div class="group border border-outline-variant p-6 hover:bg-surface-container-low transition-all duration-300">
+<div class="aspect-square bg-surface-variant mb-6 relative overflow-hidden">
+<img class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A stylized portrait of a male professional against a minimalist background. The lighting highlights sharp contours and professional attire. The overall mood is sophisticated and tech-forward, utilizing a palette of parchment and deep forest green to maintain brand alignment with circular economy values." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuT_WHGKoLCqRN4fNNqlICQgTSShlvlMTaIRdlMu8YWoaZSnLASCXN9qdsxELlx2y5YaqVIesXJY6bCBUWF7aHv8cyNtgvZwrmi2HGN44NFBZnzQh6wNvZMWI_GUc-i--BvP-rQT8Mr-nyeTZZzZM33QWZyGkT_zIytSTcwzz7unM6dEOJdenTsmAGQGG-uDkYJywTeDV_yZEQmeaWoS4KCDSeuyeReEcvHnwph-4NJVQ9WWKOoHJtnfZef69Dm7JZwvkKYOZyG04"/>
+</div>
+<h3 class="font-headline-md text-xl text-primary mb-1">Mahdi Mshaimesh</h3>
+<p class="font-label-sm text-secondary uppercase tracking-widest">Board Member</p>
+</div>
+<!-- Joram Bamwiine -->
+<div class="group border border-outline-variant p-6 hover:bg-surface-container-low transition-all duration-300">
+<div class="aspect-square bg-surface-variant mb-6 relative overflow-hidden">
+<img class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A close-up professional headshot of a focused male leader in a modern, well-lit studio. The aesthetic is clean and high-fidelity, featuring a high-contrast lighting setup. The color palette incorporates professional greys and deep greens, suggesting a balance between industrial precision and environmental care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6YUgKqYRFBUCest0vpqzg6r13QY8pL5Wadf7froy23RYBUHVL5hws6LpHdjn4JqPTruFDC05krMJnUH5rlPOSQ4WCSoaHmGwXkuIZdu8eewtpc0Cnuota8rYdnU4vDesQDag4c7mnRaHmpdyqqA6UTo6HrZcKWhPM6KOzHrCMLC7pqBCYoZmrwjcLsZw67A-a0Ta6ZWovXZhVxW7D-_NjmlZ21HEvmAH2464t9g1w_HAQhxrYBWd0oBeziQAGSO60NLZsDbQ3F44"/>
+</div>
+<h3 class="font-headline-md text-xl text-primary mb-1">Joram Bamwiine</h3>
+<p class="font-label-sm text-secondary uppercase tracking-widest">Board Member</p>
+</div>
+<!-- Suleiman Ngondi -->
+<div class="group border border-outline-variant p-6 hover:bg-surface-container-low transition-all duration-300">
+<div class="aspect-square bg-surface-variant mb-6 relative overflow-hidden">
+<img class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A sophisticated male executive portrait featuring a clean, minimalist backdrop. The lighting is soft and natural, emphasizing professional authority and approachability. The visual style follows the GASP brand guidelines with a focus on deep tones, professional textures, and an architectural composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_tgPtsxuCPC42K6rvYIqiM93UWXErl4K_xAyL2wj2CZmaluh8TS3hZSVlLw4mRt4EWla9FBbKD0WW2i5SGbAkuQ64XR9wZ0Tk4phGAB7fTkW588E7CVBRrWJAN8j6N5NAKA40DbcpEMAbFbaaLg43AyrLynU33dHWwcE9fPFufPHbpIgKyPCDFSHkxe6WACmKSlw0CH6urhtCa7eKNCet_8RGUMJectgZUTQIj9UxXqR3OQKF52gZQhLEXfcDL1hyvXdlS-qtc0I"/>
+</div>
+<h3 class="font-headline-md text-xl text-primary mb-1">Suleiman Ngondi</h3>
+<p class="font-label-sm text-secondary uppercase tracking-widest">Board Member</p>
+</div>
+</div>
+</section>
+<!-- Bento Grid for Subcommittees -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Membership Committee -->
+<div class="md:col-span-4 bg-surface-container-low p-10 border border-outline-variant flex flex-col justify-between group">
+<div>
+<span class="material-symbols-outlined text-4xl text-emerald-800 mb-8" style="font-variation-settings: 'FILL' 1;">groups</span>
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Membership Committee</h2>
+<ul class="space-y-4">
+<li class="flex items-center justify-between border-b border-outline-variant/30 pb-2">
+<span class="font-body-md font-bold text-on-surface">Ali Karmali</span>
+<span class="font-label-sm text-on-surface-variant">Lead</span>
+</li>
+<li class="flex items-center justify-between border-b border-outline-variant/30 pb-2">
+<span class="font-body-md font-bold text-on-surface">Brenda Kobutungi</span>
+<span class="font-label-sm text-on-surface-variant">Member</span>
+</li>
+</ul>
+</div>
+<div class="mt-12">
+<p class="font-label-sm text-secondary uppercase tracking-widest">Strategic Growth</p>
+</div>
+</div>
+<!-- Recycling Subcommittee -->
+<div class="md:col-span-8 bg-primary-container p-10 relative overflow-hidden group">
+<div class="absolute right-0 bottom-0 opacity-10 transform translate-x-1/4 translate-y-1/4">
+<span class="material-symbols-outlined text-[300px]" style="font-variation-settings: 'FILL' 1;">recycling</span>
+</div>
+<div class="relative z-10">
+<h2 class="font-headline-md text-headline-md text-emerald-50 mb-8">Recycling Subcommittee</h2>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+<div class="bg-white/5 backdrop-blur-sm p-6 border border-emerald-100/10">
+<h4 class="font-body-md font-bold text-emerald-50">Samuel Kangave</h4>
+<p class="font-label-sm text-on-primary-container uppercase mt-2">Operations</p>
+</div>
+<div class="bg-white/5 backdrop-blur-sm p-6 border border-emerald-100/10">
+<h4 class="font-body-md font-bold text-emerald-50">Isaac Nsibambi</h4>
+<p class="font-label-sm text-on-primary-container uppercase mt-2">Infrastructure</p>
+</div>
+<div class="bg-white/5 backdrop-blur-sm p-6 border border-emerald-100/10">
+<h4 class="font-body-md font-bold text-emerald-50">Ali Karmali</h4>
+<p class="font-label-sm text-on-primary-container uppercase mt-2">Specialist</p>
+</div>
+</div>
+<div class="mt-12 max-w-md">
+<p class="font-body-md text-on-primary-container">Managing technical implementation of circularity loops and industrial processing standards across the network.</p>
+</div>
+</div>
+</div>
+<!-- Admin & Finance -->
+<div class="md:col-span-7 bg-surface-container-highest p-10 border border-outline-variant flex flex-col justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-8">Admin &amp; Finance Subcommittee</h2>
+<div class="flex flex-wrap gap-4">
+<div class="px-6 py-4 bg-background border border-outline-variant">
+<p class="font-body-md font-bold">Madhav Dhawal</p>
+</div>
+<div class="px-6 py-4 bg-background border border-outline-variant">
+<p class="font-body-md font-bold">Steven Emorut</p>
+</div>
+<div class="px-6 py-4 bg-background border border-outline-variant">
+<p class="font-body-md font-bold">Edgar Mugenyi</p>
+</div>
+</div>
+</div>
+<div class="mt-12 flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary">account_balance_wallet</span>
+<p class="font-label-sm text-secondary uppercase tracking-widest">Financial Stewardship &amp; Accountability</p>
+</div>
+</div>
+<!-- Communications -->
+<div class="md:col-span-5 bg-secondary-container p-10 flex flex-col justify-between border border-outline-variant">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-secondary-container mb-8">Communications</h2>
+<div class="space-y-6">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-white">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<div>
+<h4 class="font-body-md font-bold text-on-secondary-container">Pearl Nimusiima</h4>
+<p class="font-label-sm opacity-70">Internal Relations</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-white">
+<span class="material-symbols-outlined">public</span>
+</div>
+<div>
+<h4 class="font-body-md font-bold text-on-secondary-container">Jemimah Akatekit</h4>
+<p class="font-label-sm opacity-70">Public Engagement</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12">
+<p class="font-body-md text-on-secondary-container/80 italic">Curating the global voice of regenerative production.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-emerald-100 dark:border-emerald-900 bg-stone-50 dark:bg-emerald-950">
+<div class="max-w-7xl mx-auto px-8 py-16 flex flex-col md:flex-row justify-between items-start gap-8">
+<div class="max-w-sm">
+<div class="text-lg font-black text-emerald-900 dark:text-emerald-50 mb-6">GASP</div>
+<p class="font-['Space_Grotesk'] text-xs tracking-wide text-emerald-600/60 mb-8 leading-relaxed">
+                    Advancing the transition to a circular economy through technical excellence and social equity. Our enterprise focuses on closing resource loops in emerging markets.
+                </p>
+<p class="font-['Space_Grotesk'] text-xs tracking-wide text-emerald-600/60">
+                    © 2024 GASP Global Social Enterprise. Circular Economy for a Regenerative Future.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-x-16 gap-y-4">
+<a class="font-['Space_Grotesk'] text-xs tracking-wide text-emerald-600/60 hover:text-emerald-900 transition-all" href="#">EPR Models</a>
+<a class="font-['Space_Grotesk'] text-xs tracking-wide text-emerald-600/60 hover:text-emerald-900 transition-all" href="#">Mass Flows</a>
+<a class="font-['Space_Grotesk'] text-xs tracking-wide font-bold text-emerald-700 hover:text-emerald-900 transition-all" href="#">Team</a>
+<a class="font-['Space_Grotesk'] text-xs tracking-wide text-emerald-600/60 hover:text-emerald-900 transition-all" href="#">Portfolio</a>
+<a class="font-['Space_Grotesk'] text-xs tracking-wide text-emerald-600/60 hover:text-emerald-900 transition-all" href="#">Privacy Policy</a>
+<a class="font-['Space_Grotesk'] text-xs tracking-wide text-emerald-600/60 hover:text-emerald-900 transition-all" href="#">Sustainability Report</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-sm uppercase text-emerald-900/40">Connect</span>
+<div class="flex gap-4">
+<a class="w-10 h-10 border border-emerald-100 dark:border-emerald-900 flex items-center justify-center hover:bg-emerald-50 transition-colors" href="#">
+<span class="material-symbols-outlined text-emerald-900 dark:text-emerald-50">mail</span>
+</a>
+<a class="w-10 h-10 border border-emerald-100 dark:border-emerald-900 flex items-center justify-center hover:bg-emerald-50 transition-colors" href="#">
+<span class="material-symbols-outlined text-emerald-900 dark:text-emerald-50">lan</span>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<style>
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+        }
+    </style>
+</body></html>

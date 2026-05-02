@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#e5e2dd",
+                    "surface-container-low": "#f6f3f2",
+                    "background": "#fcf9f8",
+                    "on-surface-variant": "#424844",
+                    "secondary-fixed": "#eaddff",
+                    "on-surface": "#1c1b1b",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#c9ead8",
+                    "on-tertiary-fixed-variant": "#474743",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#adcebc",
+                    "tertiary-fixed-dim": "#c9c6c2",
+                    "on-background": "#1c1b1b",
+                    "surface-variant": "#e5e2e1",
+                    "surface-container-high": "#eae7e7",
+                    "primary-container": "#0f2d21",
+                    "secondary-container": "#e4d7fd",
+                    "on-primary-fixed": "#022015",
+                    "surface-container": "#f0eded",
+                    "secondary": "#635979",
+                    "on-secondary-container": "#665c7c",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed-variant": "#4b4260",
+                    "on-primary-fixed-variant": "#2f4d3f",
+                    "surface-container-highest": "#e5e2e1",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#313030",
+                    "surface-tint": "#476556",
+                    "primary": "#00170e",
+                    "on-primary-container": "#769686",
+                    "surface": "#fcf9f8",
+                    "primary-fixed-dim": "#adcebc",
+                    "surface-bright": "#fcf9f8",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#cdc1e5",
+                    "on-tertiary-container": "#908f8b",
+                    "inverse-on-surface": "#f3f0ef",
+                    "tertiary": "#131411",
+                    "outline": "#727974",
+                    "on-secondary-fixed": "#1f1732",
+                    "surface-dim": "#dcd9d9",
+                    "tertiary-container": "#282825",
+                    "outline-variant": "#c1c8c2",
+                    "on-tertiary-fixed": "#1c1c19",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-x": "64px",
+                    "stack-sm": "8px",
+                    "stack-lg": "80px",
+                    "stack-md": "24px",
+                    "gutter": "24px",
+                    "section-padding": "160px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "body-md": ["Manrope"],
+                    "headline-xl": ["Space Grotesk"],
+                    "body-lg": ["Manrope"],
+                    "display-lg": ["Space Grotesk"],
+                    "label-sm": ["Manrope"],
+                    "headline-md": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .backdrop-blur-md { backdrop-filter: blur(12px); }
+        .circular-marquee {
+            animation: scroll 40s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 border-b border-emerald-900/30 bg-emerald-950/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20">
+<div class="text-2xl font-bold tracking-tighter text-emerald-50">GASP</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold text-emerald-100/70 hover:text-emerald-50 transition-colors hover:scale-[1.02] transition-transform duration-200" href="#">Mission</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold text-emerald-100/70 hover:text-emerald-50 transition-colors hover:scale-[1.02] transition-transform duration-200" href="#">Impact</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold text-emerald-100/70 hover:text-emerald-50 transition-colors hover:scale-[1.02] transition-transform duration-200" href="#">Value Chain</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold text-emerald-400 border-b border-emerald-400 pb-1 hover:scale-[1.02] transition-transform duration-200" href="#">Explore</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold text-emerald-100/70 hover:text-emerald-50 transition-colors hover:scale-[1.02] transition-transform duration-200" href="#">Gallery &amp; Events</a>
+</div>
+<button class="bg-secondary-fixed text-on-secondary-fixed px-6 py-2 rounded-full font-label-sm uppercase tracking-widest hover:scale-[1.02] active:scale-[0.98] transition-all">
+                Contact
+            </button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-primary-container">
+<div class="absolute inset-0 opacity-40">
+<img class="w-full h-full object-cover" data-alt="A wide-angle, cinematic view of a high-tech industrial recycling facility in a clean, daylight-filled environment. The scene features precision machinery and automated conveyor systems processing colorful recycled materials. The lighting is crisp and modern, emphasizing a sense of professional urgency and sophisticated sustainability. The overall mood is cold yet purposeful, following an architectural and industrial aesthetic with deep emerald and metallic silver tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVlW86Jpx8qYm87n_T-VOr2HugI5rtmlUfBupLnVeIKOSRqOg_bqaEgTHK-U4AOQcr1AyRemeYbL3DxcNw88S42OrN0TfRH7l2uZUtVa0CQsHjOXCm6uRkxHI_Ps889JxTikVNWlAX_RGcWZGrWTBA5gfjRVZ-CKh9RjAL1bofswPcvqeyEFyiNwng0VUirb59OnMxR73WPdA0BruK_Rt8cB5HRfx1aAX2tNbLIK6vNdLYF9Xuk9skpC0es3Ha4C_RtZSRw5pV4Xk"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container via-primary-container/80 to-transparent"></div>
+<div class="relative z-10 max-w-7xl mx-auto px-8 py-section-padding">
+<div class="max-w-3xl">
+<span class="inline-block px-4 py-1 mb-8 rounded-full bg-on-primary-container/10 border border-on-primary-container/20 text-on-primary-container font-label-sm uppercase tracking-widest">
+                        Circular Models
+                    </span>
+<h1 class="font-display-lg text-display-lg text-emerald-50 mb-8">Our Niche</h1>
+<p class="font-body-lg text-body-lg text-emerald-100/80 leading-relaxed mb-12">
+                        An open &amp; collaborative partnership with all stakeholders in the packaged goods value chain building a transparent &amp; impactful extended producer responsibility scheme to fund awareness &amp; capacity building to accelerate Uganda from the Linear &amp; Recycling economy to the Circular Economy.
+                    </p>
+<div class="flex gap-4">
+<button class="bg-secondary text-on-secondary px-8 py-4 rounded-full font-label-sm uppercase tracking-widest hover:scale-[1.02] transition-transform">
+                            Explore EPR Models
+                        </button>
+<button class="border border-emerald-50/20 text-emerald-50 px-8 py-4 rounded-full font-label-sm uppercase tracking-widest hover:bg-emerald-50/10 transition-all">
+                            View Impact Report
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Marquee Stats -->
+<div class="bg-surface-container-low py-12 border-y border-outline-variant overflow-hidden">
+<div class="flex circular-marquee whitespace-nowrap gap-24 items-center">
+<span class="font-headline-md text-headline-md text-primary opacity-40 flex items-center gap-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">recycling</span> COLLABORATION
+                </span>
+<span class="font-headline-md text-headline-md text-primary opacity-40 flex items-center gap-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified_user</span> ACCOUNTABILITY
+                </span>
+<span class="font-headline-md text-headline-md text-primary opacity-40 flex items-center gap-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span> PASSION
+                </span>
+<span class="font-headline-md text-headline-md text-primary opacity-40 flex items-center gap-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span> RESPECT
+                </span>
+<!-- Duplicate for loop -->
+<span class="font-headline-md text-headline-md text-primary opacity-40 flex items-center gap-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">recycling</span> COLLABORATION
+                </span>
+<span class="font-headline-md text-headline-md text-primary opacity-40 flex items-center gap-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified_user</span> ACCOUNTABILITY
+                </span>
+<span class="font-headline-md text-headline-md text-primary opacity-40 flex items-center gap-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span> PASSION
+                </span>
+<span class="font-headline-md text-headline-md text-primary opacity-40 flex items-center gap-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span> RESPECT
+                </span>
+</div>
+</div>
+<!-- Core Values Section -->
+<section class="py-section-padding px-8 max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+<div class="max-w-2xl">
+<h2 class="font-headline-xl text-headline-xl mb-6">Built on Ethical Precision</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Our EPR framework is anchored in four core pillars that transform standard regulatory compliance into a driver for regenerative economic growth.</p>
+</div>
+<div class="flex gap-4">
+<span class="font-headline-xl text-primary opacity-10 font-black">04</span>
+<span class="font-label-sm uppercase tracking-tighter pt-4">Strategic<br/>Pillars</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Collaboration -->
+<div class="group border border-outline-variant p-10 hover:bg-surface-container transition-all duration-300 flex flex-col justify-between min-h-[400px]">
+<div>
+<div class="w-12 h-12 flex items-center justify-center bg-primary-fixed rounded-full mb-8">
+<span class="material-symbols-outlined text-on-primary-fixed">handshake</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-6">Collaboration</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">True partnership, collaboration &amp; transparency with all public &amp; private stakeholders.</p>
+<p class="font-body-md text-body-md text-on-surface-variant italic">Every Ugandan will have awareness, education &amp; passion for the environment. Strong collaborative partnership established.</p>
+</div>
+<div class="mt-8 flex justify-end">
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- Accountability -->
+<div class="group border border-outline-variant p-10 hover:bg-surface-container transition-all duration-300 flex flex-col justify-between min-h-[400px]">
+<div>
+<div class="w-12 h-12 flex items-center justify-center bg-secondary-fixed rounded-full mb-8">
+<span class="material-symbols-outlined text-on-secondary-fixed">fact_check</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-6">Accountability</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">High Ethical &amp; Moral standards. Real Time Recognition &amp; Validation on GASP Website &amp; App.</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Aggregate Revenue Spend transparently shared. Data Privacy at the core of our operations.</p>
+</div>
+<div class="mt-8 flex justify-end">
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- Passion -->
+<div class="group border border-outline-variant p-10 hover:bg-surface-container transition-all duration-300 flex flex-col justify-between min-h-[400px]">
+<div>
+<div class="w-12 h-12 flex items-center justify-center bg-primary-fixed-dim rounded-full mb-8">
+<span class="material-symbols-outlined text-on-primary-fixed-variant">eco</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-6">Passion</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Passion for Supporting the recycling economy. EPR fees will subsidise collection, sorting &amp; recycling ecosystem operators.</p>
+<p class="font-body-md text-body-md text-on-surface-variant">EPR fee policy will be based on complexity, recyclability &amp; circularity to drive true innovation.</p>
+</div>
+<div class="mt-8 flex justify-end">
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- Respect -->
+<div class="group border border-outline-variant p-10 hover:bg-surface-container transition-all duration-300 flex flex-col justify-between min-h-[400px]">
+<div>
+<div class="w-12 h-12 flex items-center justify-center bg-tertiary-fixed-dim rounded-full mb-8">
+<span class="material-symbols-outlined text-on-tertiary-fixed">diversity_1</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-6">Respect</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">All Strategies, Policies &amp; actions put people first. We recognize the human element in every node of the value chain.</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Concierge service for members, ensuring high-fidelity support for our circular partners.</p>
+</div>
+<div class="mt-8 flex justify-end">
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Dynamic Impact Display -->
+<section class="bg-surface-container-lowest py-section-padding overflow-hidden">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="order-2 lg:order-1">
+<img class="w-full aspect-[4/5] object-cover grayscale brightness-75 contrast-125" data-alt="A minimalist, high-contrast black and white photograph of a circular waste sorting line in a modern industrial setting. The focus is on a sleek, stainless steel conveyor belt system that represents a perfect closed loop. The lighting is harsh and dramatic, highlighting the texture of different recyclable materials. The background is a clean, architectural factory interior that suggests a premium social enterprise dedicated to precise ecological action." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1R4rBYjZ_MTBFNbVYdoM5IV4eCK6WODAOhTVc15gGp-RtPMRr4XLf3_nWLUum2wrfYmgZYNypKnFjcbWEf4yczBkd9csVVfW1uxg0i_fPEzzLZZMPPGeJ1Lw0CM6-rGOIh2RdrItwWvTwW2r2kPCjN7aThivJMl7NU9kqq5dl4i-0vn7pBbcqWenBGjFE1HKsAAE0PE3qGnD_plh_wQ96cUqobyKYn-bR0Hnvxky76VhizW6evNhzMyNbdG03DL4AQROe6bXiPYM"/>
+</div>
+<div class="order-1 lg:order-2">
+<span class="font-label-sm text-primary uppercase tracking-widest block mb-6">Our Methodology</span>
+<h2 class="font-headline-xl text-headline-xl mb-10">Uganda's Transition to Circularity</h2>
+<div class="space-y-12">
+<div class="flex gap-8 items-start">
+<span class="font-headline-xl text-outline-variant">01</span>
+<div>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Linear Phase</h4>
+<p class="font-body-md text-on-surface-variant">The traditional take-make-waste model which we are aggressively disrupting through stakeholder education.</p>
+</div>
+</div>
+<div class="flex gap-8 items-start">
+<span class="font-headline-xl text-primary-fixed-dim">02</span>
+<div>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Recycling Economy</h4>
+<p class="font-body-md text-on-surface-variant">Improving the efficiency of mass flow and recovery through strategic EPR subsidies and infrastructure.</p>
+</div>
+</div>
+<div class="flex gap-8 items-start">
+<span class="font-headline-xl text-primary">03</span>
+<div>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Circular Future</h4>
+<p class="font-body-md text-on-surface-variant">A closed-loop system where waste is designed out and the packaged goods value chain becomes regenerative.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-section-padding px-8">
+<div class="max-w-5xl mx-auto text-center border-t border-outline-variant pt-24">
+<h2 class="font-display-lg text-headline-xl mb-12">Join the Collective Responsibility</h2>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="bg-primary text-on-primary px-10 py-5 rounded-full font-label-sm uppercase tracking-widest hover:scale-105 transition-transform" href="#">Become a Member</a>
+<a class="bg-secondary-container text-on-secondary-container px-10 py-5 rounded-full font-label-sm uppercase tracking-widest hover:scale-105 transition-transform" href="#">EPR Fee Schedule</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-emerald-100 dark:border-emerald-900 bg-stone-50 dark:bg-emerald-950">
+<div class="max-w-7xl mx-auto px-8 py-16 flex flex-col md:flex-row justify-between items-start gap-8">
+<div class="space-y-6">
+<div class="text-lg font-black text-emerald-900 dark:text-emerald-50">GASP</div>
+<p class="font-['Space_Grotesk'] text-xs tracking-wide text-emerald-600/60 max-w-xs">
+                    © 2024 GASP Global Social Enterprise. Circular Economy for a Regenerative Future.
+                </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+<div class="flex flex-col gap-4">
+<a class="font-['Space_Grotesk'] text-xs tracking-wide font-bold text-emerald-700 hover:text-emerald-900 transition-all" href="#">EPR Models</a>
+<a class="font-['Space_Grotesk'] text-xs tracking-wide text-emerald-600/60 hover:text-emerald-900 transition-all" href="#">Mass Flows</a>
+<a class="font-['Space_Grotesk'] text-xs tracking-wide text-emerald-600/60 hover:text-emerald-900 transition-all" href="#">Team</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-['Space_Grotesk'] text-xs tracking-wide text-emerald-600/60 hover:text-emerald-900 transition-all" href="#">Portfolio</a>
+<a class="font-['Space_Grotesk'] text-xs tracking-wide text-emerald-600/60 hover:text-emerald-900 transition-all" href="#">Privacy Policy</a>
+<a class="font-['Space_Grotesk'] text-xs tracking-wide text-emerald-600/60 hover:text-emerald-900 transition-all" href="#">Sustainability Report</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-['Space_Grotesk'] text-xs tracking-wide font-bold text-emerald-900/40">Uganda HQ</span>
+<span class="font-['Space_Grotesk'] text-xs tracking-wide text-emerald-600/60">Plot 12, Industrial Area, Kampala</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

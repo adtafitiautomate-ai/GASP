@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "tertiary": "#131411",
+                        "surface-tint": "#476556",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#635979",
+                        "inverse-surface": "#313030",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#424844",
+                        "outline-variant": "#c1c8c2",
+                        "on-tertiary-fixed": "#1c1c19",
+                        "primary-fixed-dim": "#adcebc",
+                        "on-primary-fixed": "#022015",
+                        "on-primary-fixed-variant": "#2f4d3f",
+                        "on-error": "#ffffff",
+                        "surface-container": "#f0eded",
+                        "secondary-fixed-dim": "#cdc1e5",
+                        "on-primary-container": "#769686",
+                        "surface-dim": "#dcd9d9",
+                        "on-secondary-fixed": "#1f1732",
+                        "on-surface": "#1c1b1b",
+                        "on-secondary-container": "#665c7c",
+                        "outline": "#727974",
+                        "tertiary-fixed": "#e5e2dd",
+                        "primary-container": "#0f2d21",
+                        "surface-container-low": "#f6f3f2",
+                        "background": "#fcf9f8",
+                        "surface": "#fcf9f8",
+                        "inverse-primary": "#adcebc",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#c9ead8",
+                        "surface-variant": "#e5e2e1",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-tertiary-fixed-variant": "#474743",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#eaddff",
+                        "tertiary-container": "#282825",
+                        "surface-container-high": "#eae7e7",
+                        "secondary-container": "#e4d7fd",
+                        "on-secondary-fixed-variant": "#4b4260",
+                        "primary": "#00170e",
+                        "on-tertiary-container": "#908f8b",
+                        "surface-bright": "#fcf9f8",
+                        "tertiary-fixed-dim": "#c9c6c2",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "160px",
+                        "gutter": "24px",
+                        "stack-lg": "80px",
+                        "margin-x": "64px",
+                        "container-max": "1440px",
+                        "stack-sm": "8px",
+                        "stack-md": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "headline-xl": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .circular-mask {
+            mask-image: radial-gradient(circle, black 50%, transparent 100%);
+        }
+        .glass-card {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed-dim selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-emerald-950/80 backdrop-blur-md border-b border-emerald-900/30 h-20">
+<div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20">
+<div class="text-2xl font-bold tracking-tighter text-emerald-50 font-['Space_Grotesk']">
+                GASP
+            </div>
+<div class="hidden md:flex items-center gap-stack-md font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold">
+<a class="text-emerald-100/70 hover:text-emerald-50 transition-colors hover:scale-[1.02] duration-200" href="#">Mission</a>
+<a class="text-emerald-400 border-b border-emerald-400 pb-1" href="#">Impact</a>
+<a class="text-emerald-100/70 hover:text-emerald-50 transition-colors hover:scale-[1.02] duration-200" href="#">Value Chain</a>
+<div class="relative group">
+<button class="flex items-center gap-1 text-emerald-100/70 hover:text-emerald-50 transition-colors hover:scale-[1.02] duration-200">
+                        Explore
+                        <span class="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+</button>
+<div class="absolute left-0 mt-2 w-48 bg-emerald-900 border border-emerald-800 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+<div class="py-2">
+<a class="block px-4 py-2 text-xs text-emerald-100/70 hover:text-emerald-50 hover:bg-emerald-800/50" href="#">EPR Models</a>
+<a class="block px-4 py-2 text-xs text-emerald-100/70 hover:text-emerald-50 hover:bg-emerald-800/50" href="#">Mass Flows</a>
+<a class="block px-4 py-2 text-xs text-emerald-100/70 hover:text-emerald-50 hover:bg-emerald-800/50" href="#">Team</a>
+<a class="block px-4 py-2 text-xs text-emerald-100/70 hover:text-emerald-50 hover:bg-emerald-800/50" href="#">Portfolio</a>
+</div>
+</div>
+</div>
+<a class="text-emerald-100/70 hover:text-emerald-50 transition-colors hover:scale-[1.02] duration-200" href="#">Gallery &amp; Events</a>
+</div>
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded-full font-label-sm uppercase hover:scale-[1.02] active:scale-[0.98] transition-all duration-200">
+                Contact
+            </button>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[819px] flex items-center overflow-hidden bg-primary-container">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40 mix-blend-luminosity" data-alt="A cinematic, high-fidelity close-up of recycled textile fibers being processed in a clean, state-of-the-art industrial facility. The lighting is moody and architectural, emphasizing the textures of the raw sustainable materials. The color palette is dominated by deep forest greens and obsidian blacks, consistent with a premium environmental brand aesthetic. Soft bokeh highlights small particles of fiber suspended in the air, suggesting precision and biological regeneration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2VEMFWt2VPGOYEzADqOB0oSqTBlhpheGjejHaLvSrEKcUZ2V9jg90Moiki8zmtBrn60FepaCA38SK9a-DZUk9zxz4OZ_-Gcgyf0ZvAcnmAiqWTDKckak6rwIT4oa6x-fKCr6GAkCwNKQHEqrs_iH2XyjGAEx-G9_J-yqvt7cS3zzFWZApRw8yHvgX32hHYz_J7mU4YquTpnRA2x_O_nXExwdouIis5aMlbsSWldC4nlMXlDdq-Z5eRdYn3ZIsitZnv7zBBUQ0OIM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
+<span class="inline-block px-4 py-1 bg-primary-fixed text-on-primary-fixed text-label-sm font-label-sm rounded-full mb-stack-md">EPR SCHEME 2024</span>
+<h1 class="font-display-lg text-display-lg text-white max-w-4xl mb-stack-md">
+                    Closing the Loop with <span class="text-on-primary-container">Extended Responsibility.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-primary-fixed-variant max-w-2xl mb-stack-lg">
+                    GASP pioneers the world’s first integrated EPR framework for industrial waste, holding producers accountable while regenerating ecosystems through a unified circular economy.
+                </p>
+</div>
+</section>
+<!-- Impact Metrics Marquee -->
+<div class="bg-primary text-on-primary py-12 overflow-hidden border-y border-white/5">
+<div class="flex items-center gap-24 whitespace-nowrap animate-marquee">
+<div class="flex items-center gap-stack-md">
+<span class="font-headline-xl text-headline-xl text-primary-fixed">1.2M</span>
+<span class="font-label-sm text-label-sm opacity-60">TONS WASTE DIVERTED</span>
+</div>
+<div class="flex items-center gap-stack-md">
+<span class="font-headline-xl text-headline-xl text-primary-fixed">450+</span>
+<span class="font-label-sm text-label-sm opacity-60">PARTNER FACILITIES</span>
+</div>
+<div class="flex items-center gap-stack-md">
+<span class="font-headline-xl text-headline-xl text-primary-fixed">85%</span>
+<span class="font-label-sm text-label-sm opacity-60">RESOURCE RECOVERY RATE</span>
+</div>
+<div class="flex items-center gap-stack-md">
+<span class="font-headline-xl text-headline-xl text-primary-fixed">$14M</span>
+<span class="font-label-sm text-label-sm opacity-60">COMMUNITY REINVESTMENT</span>
+</div>
+<!-- Duplicate for seamless loop -->
+<div class="flex items-center gap-24">
+<div class="flex items-center gap-stack-md">
+<span class="font-headline-xl text-headline-xl text-primary-fixed">1.2M</span>
+<span class="font-label-sm text-label-sm opacity-60">TONS WASTE DIVERTED</span>
+</div>
+<div class="flex items-center gap-stack-md">
+<span class="font-headline-xl text-headline-xl text-primary-fixed">450+</span>
+<span class="font-label-sm text-label-sm opacity-60">PARTNER FACILITIES</span>
+</div>
+</div>
+</div>
+</div>
+<!-- The EPR Framework Section -->
+<section class="py-section-padding px-8 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-end mb-stack-lg">
+<div class="md:col-span-6">
+<span class="font-label-sm text-label-sm text-primary uppercase mb-4 block">Our Methodology</span>
+<h2 class="font-headline-xl text-headline-xl">A Technical Approach to Circularity</h2>
+</div>
+<div class="md:col-span-6 md:pb-2">
+<p class="font-body-lg text-body-lg text-outline">Our Extended Producer Responsibility scheme isn't just a compliance layer; it's a structural shift in how materials are valued, tracked, and returned to the biosphere.</p>
+</div>
+</div>
+<!-- Bento Grid of Process -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter h-auto md:h-[600px]">
+<div class="md:col-span-2 bg-surface-container-low p-stack-lg flex flex-col justify-between border border-outline-variant/30 rounded-xl relative overflow-hidden group">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl text-primary mb-stack-md" data-icon="precision_manufacturing">precision_manufacturing</span>
+<h3 class="font-headline-md text-headline-md mb-stack-sm">Source Accountability</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time IoT tracking at the point of production ensures every material stream is cataloged for its eventual return.</p>
+</div>
+<div class="absolute bottom-[-10%] right-[-10%] opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-[300px]" data-icon="barcode_scanner">barcode_scanner</span>
+</div>
+</div>
+<div class="md:col-span-1 bg-primary text-on-primary p-stack-lg rounded-xl flex flex-col justify-end">
+<span class="font-display-lg text-display-lg leading-none mb-stack-sm">98%</span>
+<p class="font-label-sm text-label-sm opacity-70">DATA ACCURACY IN TRACKING</p>
+</div>
+<div class="md:col-span-1 bg-surface-container-high p-stack-lg rounded-xl flex flex-col items-center justify-center text-center">
+<div class="w-full aspect-square border-2 border-dashed border-primary/20 rounded-full flex items-center justify-center p-8 animate-spin-slow">
+<span class="material-symbols-outlined text-6xl text-primary" data-icon="sync" data-weight="fill">sync</span>
+</div>
+<h4 class="mt-stack-md font-label-sm text-label-sm">RECURSIVE RECOVERY</h4>
+</div>
+<div class="md:col-span-1 bg-secondary-container p-stack-lg rounded-xl">
+<span class="material-symbols-outlined text-3xl text-on-secondary-container mb-stack-md" data-icon="biotech">biotech</span>
+<h3 class="font-headline-md text-headline-md text-on-secondary-container mb-stack-sm">Bio-Regen</h3>
+<p class="font-body-md text-body-md text-on-secondary-fixed-variant">Converting non-recyclable organics into high-grade compostable polymers.</p>
+</div>
+<div class="md:col-span-3 bg-white p-0 rounded-xl border border-outline-variant/30 overflow-hidden relative">
+<img class="w-full h-full object-cover opacity-60" data-alt="A sophisticated data visualization map showing global material flow. Clean white lines trace the paths of circular supply chains across a muted, architectural background. The map features tiny glowing nodes indicating processing centers, styled with a minimalist-premium aesthetic. Lighting is flat and professional, focusing on the clarity of information and the scale of the operation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1FsFd9EDcXZ3-X09obRp1K9cN3jWprZl7Hee6FRna5p6Ut0Rz2ttDAAQJSc1Pe4ErzUfkx6RF0mIYM2uw55hQRzrqbmJ8KMQijwvcbzNEfQBgjsnflEBNTlXrSkgzLAqBnaPft5bb5Mk_rSgqlCjhIS6xoIQnHJhseFMsJ-bwDJLARvnKpuNE34FKSZYl4G6nw2CUPBLHiQ-FCf2regSzunNPxV6JuYfNdFvxpNUsIfczyzBP4zmNv7MExQilT9CR6wZyRXZwTos"/>
+<div class="absolute bottom-8 left-8 glass-card p-6 rounded-lg max-w-xs">
+<h4 class="font-headline-md text-headline-md mb-2">Global Reach</h4>
+<p class="font-body-md text-body-md">Connecting 42 nations into a single, transparent accountability network.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Flow Diagram -->
+<section class="bg-tertiary-fixed py-section-padding">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-24">
+<span class="font-label-sm text-label-sm text-tertiary/60 uppercase tracking-widest block mb-4">The Circularity Model</span>
+<h2 class="font-display-lg text-headline-xl md:text-display-lg text-tertiary">From Production to Bio-Restoration</h2>
+</div>
+<div class="relative flex flex-col md:flex-row justify-between gap-12 items-start">
+<!-- Flow Item 1 -->
+<div class="flex-1 text-center group">
+<div class="w-24 h-24 bg-white rounded-full mx-auto flex items-center justify-center mb-8 border border-tertiary/10 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="factory">factory</span>
+</div>
+<h4 class="font-headline-md text-body-lg font-bold mb-4">Extraction &amp; Design</h4>
+<p class="font-body-md text-on-tertiary-fixed-variant">Producers commit to low-impact design and upfront EPR fees based on material complexity.</p>
+</div>
+<div class="hidden md:block pt-12">
+<span class="material-symbols-outlined text-tertiary/20" data-icon="trending_flat">trending_flat</span>
+</div>
+<!-- Flow Item 2 -->
+<div class="flex-1 text-center group">
+<div class="w-24 h-24 bg-white rounded-full mx-auto flex items-center justify-center mb-8 border border-tertiary/10 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="local_shipping">local_shipping</span>
+</div>
+<h4 class="font-headline-md text-body-lg font-bold mb-4">Smart Logistics</h4>
+<p class="font-body-md text-on-tertiary-fixed-variant">IoT-enabled collection systems optimize recovery routes, reducing transport emissions by 40%.</p>
+</div>
+<div class="hidden md:block pt-12">
+<span class="material-symbols-outlined text-tertiary/20" data-icon="trending_flat">trending_flat</span>
+</div>
+<!-- Flow Item 3 -->
+<div class="flex-1 text-center group">
+<div class="w-24 h-24 bg-white rounded-full mx-auto flex items-center justify-center mb-8 border border-tertiary/10 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="layers">layers</span>
+</div>
+<h4 class="font-headline-md text-body-lg font-bold mb-4">Material Separation</h4>
+<p class="font-body-md text-on-tertiary-fixed-variant">AI-driven sorting facilities break down complex textiles into virgin-grade polymers.</p>
+</div>
+<div class="hidden md:block pt-12">
+<span class="material-symbols-outlined text-tertiary/20" data-icon="trending_flat">trending_flat</span>
+</div>
+<!-- Flow Item 4 -->
+<div class="flex-1 text-center group">
+<div class="w-24 h-24 bg-primary text-white rounded-full mx-auto flex items-center justify-center mb-8 shadow-xl transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-4xl" data-icon="eco" data-weight="fill">eco</span>
+</div>
+<h4 class="font-headline-md text-body-lg font-bold mb-4 text-primary">Regenerative Feedstock</h4>
+<p class="font-body-md text-on-tertiary-fixed-variant">Output is reintroduced as premium raw material, effectively decoupling growth from resource extraction.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Transparency & Reporting -->
+<section class="py-section-padding px-8 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center">
+<div>
+<h2 class="font-headline-xl text-headline-xl mb-stack-md">Live Accountability Dashboard</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg">
+                    We believe in radical transparency. Our dashboard provides real-time access to the tonnage of waste processed, the energy consumed in recycling, and the exact destination of regenerated outputs.
+                </p>
+<ul class="space-y-4 mb-stack-lg">
+<li class="flex items-center gap-4 py-4 border-b border-outline-variant">
+<span class="material-symbols-outlined text-emerald-600" data-icon="verified">verified</span>
+<span class="font-body-md font-bold">Third-party Audited Impact Reports</span>
+</li>
+<li class="flex items-center gap-4 py-4 border-b border-outline-variant">
+<span class="material-symbols-outlined text-emerald-600" data-icon="blockchain">lock</span>
+<span class="font-body-md font-bold">Immutable Ledger Tracking</span>
+</li>
+<li class="flex items-center gap-4 py-4 border-b border-outline-variant">
+<span class="material-symbols-outlined text-emerald-600" data-icon="public">public</span>
+<span class="font-body-md font-bold">Open Data API for Partners</span>
+</li>
+</ul>
+<button class="bg-primary text-on-primary px-10 py-4 rounded-full font-label-sm uppercase hover:scale-105 transition-transform">
+                    View Live Dashboard
+                </button>
+</div>
+<div class="bg-surface-container rounded-3xl p-stack-md aspect-square flex items-center justify-center relative">
+<img class="w-full h-full object-cover rounded-2xl" data-alt="A close-up of a high-resolution digital display showing complex circular graphs and data streams related to environmental impact. The interface is clean, featuring a light-mode aesthetic with soft green and lavender accents. The photography is sharp and professional, with a shallow depth of field that focuses on the precision of the numerical data points, conveying transparency and technological sophistication." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhHtEXFN0OC9Bf7zAJp8v1LpvMemaZVmJEwQXRm_fI_OQ6fC4mAEC3vLbzuDrik-uiN4Ei_IDN4RC42yPJ3bEB6SSNOrdljbftIySozeTVergeoUjeFiKZe7QSv1xng2WIT3jUVXB9delylPAGdwrtNn14LUWKzKmRzWuCIhBcfSpCadQSJ_DHLZMTXr0mU2fwsbWyp_6rkYg_hA_-cufHHo7bR3z2PIa03OxkTNxS83KrJ6mdKe8p1o5bahjgTSfCL99BYoouYjg"/>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="mb-24 px-8">
+<div class="max-w-7xl mx-auto bg-primary-container rounded-[2rem] p-16 md:p-24 text-center overflow-hidden relative">
+<div class="relative z-10">
+<h2 class="font-display-lg text-headline-xl md:text-display-lg text-white mb-8">Ready to pioneer the <span class="text-on-primary-container italic">next economy?</span></h2>
+<p class="font-body-lg text-body-lg text-on-primary-fixed-variant max-w-2xl mx-auto mb-12">
+                        Join 200+ global brands already enrolled in our EPR scheme. Transform your waste liability into a regenerative asset.
+                    </p>
+<div class="flex flex-col md:flex-row gap-6 justify-center">
+<button class="bg-secondary text-on-secondary px-12 py-5 rounded-full font-label-sm uppercase hover:scale-105 transition-transform">Become a Partner</button>
+<button class="bg-white/10 text-white backdrop-blur-md border border-white/20 px-12 py-5 rounded-full font-label-sm uppercase hover:bg-white/20 transition-all">Download 2024 Report</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0F2D21] dark:bg-zinc-950 w-full py-16 px-8 border-t border-white/5">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 max-w-7xl mx-auto">
+<div class="md:col-span-4">
+<div class="text-2xl font-black text-white mb-4 font-['Space_Grotesk']">GASP</div>
+<p class="text-white/40 font-body-md max-w-xs mb-8">Redefining industrial production through the lens of biological necessity.</p>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-emerald-400 transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="language">language</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-emerald-400 transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="share">share</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-2">
+<h5 class="text-white font-bold mb-6 font-['Space_Grotesk'] text-sm uppercase tracking-widest">Platform</h5>
+<ul class="space-y-4">
+<li><a class="text-white/40 hover:text-emerald-400 transition-colors font-['Space_Grotesk'] text-sm uppercase tracking-widest" href="#">EPR Scheme</a></li>
+<li><a class="text-white/40 hover:text-emerald-400 transition-colors font-['Space_Grotesk'] text-sm uppercase tracking-widest" href="#">Supply Chain</a></li>
+<li><a class="text-white/40 hover:text-emerald-400 transition-colors font-['Space_Grotesk'] text-sm uppercase tracking-widest" href="#">Certification</a></li>
+</ul>
+</div>
+<div class="md:col-span-2">
+<h5 class="text-white font-bold mb-6 font-['Space_Grotesk'] text-sm uppercase tracking-widest">Resources</h5>
+<ul class="space-y-4">
+<li><a class="text-white/40 hover:text-emerald-400 transition-colors font-['Space_Grotesk'] text-sm uppercase tracking-widest" href="#">Annual Report</a></li>
+<li><a class="text-white/40 hover:text-emerald-400 transition-colors font-['Space_Grotesk'] text-sm uppercase tracking-widest" href="#">Media Kit</a></li>
+<li><a class="text-white/40 hover:text-emerald-400 transition-colors font-['Space_Grotesk'] text-sm uppercase tracking-widest" href="#">Impact Data</a></li>
+</ul>
+</div>
+<div class="md:col-span-4">
+<h5 class="text-white font-bold mb-6 font-['Space_Grotesk'] text-sm uppercase tracking-widest">Newsletter</h5>
+<form class="flex gap-2">
+<input class="bg-white/5 border-white/10 text-white rounded-lg px-4 py-2 w-full focus:ring-emerald-500 focus:border-emerald-500" placeholder="Email Address" type="email"/>
+<button class="bg-emerald-500 text-[#0F2D21] px-4 py-2 rounded-lg font-bold">JOIN</button>
+</form>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-white/40 font-['Space_Grotesk'] text-sm uppercase tracking-widest">© 2024 Green Action for Sustainable Production. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="text-white/40 hover:text-emerald-400 transition-colors font-['Space_Grotesk'] text-sm uppercase tracking-widest" href="#">Privacy Policy</a>
+<a class="text-white/40 hover:text-emerald-400 transition-colors font-['Space_Grotesk'] text-sm uppercase tracking-widest" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<style>
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+        }
+        @keyframes spin-slow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 12s linear infinite;
+        }
+    </style>
+</body></html>

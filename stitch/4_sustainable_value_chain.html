@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#769686",
+                    "surface-container-high": "#eae7e7",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#665c7c",
+                    "on-secondary-fixed-variant": "#4b4260",
+                    "surface-container-low": "#f6f3f2",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#1c1c19",
+                    "outline": "#727974",
+                    "secondary-fixed": "#eaddff",
+                    "on-tertiary-fixed-variant": "#474743",
+                    "surface": "#fcf9f8",
+                    "primary-container": "#0f2d21",
+                    "inverse-surface": "#313030",
+                    "inverse-on-surface": "#f3f0ef",
+                    "surface-container-highest": "#e5e2e1",
+                    "inverse-primary": "#adcebc",
+                    "tertiary-fixed": "#e5e2dd",
+                    "on-primary-fixed": "#022015",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1c1b1b",
+                    "surface-variant": "#e5e2e1",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#282825",
+                    "on-tertiary-container": "#908f8b",
+                    "primary-fixed-dim": "#adcebc",
+                    "on-primary-fixed-variant": "#2f4d3f",
+                    "primary": "#00170e",
+                    "surface-bright": "#fcf9f8",
+                    "secondary": "#635979",
+                    "outline-variant": "#c1c8c2",
+                    "surface-tint": "#476556",
+                    "on-secondary-fixed": "#1f1732",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#c9c6c2",
+                    "secondary-container": "#e4d7fd",
+                    "background": "#fcf9f8",
+                    "surface-container": "#f0eded",
+                    "tertiary": "#131411",
+                    "surface-dim": "#dcd9d9",
+                    "secondary-fixed-dim": "#cdc1e5",
+                    "on-surface": "#1c1b1b",
+                    "on-surface-variant": "#424844",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#c9ead8",
+                    "on-error": "#ffffff",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "24px",
+                    "stack-sm": "8px",
+                    "margin-x": "64px",
+                    "container-max": "1440px",
+                    "stack-lg": "80px",
+                    "section-padding": "160px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Space Grotesk"],
+                    "label-sm": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "display-lg": ["Space Grotesk"],
+                    "body-lg": ["Manrope"],
+                    "headline-xl": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .circular-gradient {
+            background: radial-gradient(circle at top right, #c9ead8 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 border-b border-emerald-900/30 bg-emerald-950/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20">
+<div class="text-2xl font-bold tracking-tighter text-emerald-50 hover:scale-[1.02] transition-transform duration-200 cursor-pointer">GASP</div>
+<nav class="hidden md:flex gap-8 items-center font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold">
+<a class="text-emerald-100/70 hover:text-emerald-50 transition-colors hover:scale-[1.02] duration-200" href="#">Mission</a>
+<a class="text-emerald-100/70 hover:text-emerald-50 transition-colors hover:scale-[1.02] duration-200" href="#">Impact</a>
+<a class="text-emerald-400 border-b border-emerald-400 pb-1 hover:scale-[1.02] transition-all duration-200" href="#">Value Chain</a>
+<div class="relative group">
+<button class="flex items-center gap-1 text-emerald-100/70 group-hover:text-emerald-50 transition-colors uppercase">
+Explore
+<span class="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+</button>
+<div class="absolute left-0 top-full pt-4 hidden group-hover:block">
+<div class="bg-emerald-900 border border-emerald-800 rounded-lg p-4 min-w-[180px] shadow-2xl flex flex-col gap-3">
+<a class="text-emerald-100/70 hover:text-emerald-50 text-xs lowercase first-letter:uppercase transition-colors" href="#">EPR Models</a>
+<a class="text-emerald-100/70 hover:text-emerald-50 text-xs lowercase first-letter:uppercase transition-colors" href="#">Mass Flows</a>
+<a class="text-emerald-100/70 hover:text-emerald-50 text-xs lowercase first-letter:uppercase transition-colors" href="#">Team</a>
+<a class="text-emerald-100/70 hover:text-emerald-50 text-xs lowercase first-letter:uppercase transition-colors" href="#">Portfolio</a>
+</div>
+</div>
+</div>
+<a class="text-emerald-100/70 hover:text-emerald-50 transition-colors hover:scale-[1.02] duration-200" href="#">Gallery &amp; Events</a>
+<a class="text-emerald-100/70 hover:text-emerald-50 transition-colors hover:scale-[1.02] duration-200" href="#">Contact</a>
+</nav>
+<button class="bg-emerald-50 text-emerald-950 px-6 py-2 rounded-full font-['Space_Grotesk'] text-sm font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all duration-200">Contact</button>
+</div>
+</header>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="max-w-[1440px] mx-auto px-8 mb-24">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-end">
+<div class="md:col-span-8">
+<span class="inline-block py-1 px-4 mb-6 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm uppercase tracking-widest">Global Ecosystem</span>
+<h1 class="font-display-lg text-display-lg text-primary-container mb-8">The Regenerative Value Chain.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">A closed-loop framework connecting ten critical stakeholder categories to drive accountability, industrial precision, and biological restoration across the global production landscape.</p>
+</div>
+<div class="md:col-span-4 hidden md:block">
+<div class="h-48 w-48 rounded-full border border-outline/20 flex items-center justify-center animate-pulse">
+<span class="material-symbols-outlined text-primary-container text-5xl">sync</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Marquee / Loop (Social Proof) -->
+<div class="w-full bg-primary-container py-6 overflow-hidden mb-24 whitespace-nowrap">
+<div class="inline-block animate-marquee">
+<span class="font-headline-md text-headline-md text-primary-fixed-dim uppercase mx-12">Closed Loop</span>
+<span class="font-headline-md text-headline-md text-primary-fixed-dim uppercase mx-12">Zero Waste</span>
+<span class="font-headline-md text-headline-md text-primary-fixed-dim uppercase mx-12">Regenerative Design</span>
+<span class="font-headline-md text-headline-md text-primary-fixed-dim uppercase mx-12">Accountability</span>
+<span class="font-headline-md text-headline-md text-primary-fixed-dim uppercase mx-12">Circular Economy</span>
+</div>
+</div>
+<!-- Stakeholder Grid -->
+<section class="max-w-[1440px] mx-auto px-8 space-y-32">
+<!-- 01. Raw Material Suppliers -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+<div class="md:col-span-5 order-2 md:order-1">
+<div class="mb-4 flex items-center gap-4">
+<span class="font-display-lg text-5xl text-primary/10">01</span>
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant rounded-full font-label-sm">ANNUAL VOLUME</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-primary-container mb-6">Raw Material Suppliers</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Providers of primary natural inputs or recycled feedstock that form the foundation of the production cycle.</p>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-primary-container mt-1">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface">Strategic supply chain resilience and ESG compliance auditing.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-primary-container mt-1">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface">Mandatory reporting of extraction metrics and biodiversity impact.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-primary-container mt-1">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface">Incentives for regenerative farming and sustainable mining practices.</span>
+</li>
+</ul>
+</div>
+<div class="md:col-span-7 order-1 md:order-2">
+<div class="aspect-[16/9] w-full overflow-hidden rounded-xl border border-outline-variant">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A cinematic, high-resolution photograph of a sustainable timber plantation at dawn, with soft morning light filtering through rows of neatly planted trees. The atmosphere is serene and professional, showcasing industrial-scale environmental stewardship. The color palette is dominated by deep forest greens and soft golden highlights, emphasizing a sophisticated light-mode aesthetic aligned with GASP's premium brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3mQklHNQ5ICK6HP_L5pfWnVaFPnCo-lJouNbjZ1wsgNNUnTICdwjvumJnz8ZgxueGPBWEe7-PEtwWlCOj0xX0nb0R93HgzwoqWRFpa6S3DFW7JgpKYMTsOmI7BnVS-3299UlH3iGxUIYxFeeLwFyiQ4o6-OZxY6a4Q_0pKqY2UYp_BUQeeTLFiKVlQpaTUlZjcI48Sj8qSsjjg3uOzXx2AHhbMbh8OC-higdewmQxB0vzsgnwKFvs5gYehHPJ6f10aR8YtqVUqoI"/>
+</div>
+</div>
+</div>
+<!-- 02. Convertors -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+<div class="md:col-span-7">
+<div class="aspect-[16/9] w-full overflow-hidden rounded-xl border border-outline-variant">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="A high-tech industrial manufacturing facility showing a precision robotic arm processing raw polymer into eco-friendly packaging sheets. The lighting is bright and clinical, emphasizing clean production methods and modern technology. The scene uses a minimal palette of brushed steel and clinical whites, reinforcing the intersection of industrial precision and biological regeneration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApb3nubjbtLTMgv5kuaMQVn4IPzYKxJbU5qoiFC26ery9yxziLxJJDO4cT-nrpAYaeUjNZvr1t7WY-FMUWbMrPjUAoY8jkFMIPlRksqjzmQ2_GU9x9woSJb_M98pGe_vM5pRusW_3DhW4k8RkklwXf_6x0f-KYDs8H8ecYeA5jiUkgnP40j2YxbfiVv6u8Oy1VqomKSKBLGfTxzNcXBcJ6ZR4NQ_83opHGcH5XWimgYW4u601xPS4Hv-7qZw43cFrfT-pHyfqhPY8"/>
+</div>
+</div>
+<div class="md:col-span-5 md:pl-12">
+<div class="mb-4 flex items-center gap-4">
+<span class="font-display-lg text-5xl text-primary/10">02</span>
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant rounded-full font-label-sm">FIXED RATE</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-primary-container mb-6">Convertors</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Specialists who transform raw inputs into intermediate components or semi-finished materials.</p>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-primary-container mt-1">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface">Optimization of energy-intensive processes via carbon offsets.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-primary-container mt-1">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface">Transitioning to 100% renewable energy for transformation lines.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-primary-container mt-1">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface">Data integration for real-time lifecycle assessment tracking.</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Bento Section for Middle Chain -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- 03. Manufacturers -->
+<div class="p-8 border border-outline-variant rounded-xl bg-surface-container-low flex flex-col">
+<div class="mb-6 flex justify-between items-start">
+<span class="font-display-lg text-4xl text-primary/10">03</span>
+<span class="px-3 py-1 bg-white text-on-surface-variant rounded-full font-label-sm border border-outline-variant">ANNUAL VOLUME</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary-container mb-4">Manufacturers</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Primary producers creating final consumer goods using circular design principles.</p>
+<div class="h-40 overflow-hidden rounded-lg mb-6">
+<img class="w-full h-full object-cover" data-alt="A sophisticated macro shot of high-quality sustainable textiles being woven on a modern loom. The focus is sharp on the intricate texture of the fabric, with a background of clean, industrial machinery. The lighting is soft and natural, emphasizing the premium quality of the produced goods in a bright, modern factory setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRhi6m2Xv4daVKe8cjJhVBubXM8qNrOzkwhvTU6HP0IKrN0VVkRZ6oSFvINdu_vNR_gWPwmdyL455SaS8-Z85oFLMkSduJV26-3mwGw3vZEfmjI2M2o5v-Q49T1MWKHZLCpEcxMHGjtE-Kp13Z-a4Xs2P3gigE1kB-hh7LxoA08175hOL6wn-m5VcQjIL3tUQ6LAc6VEcnmolgOfM7OILkZrugg6XuYa508k1Qclp1a33xREjeeERPc9qcol-Zng2RDnoPcWh2Rbo"/>
+</div>
+<ul class="text-sm space-y-2 text-on-surface-variant">
+<li>• Modular design for repairability</li>
+<li>• Elimination of non-recyclable toxins</li>
+<li>• Extended producer responsibility</li>
+</ul>
+</div>
+<!-- 04. Packers -->
+<div class="p-8 border border-outline-variant rounded-xl bg-surface-container-low flex flex-col">
+<div class="mb-6 flex justify-between items-start">
+<span class="font-display-lg text-4xl text-primary/10">04</span>
+<span class="px-3 py-1 bg-white text-on-surface-variant rounded-full font-label-sm border border-outline-variant">FIXED RATE</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary-container mb-4">Packers</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Entities responsible for primary and secondary packaging of finished goods.</p>
+<div class="h-40 overflow-hidden rounded-lg mb-6">
+<img class="w-full h-full object-cover" data-alt="An organized, minimalist warehouse setting showing sustainable packaging boxes stacked neatly. The boxes are made from unbleached, recycled cardboard, featuring clean black typography. The lighting is overhead and even, creating a sense of professional order and efficiency in a logistics environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIXRGZIOu6MxFX6UKMQ4QUWwVoFmlku8h4i_Mj7wBNNKDgmknyrVMiEmeCv9_1JqcfWFNhnTQTlWeoXGcRIrwGcrs1dYiV-pkghXRCk9kyhr2ZOB9D7Xh4-JM0wl86MQ6dbUSiIWWDMXKIdoh9yepgvzGfj4isrrZV2Za56WrQGC9ZJ2gUMYd6IVKL-El-HLFwZiAyoZrluaWIKuF-LAdrcYE8wVw3U6Bd9aoUhFTg-RHCT4C1VX4ZJHAo__AhUeVpuriwhuiXCwg"/>
+</div>
+<ul class="text-sm space-y-2 text-on-surface-variant">
+<li>• Zero-plastic packaging mandates</li>
+<li>• Space-efficient palletization</li>
+<li>• Biodegradable ink implementation</li>
+</ul>
+</div>
+<!-- 05. Fillers -->
+<div class="p-8 border border-outline-variant rounded-xl bg-surface-container-low flex flex-col">
+<div class="mb-6 flex justify-between items-start">
+<span class="font-display-lg text-4xl text-primary/10">05</span>
+<span class="px-3 py-1 bg-white text-on-surface-variant rounded-full font-label-sm border border-outline-variant">ANNUAL VOLUME</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary-container mb-4">Fillers</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">High-speed processing facilities that integrate products into containers.</p>
+<div class="h-40 overflow-hidden rounded-lg mb-6">
+<img class="w-full h-full object-cover" data-alt="A clean, clinical bottling line for organic liquid products. Stainless steel pipes and glass containers move through a brightly lit, sterile environment. The image conveys high-fidelity hygiene and industrial sophistication, with a palette of silver, glass, and soft emerald liquid." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_aRSCpiwfSutzkKzDHIcZH0C2nShYmWsQKGb4ID90bbPx1IPESdNFekSd-c6JdteRPkTm64aRHIBXxN22T9r01QqwfMfvSE_rsw6J1PL5iPeMvEo9MNqSLOdIdNBBFZL1_Dr27-6yaRa34aowBvlfOzUqwnBYLjxkoeyMWZjgSNrff0GHeYniZC_xsToWRuhUut2X9l-BrmsMsbbVw-QyxrOULbUQuL2EAm0n5LKd7cj-FWp1GNeH3kwMblbbZiDxWWg9TUGUcrg"/>
+</div>
+<ul class="text-sm space-y-2 text-on-surface-variant">
+<li>• Closed-loop water filtration systems</li>
+<li>• Spill mitigation and recovery protocols</li>
+<li>• Energy-recovery filling technology</li>
+</ul>
+</div>
+</div>
+<!-- 06. Importers -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5 order-2 md:order-1">
+<div class="mb-4 flex items-center gap-4">
+<span class="font-display-lg text-5xl text-primary/10">06</span>
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant rounded-full font-label-sm">ANNUAL VOLUME</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-primary-container mb-6">Importers</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Managing the cross-border flow of goods while ensuring compliance with regional standards.</p>
+<div class="p-6 bg-white border border-outline-variant rounded-lg">
+<h4 class="font-bold text-[#0F2D21] mb-2">Strategic Responsibility:</h4>
+<p class="text-sm text-on-surface-variant">Importers act as the gatekeepers for circular integrity, ensuring that all incoming goods meet the rigorous GASP standard for material transparency and end-of-life recoverability.</p>
+</div>
+</div>
+<div class="md:col-span-7 order-1 md:order-2">
+<div class="aspect-video w-full overflow-hidden rounded-xl">
+<img class="w-full h-full object-cover" data-alt="A wide-angle shot of a massive modern cargo ship in a deep blue ocean, carrying colorful shipping containers. The sun is setting, casting a warm but professional glow over the scene. The image represents global trade and the logistical scale of the circular economy, framed with architectural precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMf7hOJ-0Nlv8BhSHejO00s-0dAhzUuTkenc_Aoi2EVUbO_TalAUb09C9ufveGBdAB9lSpyX7GOeEHVQx5qWB0s5wM4i8a8AbA5jK6oUkhlC6UmifcKhToJJJvcj69G-XoRk9RvLLfIMPQTTb10arg9oDGKlkEmV6jDKYnQZf3TVS9-ES1iIOZ7-w1eNMgKU7JHiXPARbAjqFlWtRWZ0ZPuLgU5qaK24vN8RuY8wscAQexs_x_k2sF9amSJx82ktN3icK0r2Jzx5M"/>
+</div>
+</div>
+</div>
+<!-- 07. Retail Traders -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-7">
+<div class="aspect-video w-full overflow-hidden rounded-xl">
+<img class="w-full h-full object-cover" data-alt="A minimalist, high-end retail space with architectural lighting and natural wood textures. Products are displayed with ample whitespace, emphasizing a curated, sustainable shopping experience. The mood is sophisticated and expensive, showcasing retail as a stage for environmental responsibility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM0k-N08SC642fbRgDnPO8zrTGV4pKu6FMhvEnJM3wi0N6tfgWKozu994uAcyAvPEeIjgBdhjxEvCycz7WyV67KB-V_tuKcoGtA7bZ5x9H9mRV_tLCHBF1RmzIRrZpouEhEXCNaIdKFok2K96JUTurdwk64hoj5N8IoQXdZB2ih-aGGPP66qdb4bgUmw9AA21moj7lm195jCdw6v_jqdoT0bUBQfzNskiBf5WBavLjrZKPo6SHTQSw268uuFrVOvucgNss-9RinNw"/>
+</div>
+</div>
+<div class="md:col-span-5 md:pl-12">
+<div class="mb-4 flex items-center gap-4">
+<span class="font-display-lg text-5xl text-primary/10">07</span>
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant rounded-full font-label-sm">FIXED RATE</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-primary-container mb-6">Retail Traders</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">The final touchpoint for consumers, facilitating responsible consumption and take-back programs.</p>
+<div class="space-y-4">
+<div class="flex gap-4 items-center p-4 border-b border-outline-variant">
+<span class="material-symbols-outlined text-on-primary-container">store</span>
+<span class="font-body-md">In-store collection points for packaging</span>
+</div>
+<div class="flex gap-4 items-center p-4 border-b border-outline-variant">
+<span class="material-symbols-outlined text-on-primary-container">qr_code_2</span>
+<span class="font-body-md">Consumer education via digital labeling</span>
+</div>
+<div class="flex gap-4 items-center p-4 border-b border-outline-variant">
+<span class="material-symbols-outlined text-on-primary-container">inventory</span>
+<span class="font-body-md">Zero-waste shelf management</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Waste Management Section (8, 9, 10) -->
+<div class="bg-primary-container rounded-[2rem] p-12 md:p-24 text-white">
+<div class="max-w-3xl mb-16">
+<h2 class="font-display-lg text-5xl mb-6">The Closing Loop: Waste Stewardship</h2>
+<p class="font-body-lg text-on-primary-container">Recovering value from the post-consumer stream to fuel the next cycle of production.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- 08. Waste Collectors -->
+<div class="space-y-6">
+<div class="flex justify-between items-center">
+<span class="font-display-lg text-4xl text-primary-fixed-dim">08</span>
+<span class="text-xs uppercase tracking-widest text-on-primary-container">FIXED RATE</span>
+</div>
+<div class="h-64 rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="Professional waste collection personnel operating a modern, clean electric collection vehicle in an urban setting. The focus is on the efficient, tech-forward nature of waste management, using a palette of deep greens and clean metallic surfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1FQn8CuVD4yz3rZoINt3akkHyH-Q7lpx8WQGUz0wRMMCugHmeVhfWFYKRp1CkilgYzeL3mG9zsrHppouNeSHuPiKf91JaU20neJkfDBaZ2EhRLYtsrB0usYqO_swH0ULyjvg7smG-TL-Q0uZ_Rlm3YOBo9gVb2PritfBa4tNMFL7npbY0R6kZFFRzMYVuT52wEbfnvl_WJEiolRPDcqbE1891qRDlr3_9dmz90lVD5dfsLC6pkX9GeD-VnDWF7gvfMoBEyrGnr9M"/>
+</div>
+<h3 class="font-headline-md text-2xl">Waste Collectors</h3>
+<p class="text-on-primary-container text-sm leading-relaxed">Infrastructure for the systematic gathering of post-consumer materials from urban and industrial centers.</p>
+</div>
+<!-- 09. Waste Sorters -->
+<div class="space-y-6">
+<div class="flex justify-between items-center">
+<span class="font-display-lg text-4xl text-primary-fixed-dim">09</span>
+<span class="text-xs uppercase tracking-widest text-on-primary-container">ANNUAL VOLUME</span>
+</div>
+<div class="h-64 rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="A sophisticated automated sorting facility using optical sensors to categorize different types of recyclables on a conveyor belt. The lighting is crisp and blue-toned, emphasizing accuracy, speed, and high-tech industrial efficiency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPXdJg-5G6JTCazEhY6txgiteuQ1ixBDqFog7Z9WWHLWLnssjLlRtIBjdHi-RhHP8vbNDSKjRM1Vn8AwWmtMXad8bSNYaPiu6RM6gXVQ17APoYmcBODqI8efQCQW3UlIGNUoeMKBt2GDwTIQ0y2IRKwYDkCgS-sEfYV8_J-GXlhmsgDcLmRwH_IL-X43Xc856Isehk5lJHRr9fnXtwFSHKQEKVn_Y9Gj8spjKQ4urLv1n3ihkWF6qgUdt-Csk3RGjWCwjWZjRsM3w"/>
+</div>
+<h3 class="font-headline-md text-2xl">Waste Sorters</h3>
+<p class="text-on-primary-container text-sm leading-relaxed">High-tech facilities utilizing AI and optical sorting to purify material streams for high-grade recycling.</p>
+</div>
+<!-- 10. Waste Recyclers -->
+<div class="space-y-6">
+<div class="flex justify-between items-center">
+<span class="font-display-lg text-4xl text-primary-fixed-dim">10</span>
+<span class="text-xs uppercase tracking-widest text-on-primary-container">ANNUAL VOLUME</span>
+</div>
+<div class="h-64 rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="A high-temperature processing plant where recycled materials are being transformed back into raw pellets. Steam rises in a controlled, clean environment. The lighting is dramatic and warm, highlighting the transformative power of the final stage in the circular economy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY0j2QzjYHShviFir2QZDHikvVoTgd2aOS5GaMvc9RFyruQZymHwn8gdf5dPInq5Tgso38HW8DV4vXCx6aezlUWbJLreo4epaQYK5ZriZrpnhGJzVx7qU2yi3ZoGIa63wNIB4yQv2w4lqQwBjn7XyFiyT-rFxIT8v06cM22UwVpHzVLm7IhtahqAvAdR41vocvNmL9gILMvNDJx-XPexzf-0kOjXHND-VMlOd_V36KTIxHW9pwRWt75aH9chLx_h0BYkGiMeByFJs"/>
+</div>
+<h3 class="font-headline-md text-2xl">Waste Recyclers</h3>
+<p class="text-on-primary-container text-sm leading-relaxed">Processing centers that convert sorted waste back into industry-ready raw materials, completing the circle.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-[1440px] mx-auto px-8 my-32 text-center">
+<div class="py-24 border border-outline-variant rounded-3xl circular-gradient">
+<h2 class="font-display-lg text-headline-xl text-primary-container mb-8">Ready to join the value chain?</h2>
+<div class="flex flex-col md:flex-row justify-center gap-6">
+<button class="bg-primary text-white px-12 py-4 rounded-full font-headline-md text-lg hover:scale-105 transition-transform">Download Standards</button>
+<button class="bg-secondary text-on-secondary px-12 py-4 rounded-full font-headline-md text-lg hover:scale-105 transition-transform">Inquire Membership</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-stone-200 mt-20 bg-stone-50">
+<div class="max-w-7xl mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<div class="font-bold text-lg text-[#0F2D21] mb-4">GASP</div>
+<p class="font-['Space_Grotesk'] text-sm tracking-tight text-stone-500 max-w-sm mb-6">Redefining global production through regenerative design and circular economic models. Joining the standard for a sustainable industrial future.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-stone-500 cursor-pointer hover:text-[#0F2D21]">public</span>
+<span class="material-symbols-outlined text-stone-500 cursor-pointer hover:text-[#0F2D21]">monitoring</span>
+<span class="material-symbols-outlined text-stone-500 cursor-pointer hover:text-[#0F2D21]">hub</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="space-y-4">
+<div class="font-bold text-xs uppercase tracking-widest text-[#0F2D21]">Resources</div>
+<ul class="space-y-2">
+<li><a class="font-['Space_Grotesk'] text-sm tracking-tight text-stone-500 hover:underline decoration-1 underline-offset-4" href="#">Impact Report 2023</a></li>
+<li><a class="font-['Space_Grotesk'] text-sm tracking-tight text-stone-500 hover:underline decoration-1 underline-offset-4" href="#">Global Partners</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<div class="font-bold text-xs uppercase tracking-widest text-[#0F2D21]">Legal</div>
+<ul class="space-y-2">
+<li><a class="font-['Space_Grotesk'] text-sm tracking-tight text-stone-500 hover:underline decoration-1 underline-offset-4" href="#">Privacy Policy</a></li>
+<li><a class="font-['Space_Grotesk'] text-sm tracking-tight text-stone-500 hover:underline decoration-1 underline-offset-4" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 py-8 border-t border-stone-200">
+<p class="font-['Space_Grotesk'] text-sm tracking-tight text-stone-500 text-center">© 2024 GASP Circular Economy. Regenerative Production Standard.</p>
+</div>
+</footer>
+</body></html>

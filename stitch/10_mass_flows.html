@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GASP | Mass Flows</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#e5e2dd",
+                    "surface-container-low": "#f6f3f2",
+                    "background": "#fcf9f8",
+                    "on-surface-variant": "#424844",
+                    "secondary-fixed": "#eaddff",
+                    "on-surface": "#1c1b1b",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#c9ead8",
+                    "on-tertiary-fixed-variant": "#474743",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#adcebc",
+                    "tertiary-fixed-dim": "#c9c6c2",
+                    "on-background": "#1c1b1b",
+                    "surface-variant": "#e5e2e1",
+                    "surface-container-high": "#eae7e7",
+                    "primary-container": "#0f2d21",
+                    "secondary-container": "#e4d7fd",
+                    "on-primary-fixed": "#022015",
+                    "surface-container": "#f0eded",
+                    "secondary": "#635979",
+                    "on-secondary-container": "#665c7c",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed-variant": "#4b4260",
+                    "on-primary-fixed-variant": "#2f4d3f",
+                    "surface-container-highest": "#e5e2e1",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#313030",
+                    "surface-tint": "#476556",
+                    "primary": "#00170e",
+                    "on-primary-container": "#769686",
+                    "surface": "#fcf9f8",
+                    "primary-fixed-dim": "#adcebc",
+                    "surface-bright": "#fcf9f8",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#cdc1e5",
+                    "on-tertiary-container": "#908f8b",
+                    "inverse-on-surface": "#f3f0ef",
+                    "tertiary": "#131411",
+                    "outline": "#727974",
+                    "on-secondary-fixed": "#1f1732",
+                    "surface-dim": "#dcd9d9",
+                    "tertiary-container": "#282825",
+                    "outline-variant": "#c1c8c2",
+                    "on-tertiary-fixed": "#1c1c19",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-x": "64px",
+                    "stack-sm": "8px",
+                    "stack-lg": "80px",
+                    "stack-md": "24px",
+                    "gutter": "24px",
+                    "section-padding": "160px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "body-md": ["Manrope"],
+                    "headline-xl": ["Space Grotesk"],
+                    "body-lg": ["Manrope"],
+                    "display-lg": ["Space Grotesk"],
+                    "label-sm": ["Manrope"],
+                    "headline-md": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .circular-glow {
+            background: radial-gradient(circle at center, rgba(173, 206, 188, 0.15) 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 border-b border-emerald-900/30 bg-emerald-950/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20">
+<div class="text-2xl font-bold tracking-tighter text-emerald-50">GASP</div>
+<div class="hidden md:flex gap-12 items-center">
+<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold text-emerald-100/70 hover:text-emerald-50 transition-colors" href="#">Mission</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold text-emerald-100/70 hover:text-emerald-50 transition-colors" href="#">Impact</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold text-emerald-400 border-b border-emerald-400 pb-1" href="#">Value Chain</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold text-emerald-100/70 hover:text-emerald-50 transition-colors" href="#">Explore</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold text-emerald-100/70 hover:text-emerald-50 transition-colors" href="#">Gallery &amp; Events</a>
+</div>
+<button class="bg-secondary-fixed text-on-secondary-fixed px-6 py-2 rounded-full font-label-sm uppercase hover:scale-[1.02] transition-transform duration-200 active:scale-95">
+                Contact
+            </button>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[819px] flex flex-col justify-center overflow-hidden bg-primary-container py-section-padding px-8">
+<div class="absolute inset-0 opacity-20 pointer-events-none circular-glow"></div>
+<div class="max-w-7xl mx-auto w-full relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-8">
+<span class="inline-block px-4 py-1 bg-on-primary-fixed-variant/20 text-on-primary-container rounded-full font-label-sm uppercase mb-6">
+                            Regenerative Intelligence
+                        </span>
+<h1 class="font-display-lg text-display-lg text-surface-container-lowest mb-8">
+                            Journey from Linear to Circular Economy
+                        </h1>
+<p class="font-body-lg text-body-lg text-on-primary-container max-w-2xl mb-12">
+                            A scientific exploration of resource logistics and value preservation. We map the global shift from terminal waste cycles to infinite material regeneration.
+                        </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-secondary text-on-secondary px-8 py-4 rounded-full font-label-sm uppercase hover:scale-[1.02] transition-transform">
+                                Explore The Model
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Visual Flow -->
+<div class="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-full hidden lg:block opacity-40">
+<img alt="" class="w-full h-full object-cover grayscale opacity-50 mix-blend-screen" data-alt="A sophisticated abstract 3D rendering of flowing data streams and interconnected nodes against a deep emerald background. The visual represents complex mass flow logistics using high-contrast light mode aesthetics with subtle lavender glows. The composition is architectural and minimalist, suggesting professional efficiency and high-fidelity technological precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0YfrSKrW68OlICFSLFjaOLYj8M256UU0U048JMBzuSQEAHrC_elYgmJIh4rGt14zIEID3wz8625adQmSb0IfsZSHYcoiv1z0OVZEIXdDWC8eHddtMEg8fTqCwskOglYVhFcQY9Uusi7WpFAhrWlZr2wki37j9fBPJWOWSP23WFdWsQQjRwquXKTwKza5pn72vvTvZp_BBrvGsjDQVPAA1_wxFS3a3F1FwTI5MIEOvKgIn1nsRTOIdtEQ3DnqOs4qGVfKncCm3I4E"/>
+</div>
+</section>
+<!-- Marquee / Loop Status -->
+<div class="py-12 bg-surface-container-low overflow-hidden whitespace-nowrap border-y border-outline-variant/30">
+<div class="flex animate-[marquee_30s_linear_infinite] gap-16 items-center">
+<span class="font-headline-md text-headline-md text-primary/10 uppercase italic">Circular Resilience</span>
+<span class="font-headline-md text-headline-md text-primary/10 uppercase italic">Mass Flow Optimization</span>
+<span class="font-headline-md text-headline-md text-primary/10 uppercase italic">Regenerative Design</span>
+<span class="font-headline-md text-headline-md text-primary/10 uppercase italic">Closed Loop Systems</span>
+<span class="font-headline-md text-headline-md text-primary/10 uppercase italic">Impact Logistics</span>
+<span class="font-headline-md text-headline-md text-primary/10 uppercase italic">Circular Resilience</span>
+<span class="font-headline-md text-headline-md text-primary/10 uppercase italic">Mass Flow Optimization</span>
+</div>
+</div>
+<!-- The Three Eras Section -->
+<section class="max-w-7xl mx-auto px-8 py-section-padding">
+<div class="text-center mb-24">
+<h2 class="font-headline-xl text-headline-xl text-primary mb-6">The Circular Economy Model</h2>
+<div class="h-1 w-24 bg-secondary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+<!-- Linear Economy -->
+<div class="group border border-outline-variant p-10 rounded-lg bg-surface transition-all hover:bg-surface-container-low flex flex-col h-full">
+<div class="mb-8">
+<span class="material-symbols-outlined text-4xl text-error mb-4" data-icon="trending_down">trending_down</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Linear Economy</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Our linear economy exponentially grew during the industrial revolution, and our planet has suffered from the take, make, use &amp; waste value chain.
+                        </p>
+</div>
+<div class="mt-auto pt-8 border-t border-outline-variant/30">
+<img alt="" class="w-full h-48 object-cover rounded grayscale" data-alt="A high-contrast, minimalist photograph of an abandoned industrial facility with stark geometric lines and cold lighting. The image emphasizes the 'take, make, waste' concept through desolate, structured shadows and a pale neutral color palette of bone and slate grey. It represents the terminal point of the linear economy in a professional, architectural style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ3FWZNDleJcPZ3VO63W-3dOJA0R4hVh6XgDK3TH76f7l9nF8qRDCoA7jLWo8NJNVu1ssQWQUyiMfPA_56KSr9dsomcGP76Zc8h0lBsM3r_QteEw0o30Up7o_NGuzZ3vI0wbhmDRDqWRDfi2-WYTCNvN_BkVF9j79-ZmXiDm7Irgo0CdTiSn2kf8xQiq1dwX21uPeKkmLHGrjsnh3SleDktQYtG7n1MIq0dVodrgjWIF2izDJBTZgAM5dk03kDWKg9B3DJdK9KOjo"/>
+<div class="mt-6 flex justify-between items-center text-error font-label-sm uppercase tracking-widest">
+<span>Efficiency Loss</span>
+<span>98%</span>
+</div>
+</div>
+</div>
+<!-- Recycling Economy -->
+<div class="group border border-outline-variant p-10 rounded-lg bg-surface transition-all hover:bg-surface-container-low flex flex-col h-full">
+<div class="mb-8">
+<span class="material-symbols-outlined text-4xl text-secondary mb-4" data-icon="sync_alt">sync_alt</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Recycling Economy</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Growing the recycling ecosystem is an important yet intermediate step in our transition to a circular ecosystem.
+                        </p>
+</div>
+<div class="mt-auto pt-8 border-t border-outline-variant/30">
+<img alt="" class="w-full h-48 object-cover rounded grayscale" data-alt="A clean, clinical macro shot of sorted recycled materials like transparent polymers and glass shards. The lighting is bright and high-key, creating a professional light-mode aesthetic. The color palette focuses on cool neutrals with soft lavender highlights, symbolizing the transition phase of the recycling economy with high clarity and order." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-kL8HGvTDyFKpiT_tf1dGXrRG5U84swyaLqcztJB_kGKHYCvxexom-SwImmcXB1TgKKUNZugzgRSOMgZ1aHvL63R2bgmc1j7IniwEgrJ6lb7AJyPHDETehVOqGSPVAgaLFIhnvczrk2Org-K8H7deM-kwMheYMoLv_xxqFB1ixFYpPb4G-8tIHvA7nAOGYcP9Hc8xcCnvNk_CmvVCfZbcjC6HSVA7pKTNHfAdy368vSUuqEZgF1sDWft8nBDxlSTfKvyG184AQ6E"/>
+<div class="mt-6 flex justify-between items-center text-secondary font-label-sm uppercase tracking-widest">
+<span>Value Recovery</span>
+<span>42%</span>
+</div>
+</div>
+</div>
+<!-- Circular Economy -->
+<div class="group bg-primary-container p-10 rounded-lg text-surface-container-lowest transition-all hover:scale-[1.01] flex flex-col h-full ring-1 ring-emerald-400/20">
+<div class="mb-8">
+<span class="material-symbols-outlined text-4xl text-on-primary-container mb-4" data-icon="all_inclusive" style="font-variation-settings: 'FILL' 1;">all_inclusive</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-emerald-50">Circular Economy</h3>
+<p class="font-body-md text-body-md text-on-primary-container">
+                            A circular ecosystem where nothing goes to waste &amp; everything is made from renewable or recovered materials.
+                        </p>
+</div>
+<div class="mt-auto pt-8 border-t border-emerald-900">
+<img alt="" class="w-full h-48 object-cover rounded brightness-110 contrast-110" data-alt="A stunning architectural landscape featuring bioluminescent trees and sleek sustainable structures. The lighting is soft and ethereal, using a palette of deep emerald greens and glowing white highlights. This visualization represents the ultimate goal of the circular economy: a harmonious, high-tech biological system where technology and nature coexist in a closed loop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfu880VAcEClk17ivzY0TH_JPxoQOLm03Q2MoVDfUgYlymF6u39k6Arvgibo6ikZtkdhZ5UwazZueByXLiWsxHb8PF7G7C35W0vMSKnY_4VQsTfEW7vWCYZdvTQypl5odHIEcnkzc-USrvF9YmVjPMhJq9OIPBtagrDEl0-j7DvtgTSBOeFI57SUI4RZ3IEO78IIA8OXooJqQHbyUnLntLQmYAAObVRoU3fOOaUbIE-NhtoeaALk3inx8l5LppXP1OZa7qBg86StM"/>
+<div class="mt-6 flex justify-between items-center text-on-primary-container font-label-sm uppercase tracking-widest">
+<span>Resilience Factor</span>
+<span>100%</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Detailed Diagram Section / Asymmetric Bento -->
+<section class="bg-surface-container-lowest py-section-padding overflow-hidden">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Text Block -->
+<div class="md:col-span-5 flex flex-col justify-center">
+<h4 class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] mb-4">Mass Flows Analysis</h4>
+<h2 class="font-headline-xl text-headline-xl text-primary mb-8">Decoupling Growth from Extraction</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                            Our model focuses on the preservation of natural capital. By extending product lifecycles and optimizing material flows, we eliminate the very concept of "waste."
+                        </p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="bg-primary-fixed text-on-primary-fixed w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs shrink-0">01</span>
+<div>
+<h5 class="font-headline-md text-lg text-primary mb-1">Renewable Sourcing</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">Leveraging bio-based components that safely return to the biosphere.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="bg-primary-fixed text-on-primary-fixed w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs shrink-0">02</span>
+<div>
+<h5 class="font-headline-md text-lg text-primary mb-1">Technical Nutrients</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">Synthetics designed for disassembly and high-purity recycling loops.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Visual Block -->
+<div class="md:col-span-7 relative">
+<div class="aspect-[4/5] bg-surface-container rounded-3xl overflow-hidden relative group">
+<img alt="" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A professional architectural diagram of a circular economy flow, rendered with clean lines and sophisticated typography. The image features layers of translucent geometric planes in emerald and bone shades, symbolizing material movement. The background is a crisp white, maintaining a premium light-mode aesthetic with high technical precision and modern digital artistry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxMmOxySh5f1wxw1_UGBGcPgCX4-jTdq-NDq02jk4jqsN74odkhX_lHXaGAHkVhwaKIJ2r-Hpj11JiZ6N__5FI1ziKNbbUYWthTZHYYUWvVbscXDwmFnmxFydo2X7t1zmcCq5b8GxHmCKApJ1a7eroRmAb50qtsRhKOMo18evS_txerq72PLzfVV3OWviMtFA78RsCX9ry1ndvxzKTXDfyS8wMGarntXJGZJ5bmFR4qxedcaB33mW4BkOJl27luRXQBWsLB53W2jo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent flex items-end p-12">
+<p class="text-surface-container-lowest font-headline-md">Integrated Supply Chain Hub</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-7xl mx-auto px-8 py-section-padding">
+<div class="bg-surface-container-high rounded-3xl p-16 text-center border border-outline-variant">
+<h2 class="font-headline-xl text-headline-xl text-primary mb-6">Redefine Your Value Chain</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+                    Join the global shift toward regenerative production. Our analytics team is ready to map your circular potential.
+                </p>
+<div class="flex justify-center gap-6">
+<button class="bg-secondary text-on-secondary px-10 py-5 rounded-full font-label-sm uppercase hover:scale-[1.02] transition-transform">
+                        Get Sustainability Report
+                    </button>
+<button class="border border-outline text-primary px-10 py-5 rounded-full font-label-sm uppercase hover:bg-surface-container transition-colors">
+                        Partner with us
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-emerald-100 dark:border-emerald-900 bg-stone-50 dark:bg-emerald-950">
+<div class="max-w-7xl mx-auto px-8 py-16 flex flex-col md:flex-row justify-between items-start gap-8">
+<div class="space-y-6 max-w-sm">
+<div class="text-lg font-black text-emerald-900 dark:text-emerald-50">GASP</div>
+<p class="font-['Space_Grotesk'] text-xs tracking-wide text-emerald-600/60 leading-loose">
+                    © 2024 GASP Global Social Enterprise. Circular Economy for a Regenerative Future.
+                </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+<div class="flex flex-col gap-4">
+<span class="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-widest text-emerald-900 dark:text-emerald-50">Navigation</span>
+<a class="font-['Space_Grotesk'] text-xs tracking-wide text-emerald-600/60 hover:text-emerald-900 transition-all" href="#">EPR Models</a>
+<a class="font-['Space_Grotesk'] text-xs tracking-wide font-bold text-emerald-700" href="#">Mass Flows</a>
+<a class="font-['Space_Grotesk'] text-xs tracking-wide text-emerald-600/60 hover:text-emerald-900 transition-all" href="#">Team</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-['Space_Grotesk'] text-xs font-bold uppercase tracking-widest text-emerald-900 dark:text-emerald-50">Resources</span>
+<a class="font-['Space_Grotesk'] text-xs tracking-wide text-emerald-600/60 hover:text-emerald-900 transition-all" href="#">Portfolio</a>
+<a class="font-['Space_Grotesk'] text-xs tracking-wide text-emerald-600/60 hover:text-emerald-900 transition-all" href="#">Privacy Policy</a>
+<a class="font-['Space_Grotesk'] text-xs tracking-wide text-emerald-600/60 hover:text-emerald-900 transition-all" href="#">Sustainability Report</a>
+</div>
+</div>
+</div>
+</footer>
+<style>
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</body></html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "tertiary": "#131411",
+                    "surface-tint": "#476556",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#635979",
+                    "inverse-surface": "#313030",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#424844",
+                    "outline-variant": "#c1c8c2",
+                    "on-tertiary-fixed": "#1c1c19",
+                    "primary-fixed-dim": "#adcebc",
+                    "on-primary-fixed": "#022015",
+                    "on-primary-fixed-variant": "#2f4d3f",
+                    "on-error": "#ffffff",
+                    "surface-container": "#f0eded",
+                    "secondary-fixed-dim": "#cdc1e5",
+                    "on-primary-container": "#769686",
+                    "surface-dim": "#dcd9d9",
+                    "on-secondary-fixed": "#1f1732",
+                    "on-surface": "#1c1b1b",
+                    "on-secondary-container": "#665c7c",
+                    "outline": "#727974",
+                    "tertiary-fixed": "#e5e2dd",
+                    "primary-container": "#0f2d21",
+                    "surface-container-low": "#f6f3f2",
+                    "background": "#fcf9f8",
+                    "surface": "#fcf9f8",
+                    "inverse-primary": "#adcebc",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#c9ead8",
+                    "surface-variant": "#e5e2e1",
+                    "inverse-on-surface": "#f3f0ef",
+                    "on-tertiary-fixed-variant": "#474743",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#1c1b1b",
+                    "surface-container-highest": "#e5e2e1",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#eaddff",
+                    "tertiary-container": "#282825",
+                    "surface-container-high": "#eae7e7",
+                    "secondary-container": "#e4d7fd",
+                    "on-secondary-fixed-variant": "#4b4260",
+                    "primary": "#00170e",
+                    "on-tertiary-container": "#908f8b",
+                    "surface-bright": "#fcf9f8",
+                    "tertiary-fixed-dim": "#c9c6c2",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-padding": "160px",
+                    "gutter": "24px",
+                    "stack-lg": "80px",
+                    "margin-x": "64px",
+                    "container-max": "1440px",
+                    "stack-sm": "8px",
+                    "stack-md": "24px"
+            },
+            "fontFamily": {
+                    "body-md": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "headline-xl": ["Space Grotesk"],
+                    "headline-md": ["Space Grotesk"],
+                    "display-lg": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .text-stroke {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+            color: transparent;
+        }
+        .masked-image {
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-emerald-950/80 backdrop-blur-md border-b border-emerald-900/30 h-20">
+<div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-full">
+<div class="text-2xl font-bold tracking-tighter text-emerald-50 font-['Space_Grotesk']">
+            GASP
+        </div>
+<div class="hidden md:flex items-center gap-8 font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold">
+<a class="text-emerald-100/70 hover:text-emerald-50 hover:scale-[1.02] transition-all duration-200" href="#">Mission</a>
+<a class="text-emerald-100/70 hover:text-emerald-50 hover:scale-[1.02] transition-all duration-200" href="#">Impact</a>
+<a class="text-emerald-100/70 hover:text-emerald-50 hover:scale-[1.02] transition-all duration-200" href="#">Value Chain</a>
+<!-- Explore Dropdown -->
+<div class="relative group">
+<button class="flex items-center gap-1 text-emerald-100/70 group-hover:text-emerald-50 hover:scale-[1.02] transition-all duration-200">
+                    Explore <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<div class="absolute left-0 top-full pt-4 hidden group-hover:block">
+<div class="bg-emerald-950 border border-emerald-900/30 py-4 w-48 shadow-2xl">
+<a class="block px-6 py-2 text-emerald-100/70 hover:text-emerald-50 hover:bg-emerald-900/50 transition-colors" href="#">EPR Models</a>
+<a class="block px-6 py-2 text-emerald-100/70 hover:text-emerald-50 hover:bg-emerald-900/50 transition-colors" href="#">Mass Flows</a>
+<a class="block px-6 py-2 text-emerald-100/70 hover:text-emerald-50 hover:bg-emerald-900/50 transition-colors" href="#">Team</a>
+<a class="block px-6 py-2 text-emerald-100/70 hover:text-emerald-50 hover:bg-emerald-900/50 transition-colors" href="#">Portfolio</a>
+</div>
+</div>
+</div>
+<a class="text-emerald-100/70 hover:text-emerald-50 hover:scale-[1.02] transition-all duration-200" href="#">Gallery &amp; Events</a>
+<a class="text-emerald-100/70 hover:text-emerald-50 hover:scale-[1.02] transition-all duration-200" href="#">Contact</a>
+</div>
+<button class="bg-secondary text-on-secondary px-8 py-3 rounded-full font-label-sm text-label-sm uppercase hover:scale-[1.02] active:scale-[0.98] transition-all duration-200">
+            Join Action
+        </button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen min-h-[800px] flex items-center overflow-hidden bg-primary-container">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-60 grayscale-[0.2]" data-alt="A panoramic and atmospheric landscape of a lush Ugandan reforestation site at dawn. The scene is bathed in soft, natural morning light, featuring rolling green hills and thousands of newly planted indigenous trees. The aesthetic is clean and premium, with a deep emerald and misty white color palette that emphasizes environmental regeneration and professional urgency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqjrzwi8b3u1hgeZdFo6uIvDgbyPR5H42ud1HR4KFL5jc8ZWPKNh6VvrEWFQlGSo1O7zZqtcqrqiNiY9yr0AyOMPkM0T1KI_xMAW4sxxL6zTO6pr0OXOR6Qbpenw9CuBqt70_rSGZz4JQ-dKd-P5kzAuoutejNnuFG3V2WqGyoxjJherARWmyqcpKM2Jr9aPb3yrZw9cxTo0ojyAOUjLF5a2EjPeCOxgCzRsxMNEZCSLqiJ2x-qwspLk5AB4k7_8YHr8XHRMNrOYw"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container via-primary-container/40 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
+<div class="max-w-3xl">
+<span class="inline-block font-label-sm text-label-sm text-on-primary-container bg-primary-fixed/20 px-4 py-2 rounded-full mb-8 uppercase tracking-widest">The Transition</span>
+<h1 class="font-display-lg text-display-lg text-white mb-8">Regenerating the <br/><span class="italic font-light">Circular Future.</span></h1>
+<p class="font-body-lg text-body-lg text-white/80 max-w-xl mb-12">
+                        GASP is orchestrating Uganda's shift from destructive linear consumption to a high-performance circular economy. We rebuild industrial precision through biological intelligence.
+                    </p>
+<div class="flex gap-6 items-center">
+<button class="bg-secondary text-on-secondary px-10 py-5 rounded-full font-label-sm text-label-sm uppercase hover:scale-105 transition-transform duration-200">Our Strategic Map</button>
+<div class="flex items-center gap-3 text-white/60 font-label-sm text-label-sm tracking-widest uppercase">
+<span class="w-12 h-[1px] bg-white/30"></span>
+                            Established 2024
+                        </div>
+</div>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+<span class="font-label-sm text-[10px] text-white/40 uppercase tracking-[0.3em]">Discover</span>
+<div class="w-[1px] h-16 bg-gradient-to-b from-emerald-500 to-transparent"></div>
+</div>
+</section>
+<!-- Our Purpose / Bento Grid -->
+<section class="py-section-padding px-8 bg-surface">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div class="max-w-2xl">
+<h2 class="font-headline-xl text-headline-xl text-primary mb-6">Our Purpose</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                            Uganda stands at a crossroads. By replacing the 'take-make-waste' model with systemic regeneration, we protect biodiversity while scaling sustainable production.
+                        </p>
+</div>
+<div class="text-right">
+<span class="font-display-lg text-display-lg text-primary-fixed-dim leading-none opacity-30">01</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Impact Card 1 -->
+<div class="md:col-span-8 group overflow-hidden relative rounded-xl border border-outline-variant bg-surface-container-low p-12 transition-all hover:border-primary/20">
+<div class="flex flex-col h-full justify-between gap-12">
+<div class="max-w-md">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Eliminating Industrial Waste</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">We partner with local manufacturers to integrate closed-loop technologies that transform production by-products into high-value raw materials.</p>
+</div>
+<div class="flex items-end justify-between">
+<div class="font-headline-xl text-headline-xl text-primary leading-none">85%<span class="text-headline-md font-light ml-2">Efficiency Gain</span></div>
+<span class="material-symbols-outlined text-4xl text-primary/20 group-hover:text-primary transition-colors">recycling</span>
+</div>
+</div>
+</div>
+<!-- Impact Card 2 -->
+<div class="md:col-span-4 group overflow-hidden relative rounded-xl border border-outline-variant bg-primary-container p-12 transition-all">
+<img class="absolute inset-0 w-full h-full object-cover opacity-20 transition-transform duration-700 group-hover:scale-110" data-alt="A detailed macro shot of indigenous Ugandan plant sprouts emerging from rich, dark organic soil. The lighting is crisp and professional, highlighting the vibrant green texture of the leaves against the earthy tones. The overall aesthetic is focused and biological, reflecting a high-standard social enterprise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8vM-BFJoVUKQECtViLuRTPAVGYhoyxedskIJy246Qvqbwlz-mXlGqdIsyYbFqafI66XoiMveN8o62_EgpeujQd-wKR3SMI5OQB_FEwaaVZy9JShiEoSCYio2hne1Ph10lNBqr7RL8Jl2nqo-aoYDm9PY50l9pdt3M52tQ8M818FVi0uhlCQMefyj790aCA2Vpb5kSeSDgmOThPNcaZoPVbLHPT87HlKzW3djLcnAVoW7MXtWCqDGiTNppncVReTb2TWpbBlAwmdo"/>
+<div class="relative z-10 flex flex-col h-full justify-between text-white">
+<span class="material-symbols-outlined text-4xl">eco</span>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2">Regenerative Sourcing</h3>
+<p class="font-body-md text-white/70">100% trace-ability for organic textiles and bio-materials.</p>
+</div>
+</div>
+</div>
+<!-- Impact Card 3 -->
+<div class="md:col-span-4 group rounded-xl border border-outline-variant bg-surface-container-highest p-12">
+<h3 class="font-label-sm text-label-sm text-primary mb-8 uppercase tracking-widest">Community Hubs</h3>
+<p class="font-headline-md text-headline-md text-primary mb-6">Empowering 50,000+ local producers with circular tech.</p>
+<div class="w-full h-1 bg-outline-variant relative overflow-hidden">
+<div class="absolute left-0 top-0 h-full w-2/3 bg-primary"></div>
+</div>
+</div>
+<!-- Impact Card 4 -->
+<div class="md:col-span-8 group overflow-hidden relative rounded-xl bg-secondary-container p-12 flex items-center gap-12">
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md text-on-secondary-container mb-4">Circular Policy Advocacy</h3>
+<p class="font-body-md text-on-secondary-fixed-variant">Driving the legislative framework for Uganda’s sustainable industrial revolution.</p>
+</div>
+<div class="hidden md:block w-48 h-48 rounded-full border-4 border-dashed border-on-secondary-container/20 animate-[spin_20s_linear_infinite] flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-on-secondary-container">sync</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Strategic Vision / Atmosphere Section -->
+<section class="relative py-section-padding bg-primary-container text-white overflow-hidden">
+<div class="absolute top-0 right-0 w-1/2 h-full">
+<img class="w-full h-full object-cover opacity-30 masked-image" data-alt="A moody, high-contrast photograph of sunlight filtering through the canopy of a dense Ugandan rainforest. The atmosphere is humid and rich with depth, utilizing a bokeh effect that creates three-dimensional layers. The colors are dominated by deep forest greens and golden highlights, evoking a sense of ancient biological wisdom and modern conservation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk5UPgU2w_esxnU67o8vnLx7-DWGOThzlhHb9O2TjyOzFTuySal-rHU7zldeUGY1CWP7zS0nyn3ZJAUGbli2ml7rwheRvs50B9-sFdeAPM1_H38ulLx3ZVEBaZzB_d7nhbAgdSlY1mIyYyHZp3h6LbNjTo1MR-UlV_XNGnpqKfWEQ1SOSjRtUJROdZ_g-SZVNT-2rZthbYdNTsUzirdXqyMxTEgG4jZ0dvWNu6b_lD042rO1_i_GMHm2y6pJtF-xv3LgPEdEFeAT8"/>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-8">
+<div class="md:grid md:grid-cols-12 gap-gutter">
+<div class="md:col-span-7">
+<span class="font-label-sm text-label-sm text-emerald-400 mb-8 block uppercase tracking-widest">Strategic Vision 2030</span>
+<h2 class="font-display-lg text-display-lg mb-12">The Loop of <br/>Prosperity</h2>
+<div class="space-y-12">
+<div class="flex gap-8 group">
+<div class="font-headline-md text-headline-md text-emerald-500/50 group-hover:text-emerald-400 transition-colors">01</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-3">Biological Restoration</h4>
+<p class="font-body-lg text-white/60 max-w-md">Actively restoring 1M+ hectares of Ugandan soil through indigenous reforestation and bio-remediation protocols.</p>
+</div>
+</div>
+<div class="flex gap-8 group">
+<div class="font-headline-md text-headline-md text-emerald-500/50 group-hover:text-emerald-400 transition-colors">02</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-3">Zero-Waste Infrastructure</h4>
+<p class="font-body-lg text-white/60 max-w-md">Deploying modular circular processing units in every major industrial corridor in Uganda.</p>
+</div>
+</div>
+<div class="flex gap-8 group">
+<div class="font-headline-md text-headline-md text-emerald-500/50 group-hover:text-emerald-400 transition-colors">03</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-3">Global Resilience</h4>
+<p class="font-body-lg text-white/60 max-w-md">Exporting Ugandan-led circular models as the global gold standard for sustainable emerging markets.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Partners Marquee -->
+<section class="py-24 bg-surface-container-low border-y border-outline-variant overflow-hidden">
+<div class="flex whitespace-nowrap gap-16 items-center">
+<div class="flex gap-16 items-center animate-[marquee_40s_linear_infinite]">
+<span class="font-headline-md text-headline-md text-primary/10 uppercase tracking-tighter">Ministry of Environment</span>
+<span class="material-symbols-outlined text-primary/10">circle</span>
+<span class="font-headline-md text-headline-md text-primary/10 uppercase tracking-tighter">Uganda Circular Network</span>
+<span class="material-symbols-outlined text-primary/10">circle</span>
+<span class="font-headline-md text-headline-md text-primary/10 uppercase tracking-tighter">Green Tech Hub</span>
+<span class="material-symbols-outlined text-primary/10">circle</span>
+<span class="font-headline-md text-headline-md text-primary/10 uppercase tracking-tighter">Bio-Precision Labs</span>
+<span class="material-symbols-outlined text-primary/10">circle</span>
+<span class="font-headline-md text-headline-md text-primary/10 uppercase tracking-tighter">Global Impact Alliance</span>
+<span class="material-symbols-outlined text-primary/10">circle</span>
+</div>
+<!-- Duplicate for seamless loop -->
+<div class="flex gap-16 items-center animate-[marquee_40s_linear_infinite]">
+<span class="font-headline-md text-headline-md text-primary/10 uppercase tracking-tighter">Ministry of Environment</span>
+<span class="material-symbols-outlined text-primary/10">circle</span>
+<span class="font-headline-md text-headline-md text-primary/10 uppercase tracking-tighter">Uganda Circular Network</span>
+<span class="material-symbols-outlined text-primary/10">circle</span>
+<span class="font-headline-md text-headline-md text-primary/10 uppercase tracking-tighter">Green Tech Hub</span>
+<span class="material-symbols-outlined text-primary/10">circle</span>
+<span class="font-headline-md text-headline-md text-primary/10 uppercase tracking-tighter">Bio-Precision Labs</span>
+<span class="material-symbols-outlined text-primary/10">circle</span>
+<span class="font-headline-md text-headline-md text-primary/10 uppercase tracking-tighter">Global Impact Alliance</span>
+<span class="material-symbols-outlined text-primary/10">circle</span>
+</div>
+</div>
+<style>
+                @keyframes marquee {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-100%); }
+                }
+            </style>
+</section>
+<!-- CTA Section -->
+<section class="py-section-padding px-8">
+<div class="max-w-7xl mx-auto rounded-3xl bg-secondary-fixed p-16 md:p-32 text-center relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="font-display-lg text-display-lg text-on-secondary-fixed mb-8">Ready to join the <br/><span class="italic">revolution?</span></h2>
+<p class="font-body-lg text-body-lg text-on-secondary-fixed-variant mb-12 max-w-2xl mx-auto">
+                        Whether you are a manufacturer, policymaker, or impact investor, your role is vital in Uganda's transition to a circular future.
+                    </p>
+<div class="flex flex-col md:flex-row justify-center gap-6">
+<button class="bg-primary-container text-white px-12 py-5 rounded-full font-label-sm text-label-sm uppercase hover:scale-105 transition-transform duration-200">Partner With Us</button>
+<button class="border border-on-secondary-fixed/20 text-on-secondary-fixed px-12 py-5 rounded-full font-label-sm text-label-sm uppercase hover:bg-on-secondary-fixed hover:text-white transition-all">Download Report</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0F2D21] w-full py-16 px-8 border-t border-white/5">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
+<div class="md:col-span-4">
+<div class="text-2xl font-black text-white mb-4 font-['Space_Grotesk'] tracking-widest">GASP</div>
+<p class="text-white/40 font-body-md max-w-xs">Green Action for Sustainable Production. Leading the transition from linear to circular systems in East Africa.</p>
+</div>
+<div class="md:col-span-2">
+<h5 class="text-emerald-500 font-['Space_Grotesk'] text-sm uppercase tracking-widest mb-6">Programs</h5>
+<ul class="space-y-4">
+<li><a class="text-white/40 hover:text-emerald-400 transition-colors" href="#">Soil Regen</a></li>
+<li><a class="text-white/40 hover:text-emerald-400 transition-colors" href="#">Closed Loop</a></li>
+<li><a class="text-white/40 hover:text-emerald-400 transition-colors" href="#">Eco-Sourcing</a></li>
+</ul>
+</div>
+<div class="md:col-span-2">
+<h5 class="text-emerald-500 font-['Space_Grotesk'] text-sm uppercase tracking-widest mb-6">Company</h5>
+<ul class="space-y-4">
+<li><a class="text-white/40 hover:text-emerald-400 transition-colors" href="#">Mission</a></li>
+<li><a class="text-white/40 hover:text-emerald-400 transition-colors" href="#">Annual Report</a></li>
+<li><a class="text-white/40 hover:text-emerald-400 transition-colors" href="#">Media Kit</a></li>
+</ul>
+</div>
+<div class="md:col-span-4">
+<h5 class="text-emerald-500 font-['Space_Grotesk'] text-sm uppercase tracking-widest mb-6">Stay Updated</h5>
+<div class="flex border-b border-white/20 pb-2">
+<input class="bg-transparent border-none focus:ring-0 text-white w-full font-body-md placeholder:text-white/20" placeholder="Email Address" type="email"/>
+<button class="text-white hover:text-emerald-400 transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="md:col-span-12 mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-white/40 font-['Space_Grotesk'] text-sm uppercase tracking-widest">© 2024 Green Action for Sustainable Production. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="text-white/40 hover:text-emerald-400 transition-colors font-['Space_Grotesk'] text-sm uppercase tracking-widest" href="#">Privacy Policy</a>
+<a class="text-white/40 hover:text-emerald-400 transition-colors font-['Space_Grotesk'] text-sm uppercase tracking-widest" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GASP - Green Action for Sustainable Production</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-container": "#0f2d21",
+                      "on-tertiary-fixed-variant": "#474743",
+                      "surface-bright": "#fcf9f8",
+                      "on-surface-variant": "#424844",
+                      "surface-variant": "#e5e2e1",
+                      "inverse-primary": "#adcebc",
+                      "surface-container-highest": "#e5e2e1",
+                      "surface": "#fcf9f8",
+                      "on-primary-container": "#769686",
+                      "error-container": "#ffdad6",
+                      "secondary-container": "#e4d7fd",
+                      "primary-fixed": "#c9ead8",
+                      "on-error": "#ffffff",
+                      "on-secondary-container": "#665c7c",
+                      "surface-container-high": "#eae7e7",
+                      "on-secondary-fixed": "#1f1732",
+                      "surface-container": "#f0eded",
+                      "inverse-on-surface": "#f3f0ef",
+                      "error": "#ba1a1a",
+                      "on-error-container": "#93000a",
+                      "on-secondary-fixed-variant": "#4b4260",
+                      "inverse-surface": "#313030",
+                      "on-tertiary": "#ffffff",
+                      "tertiary": "#131411",
+                      "tertiary-fixed": "#e5e2dd",
+                      "on-primary-fixed-variant": "#2f4d3f",
+                      "on-primary-fixed": "#022015",
+                      "surface-dim": "#dcd9d9",
+                      "primary-fixed-dim": "#adcebc",
+                      "on-tertiary-container": "#908f8b",
+                      "on-primary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "outline-variant": "#c1c8c2",
+                      "outline": "#727974",
+                      "on-surface": "#1c1b1b",
+                      "secondary-fixed": "#eaddff",
+                      "background": "#fcf9f8",
+                      "on-tertiary-fixed": "#1c1c19",
+                      "tertiary-container": "#282825",
+                      "secondary": "#635979",
+                      "surface-tint": "#476556",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed-dim": "#c9c6c2",
+                      "surface-container-low": "#f6f3f2",
+                      "on-background": "#1c1b1b",
+                      "secondary-fixed-dim": "#cdc1e5",
+                      "primary": "#00170e"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "8px",
+                      "margin-x": "64px",
+                      "container-max": "1440px",
+                      "stack-md": "24px",
+                      "stack-lg": "80px",
+                      "gutter": "24px",
+                      "section-padding": "160px"
+              },
+              "fontFamily": {
+                      "body-md": ["Manrope"],
+                      "display-lg": ["Space Grotesk"],
+                      "body-lg": ["Manrope"],
+                      "headline-md": ["Space Grotesk"],
+                      "label-sm": ["Manrope"],
+                      "headline-xl": ["Space Grotesk"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display-lg": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                      "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-emerald-950/80 backdrop-blur-xl border-b border-emerald-100/20 dark:border-white/10">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto font-['Space_Grotesk'] tracking-tight">
+<a class="text-2xl font-bold tracking-tighter text-emerald-950 dark:text-white" href="#">GASP</a>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-emerald-600 dark:text-emerald-400 font-semibold border-b-2 border-emerald-600 dark:border-emerald-400 pb-1" href="#">Explore</a>
+<a class="text-emerald-900/70 dark:text-emerald-100/70 hover:text-emerald-950 dark:hover:text-white transition-colors" href="#">Mission</a>
+<a class="text-emerald-900/70 dark:text-emerald-100/70 hover:text-emerald-950 dark:hover:text-white transition-colors" href="#">Impact</a>
+<a class="text-emerald-900/70 dark:text-emerald-100/70 hover:text-emerald-950 dark:hover:text-white transition-colors" href="#">Value Chain</a>
+<a class="text-emerald-900/70 dark:text-emerald-100/70 hover:text-emerald-950 dark:hover:text-white transition-colors" href="#">Events</a>
+<a class="text-emerald-900/70 dark:text-emerald-100/70 hover:text-emerald-950 dark:hover:text-white transition-colors" href="#">Contact</a>
+</div>
+<button class="bg-primary-container text-white px-6 py-2 rounded-full font-bold text-label-sm hover:scale-[1.02] active:scale-[0.98] transition-all">
+                Partner With Us
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container/90 via-primary-container/60 to-transparent z-10"></div>
+<img class="w-full h-full object-cover" data-alt="A cinematic, high-resolution wide shot of lush green Ugandan landscapes merging with a clean, futuristic industrial recycling facility. The lighting is early morning golden hour, casting long, soft shadows and highlighting the vibrant emerald foliage and sleek metallic structures of the plant. The mood is hopeful, professional, and technologically advanced, emphasizing a clean energy future and environmental restoration through precise industrial action." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfgH9XnOKNiySI-AxdCj2M3ShFWl-S0KtS--QWCx1uufayZzRN93_uCQemJQhzjVyMoA-RxEX9LTYLiLa9OBLQxEVekNh4UcaCCg7R4iAD5f0uP9uY0dIiVXWEVY14lVkdgIWIZ63RND8pAoCgcjUwP2vtEysRsXCgMKZuTu9iyQKQwuZT2YT9y1S0HOYxlr5WymIKymW49DO-__L2V20UrNe4sa3IEe6-75ZvN7_Ah-yx3nEArHGYpL2zt7iKYRqK9RQzravF88Y"/>
+</div>
+<div class="relative z-20 max-w-7xl mx-auto px-8 w-full">
+<div class="max-w-3xl">
+<span class="inline-block px-4 py-1 mb-6 rounded-full bg-secondary-container text-on-secondary-container font-label-sm uppercase tracking-widest">Uganda Circular Initiative</span>
+<h1 class="font-display-lg text-display-lg text-white mb-8">Accelerating Uganda's Transition to a Circular Economy.</h1>
+<div class="flex flex-wrap gap-4">
+<button class="bg-secondary text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                        Get Involved
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="glass-panel text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-white/10 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+                        Watch our Vision
+                    </button>
+</div>
+</div>
+</div>
+</header>
+<!-- Introduction -->
+<section class="py-section-padding bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div>
+<div class="w-24 h-24 mb-10 bg-primary-container rounded-2xl flex items-center justify-center text-white text-4xl font-display-lg">G</div>
+<h2 class="font-headline-xl text-headline-xl text-primary mb-6">Established 2023. Impact Driven.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        Incubated in 2023, GASP is an open &amp; collaborative partnership building a transparent &amp; impactful EPR scheme to fund awareness &amp; capacity building across the region.
+                    </p>
+</div>
+<div class="relative">
+<div class="aspect-[4/3] rounded-3xl overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional group of Ugandan environmental scientists and industrial engineers collaborating in a modern, sun-filled workspace. They are looking over complex architectural blueprints and material flow diagrams spread across a large wooden table. The aesthetic is clean and minimalist, with large windows overlooking a green urban space, conveying a sense of transparency, high-level expertise, and dedicated partnership." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKDa_D_ajZR2LT0eytCyOWa8XlF5dRc1tBmjiY4sYNJFayJ3qg1rtDByMqo7N9OnaZwi3kAuaEHUpF9F-NN-ZgplozOKQXgIS_RPLygM8qDaY1GRyOa12KJiEO-d6ESgTw2b9s9RZzbbupGcDVkkeWckJi5q7BePA2wEuDukWSsBneO6ZsH5nOxyCi5bMqzZrc6w6RDsSB_r5s6FzjSi9muka1mbMh3ne73IO-G5T_92GWY1ZQMKcI3o3MlWpCM79UTuNrImLGqFk"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Pillars -->
+<section class="py-section-padding bg-surface-container">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-20">
+<span class="font-label-sm text-on-secondary-fixed-variant uppercase tracking-widest">Our Methodology</span>
+<h2 class="font-headline-xl text-headline-xl text-primary mt-4">Defining the Next Paradigm</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Linear -->
+<div class="p-10 bg-white border border-outline-variant rounded-3xl flex flex-col items-start hover:border-primary transition-colors group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary mb-8 group-hover:bg-primary-container group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-4xl">trending_flat</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 text-primary">Linear Economy</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        The traditional 'Take-Make-Waste' model. Extracting resources, using them, and disposing of them, leading to significant environmental degradation.
+                    </p>
+<div class="mt-auto pt-8 flex items-center text-on-primary-container font-bold text-label-sm">
+                        LEGACY MODEL
+                    </div>
+</div>
+<!-- Recycling -->
+<div class="p-10 bg-white border border-outline-variant rounded-3xl flex flex-col items-start hover:border-primary transition-colors group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary mb-8 group-hover:bg-primary-container group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-4xl">rebase_edit</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 text-primary">Recycling Economy</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Focusing on end-of-life material recovery. Converting waste back into raw materials, but often losing value and quality in the process.
+                    </p>
+<div class="mt-auto pt-8 flex items-center text-on-primary-container font-bold text-label-sm">
+                        INTERIM STEP
+                    </div>
+</div>
+<!-- Circular -->
+<div class="p-10 bg-primary-container border border-primary-container rounded-3xl flex flex-col items-start text-white group">
+<div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center text-white mb-8">
+<span class="material-symbols-outlined text-4xl">cycle</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 text-white">Circular Economy</h3>
+<p class="font-body-md text-body-md text-on-primary-container">
+                        Designing out waste from the start. Maintaining materials at their highest value through reuse, repair, and regenerative production systems.
+                    </p>
+<div class="mt-auto pt-8 flex items-center text-white font-bold text-label-sm">
+                        THE GASP STANDARD
+                    </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Impact Overview -->
+<section class="py-section-padding bg-primary-container text-white relative overflow-hidden">
+<div class="absolute inset-0 opacity-10">
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-secondary rounded-full blur-[120px]"></div>
+<div class="absolute -bottom-24 -left-24 w-96 h-96 bg-primary-fixed-dim rounded-full blur-[120px]"></div>
+</div>
+<div class="max-w-7xl mx-auto px-8 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+<div class="lg:col-span-1">
+<h2 class="font-headline-xl text-headline-xl mb-6">Real-Time Impact Metrics</h2>
+<p class="font-body-md text-on-primary-container">Live data tracking from our partner network and EPR monitoring systems.</p>
+</div>
+<div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="border-l border-white/20 pl-8 py-4">
+<div class="font-display-lg text-6xl mb-2">42+</div>
+<div class="font-label-sm text-on-primary-container uppercase tracking-widest">Partner Facilities</div>
+</div>
+<div class="border-l border-white/20 pl-8 py-4">
+<div class="font-display-lg text-6xl mb-2">85%</div>
+<div class="font-label-sm text-on-primary-container uppercase tracking-widest">Resource Recovery Rate</div>
+</div>
+<div class="border-l border-white/20 pl-8 py-4">
+<div class="font-display-lg text-6xl mb-2">$1.2M</div>
+<div class="font-label-sm text-on-primary-container uppercase tracking-widest">Community Reinvestment</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-section-padding bg-surface-bright">
+<div class="max-w-7xl mx-auto px-8">
+<div class="bg-secondary-container rounded-[48px] p-20 text-center relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="font-headline-xl text-headline-xl text-on-secondary-fixed mb-8 max-w-2xl mx-auto">Join the Circular Revolution.</h2>
+<p class="font-body-lg text-on-secondary-container mb-12 max-w-xl mx-auto">
+                        Whether you are a manufacturer, recycler, or community leader, your action defines the future of Ugandan production.
+                    </p>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="bg-primary-container text-white px-10 py-5 rounded-full font-bold hover:scale-[1.02] transition-all">
+                            Become a Partner
+                        </button>
+<button class="bg-white text-primary px-10 py-5 rounded-full font-bold border border-outline-variant hover:bg-surface transition-all">
+                            Download Portfolio
+                        </button>
+</div>
+</div>
+<!-- Background Decoration -->
+<div class="absolute top-0 right-0 p-10 opacity-10">
+<span class="material-symbols-outlined text-[300px]" style="font-variation-settings: 'wght' 100;">eco</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-emerald-950 dark:bg-black border-t border-white/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-20 max-w-7xl mx-auto font-['Space_Grotesk'] font-light text-emerald-50">
+<div class="md:col-span-1">
+<div class="text-xl font-bold text-white mb-6">GASP</div>
+<p class="text-emerald-200/60 leading-relaxed">
+                    Driving systemic change through collaborative environmental stewardship and industrial innovation.
+                </p>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Models</h4>
+<ul class="space-y-4">
+<li><a class="text-emerald-200/60 hover:text-white transition-colors hover:translate-x-1 inline-block" href="#">EPR Models</a></li>
+<li><a class="text-emerald-200/60 hover:text-white transition-colors hover:translate-x-1 inline-block" href="#">Mass Flows</a></li>
+<li><a class="text-emerald-200/60 hover:text-white transition-colors hover:translate-x-1 inline-block" href="#">Value Chain</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Company</h4>
+<ul class="space-y-4">
+<li><a class="text-emerald-200/60 hover:text-white transition-colors hover:translate-x-1 inline-block" href="#">Team</a></li>
+<li><a class="text-emerald-200/60 hover:text-white transition-colors hover:translate-x-1 inline-block" href="#">Portfolio</a></li>
+<li><a class="text-emerald-200/60 hover:text-white transition-colors hover:translate-x-1 inline-block" href="#">Sustainability Report</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Legal</h4>
+<ul class="space-y-4">
+<li><a class="text-emerald-200/60 hover:text-white transition-colors hover:translate-x-1 inline-block" href="#">Privacy Policy</a></li>
+<li><a class="text-emerald-200/60 hover:text-white transition-colors hover:translate-x-1 inline-block" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-12 py-8 border-t border-white/5 text-emerald-200/40 text-sm">
+            © 2024 GASP (Green Action for Sustainable Production). All rights reserved.
+        </div>
+</footer>
+</body></html>

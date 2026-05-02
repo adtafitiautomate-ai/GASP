@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "tertiary": "#131411",
+                        "surface-tint": "#476556",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#635979",
+                        "inverse-surface": "#313030",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#424844",
+                        "outline-variant": "#c1c8c2",
+                        "on-tertiary-fixed": "#1c1c19",
+                        "primary-fixed-dim": "#adcebc",
+                        "on-primary-fixed": "#022015",
+                        "on-primary-fixed-variant": "#2f4d3f",
+                        "on-error": "#ffffff",
+                        "surface-container": "#f0eded",
+                        "secondary-fixed-dim": "#cdc1e5",
+                        "on-primary-container": "#769686",
+                        "surface-dim": "#dcd9d9",
+                        "on-secondary-fixed": "#1f1732",
+                        "on-surface": "#1c1b1b",
+                        "on-secondary-container": "#665c7c",
+                        "outline": "#727974",
+                        "tertiary-fixed": "#e5e2dd",
+                        "primary-container": "#0f2d21",
+                        "surface-container-low": "#f6f3f2",
+                        "background": "#fcf9f8",
+                        "surface": "#fcf9f8",
+                        "inverse-primary": "#adcebc",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#c9ead8",
+                        "surface-variant": "#e5e2e1",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-tertiary-fixed-variant": "#474743",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#eaddff",
+                        "tertiary-container": "#282825",
+                        "surface-container-high": "#eae7e7",
+                        "secondary-container": "#e4d7fd",
+                        "on-secondary-fixed-variant": "#4b4260",
+                        "primary": "#00170e",
+                        "on-tertiary-container": "#908f8b",
+                        "surface-bright": "#fcf9f8",
+                        "tertiary-fixed-dim": "#c9c6c2",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "160px",
+                        "gutter": "24px",
+                        "stack-lg": "80px",
+                        "margin-x": "64px",
+                        "container-max": "1440px",
+                        "stack-sm": "8px",
+                        "stack-md": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "headline-xl": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-emerald-950/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-emerald-900/30 h-20 flex items-center">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 w-full">
+<div class="text-2xl font-bold tracking-tighter text-emerald-50 font-['Space_Grotesk']">GASP</div>
+<nav class="hidden md:flex items-center space-x-10"><a class="text-emerald-100/70 hover:text-emerald-50 transition-colors font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold" href="#">Mission</a>
+<a class="text-emerald-100/70 hover:text-emerald-50 transition-colors font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold" href="#">Impact</a>
+<a class="text-emerald-100/70 hover:text-emerald-50 transition-colors font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold" href="#">Value Chain</a>
+<div class="relative group">
+<button class="text-emerald-100/70 group-hover:text-emerald-50 transition-colors font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold flex items-center gap-1">
+        Explore
+        <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<div class="absolute left-0 mt-2 w-48 bg-emerald-950 border border-emerald-900 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[60] py-2 rounded-lg">
+<a class="block px-4 py-2 text-xs uppercase font-semibold text-emerald-100/70 hover:text-emerald-50 hover:bg-emerald-900/50 transition-colors" href="#">EPR Models</a>
+<a class="block px-4 py-2 text-xs uppercase font-semibold text-emerald-100/70 hover:text-emerald-50 hover:bg-emerald-900/50 transition-colors" href="#">Mass Flows</a>
+<a class="block px-4 py-2 text-xs uppercase font-semibold text-emerald-100/70 hover:text-emerald-50 hover:bg-emerald-900/50 transition-colors" href="#">Team</a>
+<a class="block px-4 py-2 text-xs uppercase font-semibold text-emerald-100/70 hover:text-emerald-50 hover:bg-emerald-900/50 transition-colors" href="#">Portfolio</a>
+</div>
+</div>
+<a class="text-emerald-100/70 hover:text-emerald-50 transition-colors font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold" href="#">Gallery &amp; Events</a>
+<a class="text-emerald-100/70 hover:text-emerald-50 transition-colors font-['Space_Grotesk'] tracking-tight text-sm uppercase font-semibold" href="#">Contact</a></nav>
+<button class="bg-emerald-500 text-emerald-950 px-6 py-2.5 rounded-full font-['Space_Grotesk'] font-bold hover:scale-[1.02] transition-transform duration-200 active:scale-95">Join Action</button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="pt-48 pb-32 px-8 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
+<div class="md:col-span-8">
+<span class="font-label-sm text-label-sm text-on-primary-container bg-primary-fixed px-4 py-1.5 rounded-full inline-block mb-8">PARTNERSHIP ECOSYSTEM</span>
+<h1 class="font-display-lg text-display-lg text-primary leading-tight mb-8">Global Action for Circular Production.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">We bridge the gap between industrial ambition and ecological reality. By uniting diverse stakeholders, GASP facilitates a closed-loop system where waste is eliminated and regeneration is the standard.</p>
+</div>
+<div class="md:col-span-4 flex justify-end pb-4">
+<div class="w-24 h-24 rounded-full border border-outline flex items-center justify-center animate-spin-slow">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="sync">sync</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Approach to Partnerships & Engagement Section -->
+<section class="px-8 max-w-7xl mx-auto pb-40">
+<div class="mb-16">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-widest block mb-4">OUR FRAMEWORK</span>
+<h2 class="font-display-lg text-headline-xl text-primary mb-6">Approach to Partnerships &amp; Engagement</h2>
+<div class="w-20 h-1 bg-primary rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- 1. National & Local Government -->
+<div class="bg-surface-container-low rounded-xl p-8 border border-outline-variant hover:border-primary transition-all duration-300 group"><img alt="Government and sustainability" class="w-full h-48 object-cover rounded-lg mb-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsw12OikOGzMIsIBF29noi3dBBhmBB5YErYBA66uL3g986nOCNexjCr3PpZtdxVl1Zgm9ngq9He8OhR_oUTyDXdxfsRgi1VI3Ft98bbd1s7qnVElKRAWrgD5MDBL2_W8gliuT2FNedPs7IM9zxy0amMECXop5JINfUADe1x37EV-FOE7byTFJ1uUXGG_--Sk0UcsWGqLdehNhlDompwEEUZDbc0F9IzPGaM6yJZ2hPLF7Xt5M9ZohoXVMqm863n8yzOi07ObmgpzQ"/>
+<div class="flex items-center gap-4 mb-6">
+<div class="bg-primary-container p-3 rounded-lg">
+<span class="material-symbols-outlined text-white text-2xl" data-icon="account_balance">account_balance</span>
+</div>
+<span class="font-label-sm text-outline">01 / GOVERNANCE</span>
+</div>
+<h3 class="font-headline-md text-2xl text-primary mb-4">National &amp; Local Government</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed">Engage to partner with private sector voluntary in EPR development &amp; for national EPR legislation &amp; regulation. Engage to support stakeholders at all levels to ensure GASP members are ahead of regulation, compliance.</p>
+</div>
+<!-- 2. Business Membership Organisations -->
+<div class="bg-surface-container rounded-xl p-8 border border-outline-variant hover:border-secondary transition-all duration-300 group"><img alt="Business alliances" class="w-full h-48 object-cover rounded-lg mb-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByzLsUqzbI3_R4xDE_DNex34LfrrkYszqh43zGRYn9em5m0o2RPjqBbbJi_GK-atfiu9BllEAL3u17yw51pD8qR7IiEK60neFsjRPcqteSQ9uwwidYPM92fHi8wvh36YA_GogKI855WMG-Cm5O0HgPfSLtFhvpEn3lCqC88EdVZnkoSg4IAr8h238rj6G8noBaggjumffJeGYfHBjc-ecN9nPIUG3UXbJvp7S-5nY8eUHxgjU4esOzN_WkNYYrcusl4kDf7zQhEzM"/>
+<div class="flex items-center gap-4 mb-6">
+<div class="bg-secondary p-3 rounded-lg">
+<span class="material-symbols-outlined text-white text-2xl" data-icon="handshake">handshake</span>
+</div>
+<span class="font-label-sm text-outline">02 / ALLIANCES</span>
+</div>
+<h3 class="font-headline-md text-2xl text-primary mb-4">Business Membership Organisations (BMO)</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed">Engage to provide value to BMO members through GASP membership to align with PRO and EPR voluntary &amp; mandatory regulations and understand &amp; engage in opportunities as Uganda shifts to the Recycling and Circular Economy.</p>
+</div>
+<!-- 3. International Partners -->
+<div class="bg-tertiary-fixed rounded-xl p-8 border border-outline-variant hover:border-tertiary transition-all duration-300 group"><img alt="International collaboration" class="w-full h-48 object-cover rounded-lg mb-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcR1Jbb3rjQEf1Xuis10CC2TwLuAbtyElq9XKUf4n3o2JHn2Rpf0tZzaYEy6h-AtxfO4IgFmyQdN3RtP03SluEraHmjRvr_ha-Nt-8ueZ0DF3ex3ugu-DhQGrwI5B1m87iH4l3N9XuWnUD6IReV4drXw130-scTewD8J-LPbWI1h45hbqWN3O0qaxqcKL_aYTssOcU5Aqus0gLqMhv7FC7K9MS6tseGgv9fg1Jvbs5SlqTX_O3jd6kdr4ojja2wjBexKL592VqaYg"/>
+<div class="flex items-center gap-4 mb-6">
+<div class="bg-tertiary p-3 rounded-lg">
+<span class="material-symbols-outlined text-white text-2xl" data-icon="public">public</span>
+</div>
+<span class="font-label-sm text-outline">03 / GLOBAL</span>
+</div>
+<h3 class="font-headline-md text-2xl text-primary mb-4">International Partners</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed">Engage to partner for cross-sharing global best practices &amp; grant funding to subsidise specialist &amp; technical resources &amp; technology access.</p>
+</div>
+<!-- 4. Consumer -->
+<div class="bg-primary-fixed rounded-xl p-8 border border-outline-variant hover:border-primary transition-all duration-300 group"><img alt="Sustainable consumer behavior" class="w-full h-48 object-cover rounded-lg mb-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK5xI9d2jiSy6dQldI-G_R2xOke-mYFZ4AjzI_HwyvR02_kNdvoGdEJr28dC8oMKGzlt9jMafSlEMA1hXxqADx-Mh8sxc740IxJrfKURJ-X9dwadaGs6HNRD5dvTxK5LCPmpPRWJwIbk2O_pqam1HUYx0kSYBGUoz9l4hS3OU920-REmMoHckFp63zLGxztPs9PMdeX0Cf_9tRX5zmE7h0whwAhvLPslsr6Hp9xruuQYJkYVSssveX_30ohVO3uyfWlWFT7azu38s"/>
+<div class="flex items-center gap-4 mb-6">
+<div class="bg-primary p-3 rounded-lg">
+<span class="material-symbols-outlined text-white text-2xl" data-icon="person_search">person_search</span>
+</div>
+<span class="font-label-sm text-on-primary-fixed-variant">04 / END-USER</span>
+</div>
+<h3 class="font-headline-md text-2xl text-primary mb-4">Consumer</h3>
+<p class="font-body-md text-on-primary-fixed-variant leading-relaxed">Consumer means the end user of a product. GASP will provide to consumers through media platforms education &amp; awareness of the need to shift from a Linear to a Recycling &amp; Circular Economy, including awareness of sustainable brands &amp; supply chain partners, and invitation to participate in environment impact activities. GASP will run behaviour change campaigns.</p>
+</div>
+<!-- 5. Business Community -->
+<div class="bg-surface-container-high rounded-xl p-8 border border-outline-variant hover:border-on-secondary-container transition-all duration-300 group"><img alt="Circular economy innovation" class="w-full h-48 object-cover rounded-lg mb-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmBcfmiLlUViRH3-sJ5vnAE1J-d6Y__B7fKGR-Fcq--yFGyoxIZgCLR3wMYwjMTqgoDoNuClthmE750OkG1MQqKzF8pRY39iH_pUP1jD8al841CiibuCg5if4VdUr06wImKg2QEe5kBKy7kMpHgSoL8IV1FGZd9GPWmgBv7bjErY3bvS8cu5LM108WDjvCmPn7DvmdSP6Gg3--hOxG56m2T_xWigO2NkIPljKsO6o6ACiwN0mdV2eF81pe49Kn4qQfcodggEgSouM"/>
+<div class="flex items-center gap-4 mb-6">
+<div class="bg-on-secondary-container p-3 rounded-lg">
+<span class="material-symbols-outlined text-white text-2xl" data-icon="lightbulb">lightbulb</span>
+</div>
+<span class="font-label-sm text-outline">05 / INNOVATION</span>
+</div>
+<h3 class="font-headline-md text-2xl text-primary mb-4">Business Community</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed">This community includes innovators in developing &amp; commercialising products made from post-consumer waste materials. GASP aims to support this community through the formation of a business development support mechanism.</p>
+</div>
+<!-- 6. General Public -->
+<div class="bg-secondary-container rounded-xl p-8 border border-outline-variant hover:border-secondary transition-all duration-300 group"><img alt="Public sustainability awareness" class="w-full h-48 object-cover rounded-lg mb-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoVh0U4qj6TQKNmrVX-aBFAtGk_iKiVh5yS8ozSmVS86zccS3nlTTovZOTnBWZp6fYGjis2clyqWbf-quKX3MCSzl5ti_XfRwHI-WXAHV_1_icgvIm8hiiZo9XWU9375moW8gnNqV27E8cUuZNFAfvLaMpjeXxkVSsByyljdFpI86coofThUhMGv6nh79YUaGQJKw7j93du-A1Y_ybW-k1gMtpcfqNz3ocxXEbcMrm1cCafWzr_uSwD_GNupru2wn5PCnDMpHwjPI"/>
+<div class="flex items-center gap-4 mb-6">
+<div class="bg-secondary-fixed-dim p-3 rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-fixed text-2xl" data-icon="groups">groups</span>
+</div>
+<span class="font-label-sm text-on-secondary-fixed-variant">06 / SOCIETY</span>
+</div>
+<h3 class="font-headline-md text-2xl text-primary mb-4">General Public</h3>
+<p class="font-body-md text-on-secondary-fixed-variant leading-relaxed">GASP will increase awareness &amp; education about how Uganda's environment can be improved by adopting Recycling &amp; Circular Economy Models, and showcase individuals, companies and regulators who are making this happen in Uganda.</p>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bg-primary-container py-32 overflow-hidden relative">
+<div class="max-w-7xl mx-auto px-8 relative z-10">
+<div class="max-w-3xl">
+<h2 class="font-headline-xl text-headline-xl text-white mb-8">Architect the next era of production.</h2>
+<p class="font-body-lg text-body-lg text-white/70 mb-12">We are currently accepting applications for the 2024 Global Partnership Cohort. Join a network of leaders committed to transforming industrial systems.</p>
+<div class="flex flex-col sm:flex-row gap-6">
+<button class="bg-secondary text-white px-10 py-5 rounded-full font-['Space_Grotesk'] font-bold text-lg hover:scale-105 transition-transform duration-200">
+                            Apply for Partnership
+                        </button>
+<button class="border border-white/30 text-white px-10 py-5 rounded-full font-['Space_Grotesk'] font-bold text-lg hover:bg-white/10 transition-colors">
+                            Download Partnership Kit
+                        </button>
+</div>
+</div>
+</div>
+<!-- Abstract circular motif background -->
+<div class="absolute -right-64 -bottom-64 w-[800px] h-[800px] border-[60px] border-emerald-500/10 rounded-full"></div>
+<div class="absolute -right-32 -bottom-32 w-[400px] h-[400px] border-[20px] border-emerald-500/5 rounded-full"></div>
+</section>
+<!-- Partners Marquee -->
+<section class="py-24 border-y border-outline-variant">
+<div class="max-w-7xl mx-auto px-8 mb-12">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-widest">TRUSTED BY INDUSTRY LEADERS</span>
+</div>
+<div class="flex overflow-hidden whitespace-nowrap">
+<div class="flex animate-marquee space-x-12 items-center text-primary/30 font-headline-md italic py-4">
+<span class="mx-12">BIO-LUMINA</span>
+<span class="mx-12">TERRA-FAB</span>
+<span class="mx-12">ORBITAL TEXTILES</span>
+<span class="mx-12">NOVA-THREADS</span>
+<span class="mx-12">CIRCULUS</span>
+<span class="mx-12">BIO-LUMINA</span>
+<span class="mx-12">TERRA-FAB</span>
+<span class="mx-12">ORBITAL TEXTILES</span>
+<span class="mx-12">NOVA-THREADS</span>
+<span class="mx-12">CIRCULUS</span>
+</div>
+</div>
+<style>
+                @keyframes marquee {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+                .animate-marquee {
+                    animation: marquee 30s linear infinite;
+                }
+                .animate-spin-slow {
+                    animation: spin 8s linear infinite;
+                }
+                @keyframes spin {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
+                }
+            </style>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0F2D21] w-full py-16 px-8 border-t border-white/5">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 max-w-7xl mx-auto">
+<div class="md:col-span-4">
+<div class="text-2xl font-black text-white mb-4 font-['Space_Grotesk']">GASP</div>
+<p class="text-white/40 font-['Space_Grotesk'] text-sm uppercase tracking-widest max-w-xs leading-relaxed">Defining the premium standard for regenerative industrial systems.</p>
+</div>
+<div class="md:col-span-2">
+<h4 class="text-white font-bold font-['Space_Grotesk'] text-sm uppercase tracking-widest mb-6">Navigation</h4>
+<ul class="space-y-4">
+<li><a class="text-white/40 hover:text-emerald-400 transition-colors font-['Space_Grotesk'] text-sm uppercase tracking-widest" href="#">Mission</a></li>
+<li><a class="text-white/40 hover:text-emerald-400 transition-colors font-['Space_Grotesk'] text-sm uppercase tracking-widest" href="#">Impact</a></li>
+<li><a class="text-white font-bold font-['Space_Grotesk'] text-sm uppercase tracking-widest" href="#">Partnerships</a></li>
+</ul>
+</div>
+<div class="md:col-span-2">
+<h4 class="text-white font-bold font-['Space_Grotesk'] text-sm uppercase tracking-widest mb-6">Legal</h4>
+<ul class="space-y-4">
+<li><a class="text-white/40 hover:text-emerald-400 transition-colors font-['Space_Grotesk'] text-sm uppercase tracking-widest" href="#">Privacy Policy</a></li>
+<li><a class="text-white/40 hover:text-emerald-400 transition-colors font-['Space_Grotesk'] text-sm uppercase tracking-widest" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div class="md:col-span-4">
+<h4 class="text-white font-bold font-['Space_Grotesk'] text-sm uppercase tracking-widest mb-6">Newsletter</h4>
+<div class="flex border-b border-white/20 pb-2">
+<input class="bg-transparent border-none text-white focus:ring-0 w-full placeholder:text-white/20 font-['Space_Grotesk']" placeholder="Email address" type="email"/>
+<button class="text-white hover:text-emerald-400 transition-colors">
+<span class="material-symbols-outlined" data-icon="arrow_right_alt">arrow_right_alt</span>
+</button>
+</div>
+</div>
+<div class="md:col-span-12 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-white/40 font-['Space_Grotesk'] text-sm uppercase tracking-widest">© 2024 Green Action for Sustainable Production. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="text-white/40 hover:text-white transition-colors font-['Space_Grotesk'] text-sm uppercase tracking-widest" href="#">Annual Report</a>
+<a class="text-white/40 hover:text-white transition-colors font-['Space_Grotesk'] text-sm uppercase tracking-widest" href="#">Media Kit</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
