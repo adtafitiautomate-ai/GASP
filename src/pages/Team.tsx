@@ -32,8 +32,8 @@ export default function Team() {
   const [leader, ...boardMembers] = teamMembers;
 
   return (
-    <div className="overflow-x-hidden bg-background pt-20 text-on-background">
-      <header className="relative overflow-hidden bg-primary-container px-8 pb-24 pt-40 text-white">
+    <div className="overflow-x-hidden bg-background text-on-background">
+      <header className="relative overflow-hidden bg-primary-container px-8 pb-24 pt-32 text-white">
         <div className="absolute inset-0 opacity-25" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #adcebc 1px, transparent 0)', backgroundSize: '36px 36px' }} />
         <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-14 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
@@ -102,3 +102,4 @@ export default function Team() {
     </div>
   );
 }
+

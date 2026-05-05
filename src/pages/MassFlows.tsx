@@ -2,7 +2,7 @@ import { TrendingDown, RefreshCw, Infinity as InfinityIcon } from 'lucide-react'
 
 const MassFlows = () => {
   return (
-    <div className="bg-background text-on-background font-body-md pt-20 selection:bg-primary-fixed selection:text-on-primary-fixed">
+    <div className="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
       {/* Hero Section */}
       <section className="relative min-h-[819px] flex flex-col justify-center overflow-hidden bg-primary-container py-32 px-8">
         <div 
@@ -200,4 +200,5 @@ const MassFlows = () => {
 };
 
 export default MassFlows;
+
 

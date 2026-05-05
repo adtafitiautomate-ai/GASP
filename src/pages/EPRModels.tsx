@@ -2,7 +2,7 @@ import { Recycle, ShieldCheck, Heart, Users, Handshake, FileCheck, Leaf, ArrowRi
 
 const EPRModels = () => {
   return (
-    <div className="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed pt-20">
+    <div className="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-primary-container">
         <div className="absolute inset-0 opacity-40">
@@ -200,4 +200,5 @@ const EPRModels = () => {
 };
 
 export default EPRModels;
+
 

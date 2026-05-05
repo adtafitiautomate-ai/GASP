@@ -21,8 +21,8 @@ export const eventVideo = defineType({
     }),
     defineField({
       name: 'youtubeId',
-      title: 'YouTube Video ID',
-      description: 'Example: for https://www.youtube.com/watch?v=abc123, enter abc123.',
+      title: 'YouTube Video URL or ID',
+      description: 'Paste a full YouTube URL like https://youtu.be/abc123 or enter only the 11-character video ID.',
       type: 'string',
       validation: (rule) => rule.required(),
     }),
@@ -60,3 +60,4 @@ export const eventVideo = defineType({
     },
   },
 })
+

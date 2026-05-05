@@ -2,7 +2,7 @@ import { Download, RefreshCw, Handshake, Users } from 'lucide-react';
 
 export default function Portfolio() {
   return (
-    <div className="pt-20">
+    <div>
       {/* Hero Section */}
       <header className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-primary-container">
         <div className="absolute inset-0 z-0">
@@ -144,13 +144,19 @@ export default function Portfolio() {
           <p className="font-body-lg text-body-lg text-on-primary-container mb-12">
             Access our full 2023-2030 Roadmap and Impact Framework. Discover how we're transforming production across the region.
           </p>
-          <button className="bg-secondary text-white px-12 py-5 rounded-full font-headline-md text-lg uppercase tracking-widest hover:scale-[1.05] transition-all shadow-2xl flex items-center gap-4 mx-auto">
+          <a
+            href="/docs/GASP Strategy Roadmap and Portfolio 2023-2030.pdf"
+            download="GASP Strategy Roadmap and Portfolio 2023-2030.pdf"
+            className="bg-secondary text-white px-12 py-5 rounded-full font-headline-md text-lg uppercase tracking-widest hover:scale-[1.05] transition-all shadow-2xl flex items-center gap-4 mx-auto w-fit"
+          >
             <Download className="w-6 h-6" />
             Download Portfolio
-          </button>
+          </a>
         </div>
       </section>
     </div>
   );
 }
+
+
 

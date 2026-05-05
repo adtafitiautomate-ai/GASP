@@ -2,9 +2,9 @@ import { MapPin, Mail, Phone, Link2, Share2, Globe2 } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <div className="pt-20">
+    <div>
       {/* Hero Section */}
-      <section className="px-8 py-32 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+      <section className="px-8 pb-32 pt-28 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
         <div className="space-y-8">
           <span className="font-label-sm text-label-sm text-on-primary-container uppercase tracking-widest bg-primary-fixed px-4 py-1 rounded-full">Contact Us</span>
           <h1 className="font-display-lg text-display-lg text-primary tracking-tighter">
@@ -71,11 +71,11 @@ export default function Contact() {
                   </div>
                   <div className="flex gap-4 items-start">
                     <Mail className="text-emerald-400 w-6 h-6 shrink-0" />
-                    <p className="font-body-md">hello@gasp.org</p>
+                    <p className="font-body-md">info@gasp.co.ug</p>
                   </div>
                   <div className="flex gap-4 items-start">
                     <Phone className="text-emerald-400 w-6 h-6 shrink-0" />
-                    <p className="font-body-md">+256 414 000 000</p>
+                    <p className="font-body-md">+256 753 444777</p>
                   </div>
                 </div>
               </div>
@@ -126,4 +126,6 @@ export default function Contact() {
     </div>
   );
 }
+
+
 

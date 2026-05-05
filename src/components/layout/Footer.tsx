@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Mail, Phone } from 'lucide-react';
-import { FaLinkedin, FaInstagram, FaTwitter, FaFacebook } from 'react-icons/fa';
+import { FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 export default function Footer() {
   return (
@@ -19,7 +20,7 @@ export default function Footer() {
               <FaLinkedin className="w-5 h-5" />
             </a>
             <a href="https://x.com/GASP_Uganda" target="_blank" rel="noreferrer" className="text-emerald-200/60 hover:text-white transition-colors">
-              <FaTwitter className="w-5 h-5" />
+              <FaXTwitter className="w-5 h-5" />
             </a>
             <a href="https://instagram.com/GASP_Uganda" target="_blank" rel="noreferrer" className="text-emerald-200/60 hover:text-white transition-colors">
               <FaInstagram className="w-5 h-5" />
@@ -74,3 +75,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /studio/
+
+Sitemap: https://gasp.co.ug/sitemap.xml

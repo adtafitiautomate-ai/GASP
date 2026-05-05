@@ -15,6 +15,7 @@ import Team from './pages/Team';
 import MassFlows from './pages/MassFlows';
 import EPRModels from './pages/EPRModels';
 import ScrollToTop from './components/layout/ScrollToTop';
+import SEO from './components/seo/SEO';
 
 const StudioPage = lazy(() => import('./pages/StudioPage'));
 
@@ -63,6 +64,7 @@ function AppShell() {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <SEO />
       {!isStudio && <Navbar />}
       {!isStudio && <ScrollToTop />}
       <AnimatedRoutes />
@@ -80,3 +82,4 @@ function App() {
 }
 
 export default App;
+

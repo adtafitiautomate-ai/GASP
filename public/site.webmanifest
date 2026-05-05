@@ -1,0 +1,17 @@
+{
+  "name": "GASP Uganda",
+  "short_name": "GASP",
+  "description": "Circular economy and extended producer responsibility systems in Uganda.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#063f2d",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png"
+    }
+  ]
+}
+

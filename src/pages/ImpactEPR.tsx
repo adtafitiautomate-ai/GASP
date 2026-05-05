@@ -2,7 +2,7 @@ import { Factory, Truck, Layers, Leaf, CheckCircle2, ShieldCheck, Globe, Recycle
 
 export default function ImpactEPR() {
   return (
-    <div className="pt-20">
+    <div>
       {/* Hero Section */}
       <section className="relative h-[819px] flex items-center overflow-hidden bg-primary-container">
         <div className="absolute inset-0 z-0">
@@ -229,4 +229,5 @@ export default function ImpactEPR() {
     </div>
   );
 }
+
 

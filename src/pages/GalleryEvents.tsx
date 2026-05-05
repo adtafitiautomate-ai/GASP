@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Grid, Play, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Grid, Play, X } from 'lucide-react';
 import { sanityClient } from '../sanity/lib/client';
 import { EVENT_IMAGES_QUERY, EVENT_VIDEOS_QUERY, type EventImage, type EventVideo } from '../sanity/lib/queries';
 
@@ -20,8 +20,36 @@ const fallbackVideos: EventVideo[] = [
   { _id: 'local-video-partner-network', title: 'Partner Network in Motion', event: 'Stakeholder Engagement', youtubeId: 'dQw4w9WgXcQ', thumbnail: '/images/portfolio feature image.jpg' },
 ];
 
+const IMAGES_PER_PAGE = 6;
+
+function getYouTubeId(value: string) {
+  const trimmed = value.trim();
+
+  if (/^[a-zA-Z0-9_-]{11}$/.test(trimmed)) {
+    return trimmed;
+  }
+
+  try {
+    const url = new URL(trimmed);
+
+    if (url.hostname.includes('youtu.be')) {
+      return url.pathname.split('/').filter(Boolean)[0] || '';
+    }
+
+    if (url.searchParams.has('v')) {
+      return url.searchParams.get('v') || '';
+    }
+
+    const embedMatch = url.pathname.match(/\/(embed|shorts)\/([a-zA-Z0-9_-]{11})/);
+    return embedMatch?.[2] || '';
+  } catch {
+    return '';
+  }
+}
+
 export default function GalleryEvents() {
   const [activeEvent, setActiveEvent] = useState('All Events');
+  const [currentPage, setCurrentPage] = useState(1);
   const [selectedAlbum, setSelectedAlbum] = useState<EventImage | null>(null);
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
   const [albums, setAlbums] = useState<EventImage[]>(fallbackAlbums);
@@ -44,7 +72,7 @@ export default function GalleryEvents() {
         }
 
         if (cmsVideos.length > 0) {
-          setVideos(cmsVideos.filter((video) => video.youtubeId));
+          setVideos(cmsVideos.filter((video) => getYouTubeId(video.youtubeId)));
         }
       } catch (error) {
         console.warn('Using local Events fallback content because Sanity content could not be loaded.', error);
@@ -60,6 +88,10 @@ export default function GalleryEvents() {
 
   const events = ['All Events', ...Array.from(new Set(albums.map((album) => album.event)))];
   const filteredAlbums = activeEvent === 'All Events' ? albums : albums.filter((album) => album.event === activeEvent);
+  const pageCount = Math.max(1, Math.ceil(filteredAlbums.length / IMAGES_PER_PAGE));
+  const visiblePage = Math.min(currentPage, pageCount);
+  const pageStart = (visiblePage - 1) * IMAGES_PER_PAGE;
+  const paginatedAlbums = filteredAlbums.slice(pageStart, pageStart + IMAGES_PER_PAGE);
 
   return (
     <div className="pt-20">
@@ -71,7 +103,7 @@ export default function GalleryEvents() {
               <span className="mb-6 inline-flex rounded-full bg-primary-fixed px-4 py-2 font-label-sm uppercase text-on-primary-fixed-variant">Event Albums</span>
               <h1 className="mb-8 font-display-lg text-5xl leading-none text-primary md:text-7xl">Capturing the circular movement.</h1>
               <p className="max-w-2xl font-body-lg text-lg leading-8 text-on-surface-variant">
-                Manage these images and videos from Sanity Studio, then they update on the website automatically.
+                Visual insights into our work and impact
               </p>
             </div>
             <div className="flex items-center gap-4 rounded-full border border-outline-variant bg-white px-5 py-3 text-primary shadow-sm">
@@ -88,7 +120,10 @@ export default function GalleryEvents() {
             <button
               key={event}
               type="button"
-              onClick={() => setActiveEvent(event)}
+              onClick={() => {
+                setActiveEvent(event);
+                setCurrentPage(1);
+              }}
               className={`shrink-0 rounded-full border px-5 py-3 font-label-sm uppercase transition-all ${
                 activeEvent === event
                   ? 'border-primary bg-primary text-white shadow-sm'
@@ -101,7 +136,7 @@ export default function GalleryEvents() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {filteredAlbums.map((album) => (
+          {paginatedAlbums.map((album) => (
             <button
               key={album._id}
               type="button"
@@ -118,6 +153,52 @@ export default function GalleryEvents() {
             </button>
           ))}
         </div>
+        {pageCount > 1 && (
+          <nav className="mt-12 flex flex-col items-center justify-between gap-5 rounded-[2rem] border border-outline-variant bg-white px-5 py-4 shadow-sm sm:flex-row" aria-label="Event image pages">
+            <p className="font-label-sm uppercase text-on-surface-variant">
+              Page {visiblePage} of {pageCount}
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <button
+                type="button"
+                onClick={() => setCurrentPage(Math.max(1, visiblePage - 1))}
+                disabled={visiblePage === 1}
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-outline-variant text-primary transition-all hover:border-primary hover:bg-primary hover:text-white disabled:pointer-events-none disabled:opacity-35"
+                aria-label="Previous image page"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+
+              {Array.from({ length: pageCount }, (_, index) => index + 1).map((page) => (
+                <button
+                  key={page}
+                  type="button"
+                  onClick={() => setCurrentPage(page)}
+                  className={`h-11 min-w-11 rounded-full px-4 font-label-sm transition-all ${
+                    visiblePage === page
+                      ? 'bg-primary text-white shadow-sm'
+                      : 'border border-outline-variant bg-white text-primary hover:border-primary hover:bg-primary-fixed'
+                  }`}
+                  aria-label={`Go to image page ${page}`}
+                  aria-current={visiblePage === page ? 'page' : undefined}
+                >
+                  {page}
+                </button>
+              ))}
+
+              <button
+                type="button"
+                onClick={() => setCurrentPage(Math.min(pageCount, visiblePage + 1))}
+                disabled={visiblePage === pageCount}
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-outline-variant text-primary transition-all hover:border-primary hover:bg-primary hover:text-white disabled:pointer-events-none disabled:opacity-35"
+                aria-label="Next image page"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
+          </nav>
+        )}
       </section>
 
       <section className="bg-surface-container py-28">
@@ -128,13 +209,14 @@ export default function GalleryEvents() {
               <h2 className="font-headline-xl text-4xl text-primary md:text-5xl">Event videos and impact stories.</h2>
             </div>
             <p className="max-w-md font-body-md text-on-surface-variant">
-              YouTube remains the source, but videos play embedded directly inside the website.
+              Stories, moments, and milestones from our journey.
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             {videos.map((video) => {
               const isPlaying = activeVideoId === video._id;
+              const youtubeId = getYouTubeId(video.youtubeId);
 
               return (
                 <article key={video._id} className="overflow-hidden rounded-2xl border border-outline-variant bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(0,23,14,0.12)]">
@@ -142,7 +224,7 @@ export default function GalleryEvents() {
                     {isPlaying ? (
                       <iframe
                         className="h-full w-full"
-                        src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
+                        src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
                         title={video.title}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerPolicy="strict-origin-when-cross-origin"
@@ -210,3 +292,8 @@ export default function GalleryEvents() {
     </div>
   );
 }
+
+
+
+
+

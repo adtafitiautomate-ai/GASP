@@ -2,7 +2,7 @@ import { Recycle, Leaf, Globe } from 'lucide-react';
 
 export default function MissionVision() {
   return (
-    <div className="pt-20">
+    <div>
       {/* Hero Section */}
       <section className="relative h-screen min-h-[800px] flex items-center overflow-hidden bg-primary-container">
         <div className="absolute inset-0 z-0">
@@ -207,4 +207,5 @@ export default function MissionVision() {
     </div>
   );
 }
+
 
