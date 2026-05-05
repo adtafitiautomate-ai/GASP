@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -15,6 +16,8 @@ import MassFlows from './pages/MassFlows';
 import EPRModels from './pages/EPRModels';
 import ScrollToTop from './components/layout/ScrollToTop';
 
+const StudioPage = lazy(() => import('./pages/StudioPage'));
+
 function AnimatedRoutes() {
   const location = useLocation();
 
@@ -22,13 +25,21 @@ function AnimatedRoutes() {
     <AnimatePresence mode="wait">
       <motion.main
         key={location.pathname}
-        initial={{ opacity: 0, y: 18, filter: 'blur(10px)' }}
-        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-        exit={{ opacity: 0, y: -12, filter: 'blur(8px)' }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
         transition={{ duration: 0.36, ease: [0.22, 1, 0.36, 1] }}
-        className="flex-grow"
+        className="flex-grow bg-background"
       >
         <Routes location={location}>
+          <Route
+            path="/studio/*"
+            element={
+              <Suspense fallback={<div className="grid min-h-screen place-items-center bg-white text-primary">Loading Studio...</div>}>
+                <StudioPage />
+              </Suspense>
+            }
+          />
           <Route path="/" element={<Home />} />
           <Route path="/mission" element={<MissionVision />} />
           <Route path="/impact" element={<ImpactEPR />} />
@@ -46,15 +57,24 @@ function AnimatedRoutes() {
   );
 }
 
+function AppShell() {
+  const location = useLocation();
+  const isStudio = location.pathname.startsWith('/studio');
+
+  return (
+    <div className="flex min-h-screen flex-col bg-background">
+      {!isStudio && <Navbar />}
+      {!isStudio && <ScrollToTop />}
+      <AnimatedRoutes />
+      {!isStudio && <Footer />}
+    </div>
+  );
+}
+
 function App() {
   return (
     <Router>
-      <ScrollToTop />
-      <div className="flex flex-col min-h-screen">
-        <Navbar />
-        <AnimatedRoutes />
-        <Footer />
-      </div>
+      <AppShell />
     </Router>
   );
 }

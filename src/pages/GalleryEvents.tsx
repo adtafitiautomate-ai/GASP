@@ -1,206 +1,212 @@
-import { Play, Grid, Filter } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Grid, Play, X } from 'lucide-react';
+import { sanityClient } from '../sanity/lib/client';
+import { EVENT_IMAGES_QUERY, EVENT_VIDEOS_QUERY, type EventImage, type EventVideo } from '../sanity/lib/queries';
+
+const fallbackAlbums: EventImage[] = [
+  { _id: 'local-gulu-kickoff', title: 'Gulu Marathon Kick-off', event: 'Gulu Marathon', image: '/images/Gulu marathon kick-off.jpg' },
+  { _id: 'local-community-outreach', title: 'Community Outreach', event: 'Community Outreach', image: '/images/community_outreach.jpg' },
+  { _id: 'local-circular-strategy', title: 'Circular Strategy Round', event: 'Stakeholder Engagement', image: '/images/portfolio feature image.jpg' },
+  { _id: 'local-recovery-education', title: 'Recovery Education', event: 'Awareness Campaign', image: '/images/elephant with plastic bottles recycle.jpg' },
+  { _id: 'local-marathon-start', title: 'Marathon Start', event: 'Gulu Marathon', image: '/images/marathon start.jpg' },
+  { _id: 'local-field-leadership', title: 'Field Leadership', event: 'Stakeholder Engagement', image: '/images/man standing on car with uganda flag.jpg' },
+  { _id: 'local-sorting-moment', title: 'Sorting Moment', event: 'Awareness Campaign', image: '/images/TRJ_8792.jpg' },
+  { _id: 'local-partner-activation', title: 'Partner Activation', event: 'Community Outreach', image: '/images/TRJ_8793.jpg' },
+];
+
+const fallbackVideos: EventVideo[] = [
+  { _id: 'local-video-circular-story', title: 'GASP Circular Economy Story', event: 'Impact Story', youtubeId: 'dQw4w9WgXcQ', thumbnail: '/images/circular economy.jpg' },
+  { _id: 'local-video-community', title: 'Community Action Highlights', event: 'Community Outreach', youtubeId: 'dQw4w9WgXcQ', thumbnail: '/images/community_outreach.jpg' },
+  { _id: 'local-video-partner-network', title: 'Partner Network in Motion', event: 'Stakeholder Engagement', youtubeId: 'dQw4w9WgXcQ', thumbnail: '/images/portfolio feature image.jpg' },
+];
 
 export default function GalleryEvents() {
+  const [activeEvent, setActiveEvent] = useState('All Events');
+  const [selectedAlbum, setSelectedAlbum] = useState<EventImage | null>(null);
+  const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
+  const [albums, setAlbums] = useState<EventImage[]>(fallbackAlbums);
+  const [videos, setVideos] = useState<EventVideo[]>(fallbackVideos);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadEventsContent() {
+      try {
+        const [cmsAlbums, cmsVideos] = await Promise.all([
+          sanityClient.fetch<EventImage[]>(EVENT_IMAGES_QUERY),
+          sanityClient.fetch<EventVideo[]>(EVENT_VIDEOS_QUERY),
+        ]);
+
+        if (!isMounted) return;
+
+        if (cmsAlbums.length > 0) {
+          setAlbums(cmsAlbums.filter((album) => album.image));
+        }
+
+        if (cmsVideos.length > 0) {
+          setVideos(cmsVideos.filter((video) => video.youtubeId));
+        }
+      } catch (error) {
+        console.warn('Using local Events fallback content because Sanity content could not be loaded.', error);
+      }
+    }
+
+    loadEventsContent();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const events = ['All Events', ...Array.from(new Set(albums.map((album) => album.event)))];
+  const filteredAlbums = activeEvent === 'All Events' ? albums : albums.filter((album) => album.event === activeEvent);
+
   return (
     <div className="pt-20">
-      {/* Hero Section */}
-      <section className="relative pt-40 pb-24 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary-container/10 to-background"></div>
-        </div>
-        <div className="max-w-7xl mx-auto px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row items-end justify-between gap-12">
-            <div className="lg:w-2/3">
-              <h1 className="font-display-lg text-display-lg text-primary mb-8">
-                Capturing the Circular Movement
-              </h1>
-              <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-                Through the lens of environmental urgency and technological precision, we document the evolution of Ugandan recycling and community-led circular economy initiatives.
+      <section className="relative overflow-hidden px-8 pb-24 pt-40">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary-container/10 to-background" />
+        <div className="relative z-10 mx-auto max-w-7xl">
+          <div className="flex flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-4xl">
+              <span className="mb-6 inline-flex rounded-full bg-primary-fixed px-4 py-2 font-label-sm uppercase text-on-primary-fixed-variant">Event Albums</span>
+              <h1 className="mb-8 font-display-lg text-5xl leading-none text-primary md:text-7xl">Capturing the circular movement.</h1>
+              <p className="max-w-2xl font-body-lg text-lg leading-8 text-on-surface-variant">
+                Manage these images and videos from Sanity Studio, then they update on the website automatically.
               </p>
             </div>
-            <div className="flex gap-4">
-              <div className="text-right">
-                <p className="font-headline-md text-headline-md text-primary-container">12.4k</p>
-                <p className="font-label-sm text-label-sm uppercase text-outline">Images Captured</p>
-              </div>
-              <div className="w-px h-12 bg-outline-variant"></div>
-              <div className="text-right">
-                <p className="font-headline-md text-headline-md text-primary-container">85+</p>
-                <p className="font-label-sm text-label-sm uppercase text-outline">Workshops Held</p>
-              </div>
+            <div className="flex items-center gap-4 rounded-full border border-outline-variant bg-white px-5 py-3 text-primary shadow-sm">
+              <Grid className="h-5 w-5 text-secondary" />
+              <span className="font-label-sm uppercase">{filteredAlbums.length} images</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Marquee Loop */}
-      <div className="w-full bg-primary-container py-6 overflow-hidden flex whitespace-nowrap mb-32">
-        <div className="flex animate-[marquee_30s_linear_infinite] gap-12 text-on-primary-container font-headline-md uppercase tracking-widest opacity-80">
-          <span>Circular Economy</span>
-          <span>•</span>
-          <span>Uganda Regeneration</span>
-          <span>•</span>
-          <span>Impact Stories</span>
-          <span>•</span>
-          <span>Sustainable Future</span>
-          <span>•</span>
-          <span>Circular Economy</span>
-          <span>•</span>
-          <span>Uganda Regeneration</span>
+      <section className="mx-auto max-w-7xl px-8 pb-28">
+        <div className="mb-10 flex gap-3 overflow-x-auto pb-2">
+          {events.map((event) => (
+            <button
+              key={event}
+              type="button"
+              onClick={() => setActiveEvent(event)}
+              className={`shrink-0 rounded-full border px-5 py-3 font-label-sm uppercase transition-all ${
+                activeEvent === event
+                  ? 'border-primary bg-primary text-white shadow-sm'
+                  : 'border-outline-variant bg-white text-on-surface-variant hover:border-primary hover:text-primary'
+              }`}
+            >
+              {event}
+            </button>
+          ))}
         </div>
-      </div>
 
-      {/* Section 1: Photo Gallery (Masonry Layout) */}
-      <section className="max-w-7xl mx-auto px-8 mb-40">
-        <div className="flex justify-between items-center mb-16">
-          <div>
-            <span className="bg-surface-container-highest px-4 py-1 rounded-full font-label-sm text-primary mb-4 inline-block">THE GALLERY</span>
-            <h2 className="font-headline-xl text-headline-xl text-primary">Visualizing Resilience</h2>
-          </div>
-          <div className="flex gap-4">
-            <button className="w-12 h-12 rounded-full border border-outline flex items-center justify-center hover:bg-primary-container hover:text-white transition-all">
-              <Grid className="w-5 h-5" />
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {filteredAlbums.map((album) => (
+            <button
+              key={album._id}
+              type="button"
+              onClick={() => setSelectedAlbum(album)}
+              className="group overflow-hidden rounded-2xl border border-outline-variant bg-white text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(0,23,14,0.12)]"
+            >
+              <div className="aspect-[4/3] overflow-hidden bg-surface-variant">
+                <img className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0" alt={album.alt || album.title} src={album.image} />
+              </div>
+              <div className="p-5">
+                <span className="mb-3 inline-flex rounded-full bg-primary-fixed px-3 py-1 font-label-sm uppercase text-on-primary-fixed-variant">{album.event}</span>
+                <h3 className="font-headline-md text-xl text-primary">{album.title}</h3>
+              </div>
             </button>
-            <button className="w-12 h-12 rounded-full border border-outline flex items-center justify-center hover:bg-primary-container hover:text-white transition-all">
-              <Filter className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[250px]">
-          {/* 1. Tall Item */}
-          <div className="lg:row-span-2 group relative overflow-hidden rounded-xl border border-outline-variant">
-            <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110" alt="Sorting Hub A-12" src="/images/elephant with plastic bottles recycle.jpg"/>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
-              <span className="text-white font-label-sm mb-2">INDUSTRIAL PRECISION</span>
-              <h3 className="text-white font-headline-md text-xl">Sorting Hub A-12</h3>
-            </div>
-          </div>
-          
-          {/* 2. Standard Item */}
-          <div className="group relative overflow-hidden rounded-xl border border-outline-variant">
-            <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110" alt="Material Innovation" src="/images/TRJ_8792.jpg"/>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
-              <span className="text-white font-label-sm mb-2">WORKSHOPS</span>
-              <h3 className="text-white font-headline-md text-xl">Material Innovation</h3>
-            </div>
-          </div>
-          
-          {/* 3. Wide Item */}
-          <div className="md:col-span-2 group relative overflow-hidden rounded-xl border border-outline-variant">
-            <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110" alt="Circular Strategy Round" src="/images/portfolio feature image.jpg"/>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
-              <span className="text-white font-label-sm mb-2">COMMUNITY</span>
-              <h3 className="text-white font-headline-md text-xl">Circular Strategy Round</h3>
-            </div>
-          </div>
-          
-          {/* 4. Standard Item */}
-          <div className="group relative overflow-hidden rounded-xl border border-outline-variant">
-            <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110" alt="Riverbed Recovery" src="/images/Gulu marathon kick-off.jpg"/>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
-              <span className="text-white font-label-sm mb-2">ACTION</span>
-              <h3 className="text-white font-headline-md text-xl">Riverbed Recovery</h3>
-            </div>
-          </div>
-          
-          {/* 5. Tall Item */}
-          <div className="lg:row-span-2 group relative overflow-hidden rounded-xl border border-outline-variant">
-            <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110" alt="Efficiency Tracking" src="/images/TRJ_8793.jpg"/>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
-              <span className="text-white font-label-sm mb-2">DATA</span>
-              <h3 className="text-white font-headline-md text-xl">Efficiency Tracking</h3>
-            </div>
-          </div>
-          
-          {/* 6. Standard Item */}
-          <div className="group relative overflow-hidden rounded-xl border border-outline-variant">
-            <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110" alt="Regeneration Voices" src="/images/man standing on car with uganda flag.jpg"/>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
-              <span className="text-white font-label-sm mb-2">LEADERSHIP</span>
-              <h3 className="text-white font-headline-md text-xl">Regeneration Voices</h3>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* Section 2: Media & Videos */}
-      <section className="bg-surface-container py-32">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
+      <section className="bg-surface-container py-28">
+        <div className="mx-auto max-w-7xl px-8">
+          <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
-              <span className="bg-primary-container text-on-primary-container px-4 py-1 rounded-full font-label-sm mb-4 inline-block">FILM & MEDIA</span>
-              <h2 className="font-headline-xl text-headline-xl text-primary">Documenting Change</h2>
+              <span className="mb-4 inline-flex rounded-full bg-primary-container px-4 py-2 font-label-sm uppercase text-on-primary-container">Videos</span>
+              <h2 className="font-headline-xl text-4xl text-primary md:text-5xl">Event videos and impact stories.</h2>
             </div>
-            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-md">
-              Watch our latest documentaries and impact stories detailing the transition to sustainable production systems across East Africa.
+            <p className="max-w-md font-body-md text-on-surface-variant">
+              YouTube remains the source, but videos play embedded directly inside the website.
             </p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Video Card 1 */}
-            <div className="group cursor-pointer">
-              <div className="relative aspect-video rounded-xl overflow-hidden mb-6 border border-outline-variant">
-                <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="The Kampala Loop" src="/images/elephant with plastic bottles recycle.jpg"/>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-20 h-20 bg-secondary/90 text-on-secondary rounded-full flex items-center justify-center backdrop-blur-md group-hover:scale-110 transition-transform">
-                    <Play className="w-8 h-8 fill-current" />
+
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+            {videos.map((video) => {
+              const isPlaying = activeVideoId === video._id;
+
+              return (
+                <article key={video._id} className="overflow-hidden rounded-2xl border border-outline-variant bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(0,23,14,0.12)]">
+                  <div className="relative aspect-video overflow-hidden bg-primary-container">
+                    {isPlaying ? (
+                      <iframe
+                        className="h-full w-full"
+                        src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
+                        title={video.title}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => setActiveVideoId(video._id)}
+                        className="group/video relative h-full w-full text-left"
+                        aria-label={`Play ${video.title}`}
+                      >
+                        <img src={video.thumbnail || '/images/circular economy.jpg'} alt={video.alt || video.title} className="h-full w-full object-cover grayscale transition-all duration-700 group-hover/video:scale-105 group-hover/video:grayscale-0" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-primary-container/90 via-primary-container/24 to-transparent" />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <span className="flex h-20 w-20 items-center justify-center rounded-full border border-white/25 bg-white/14 text-white shadow-[0_18px_60px_rgba(0,23,14,0.34)] backdrop-blur-xl transition-all duration-300 group-hover/video:scale-105 group-hover/video:bg-secondary">
+                            <Play className="ml-1 h-8 w-8 fill-current" />
+                          </span>
+                        </div>
+                        <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+                          <span className="font-label-sm uppercase text-white/72">Watch on page</span>
+                        </div>
+                      </button>
+                    )}
                   </div>
-                </div>
-              </div>
-              <div className="flex justify-between items-start">
-                <div>
-                  <h4 className="font-headline-md text-2xl text-primary mb-2">The Kampala Loop: A Documentary</h4>
-                  <p className="font-body-md text-on-surface-variant">Exploring the intricate web of formal and informal recycling economies in Uganda's capital.</p>
-                </div>
-                <span className="font-label-sm text-outline border border-outline px-3 py-1 rounded-full">24:15</span>
-              </div>
-            </div>
-            
-            {/* Video Card 2 */}
-            <div className="group cursor-pointer">
-              <div className="relative aspect-video rounded-xl overflow-hidden mb-6 border border-outline-variant">
-                <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Bio-Tech & The Circular Link" src="/images/community_outreach.jpg"/>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-20 h-20 bg-secondary/90 text-on-secondary rounded-full flex items-center justify-center backdrop-blur-md group-hover:scale-110 transition-transform">
-                    <Play className="w-8 h-8 fill-current" />
+                  <div className="p-6">
+                    <div className="mb-4 flex items-center gap-2 text-secondary">
+                      <Play className="h-4 w-4 fill-current" />
+                      <span className="font-label-sm uppercase">{video.event}</span>
+                    </div>
+                    <h3 className="font-headline-md text-2xl text-primary">{video.title}</h3>
                   </div>
-                </div>
-              </div>
-              <div className="flex justify-between items-start">
-                <div>
-                  <h4 className="font-headline-md text-2xl text-primary mb-2">Bio-Tech & The Circular Link</h4>
-                  <p className="font-body-md text-on-surface-variant">A technical look at how we utilize biological systems to regenerate industrial materials.</p>
-                </div>
-                <span className="font-label-sm text-outline border border-outline px-3 py-1 rounded-full">12:08</span>
-              </div>
-            </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Impact Stats CTA */}
-      <section className="max-w-7xl mx-auto px-8 my-40">
-        <div className="bg-primary-container rounded-3xl p-16 flex flex-col lg:flex-row items-center justify-between gap-12 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-          <div className="relative z-10 lg:w-1/2">
-            <h2 className="font-display-lg text-4xl text-on-primary-container mb-6">Experience the action firsthand.</h2>
-            <p className="text-on-primary-container/80 text-body-lg mb-8">Join our next circular workshop or community event and become part of the movement redefining production.</p>
-            <button className="bg-secondary text-on-secondary px-10 py-4 rounded-full font-headline-md hover:scale-105 active:scale-95 transition-all flex items-center gap-4 text-sm uppercase">
-              Register for Events
-            </button>
-          </div>
-          <div className="grid grid-cols-2 gap-8 relative z-10 w-full lg:w-auto">
-            <div className="bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-2xl">
-              <h3 className="text-on-primary-container font-display-lg text-5xl mb-2">12</h3>
-              <p className="text-on-primary-container/60 font-label-sm uppercase tracking-widest">Upcoming Events</p>
-            </div>
-            <div className="bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-2xl">
-              <h3 className="text-on-primary-container font-display-lg text-5xl mb-2">45k</h3>
-              <p className="text-on-primary-container/60 font-label-sm uppercase tracking-widest">Active Members</p>
-            </div>
-          </div>
+      {selectedAlbum && (
+        <div
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-black/88 p-4 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setSelectedAlbum(null)}
+        >
+          <button
+            type="button"
+            aria-label="Close image viewer"
+            onClick={() => setSelectedAlbum(null)}
+            className="absolute right-5 top-5 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/12 text-white backdrop-blur-xl transition-all hover:bg-white/24"
+          >
+            <X className="h-5 w-5" />
+          </button>
+
+          <figure className="relative max-h-[90vh] max-w-[92vw]" onClick={(event) => event.stopPropagation()}>
+            <img src={selectedAlbum.image} alt={selectedAlbum.alt || selectedAlbum.title} className="max-h-[90vh] max-w-[92vw] object-contain shadow-[0_30px_100px_rgba(0,0,0,0.45)]" />
+            <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/78 via-black/26 to-transparent p-6 text-white">
+              <span className="mb-2 block font-label-sm uppercase text-white/72">{selectedAlbum.event}</span>
+              <h2 className="font-headline-md text-2xl sm:text-3xl">{selectedAlbum.title}</h2>
+            </figcaption>
+          </figure>
         </div>
-      </section>
+      )}
     </div>
   );
 }

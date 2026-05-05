@@ -9,7 +9,7 @@ export default function MissionVision() {
           <img 
             className="w-full h-full object-cover opacity-60 grayscale-[0.2]" 
             alt="Ugandan landscape" 
-            src="/images/TRJ_8792.jpg"
+            src="/images/mission feature image.jpg"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary-container via-primary-container/40 to-transparent"></div>
         </div>
@@ -77,7 +77,7 @@ export default function MissionVision() {
               <img 
                 className="absolute inset-0 w-full h-full object-cover opacity-20 transition-transform duration-700 group-hover:scale-110" 
                 alt="Regenerative Sourcing" 
-                src="/images/elephant with plastic bottles recycle.jpg"
+                src="/images/Regenerative Sourcing.jpg"
               />
               <div className="relative z-10 flex flex-col h-full justify-between text-white">
                 <Leaf className="w-10 h-10" />
@@ -118,7 +118,7 @@ export default function MissionVision() {
             className="w-full h-full object-cover opacity-30" 
             style={{ maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, black 80%, transparent 100%)" }}
             alt="Strategic Vision" 
-            src="/images/TRJ_8793.jpg"
+            src="/images/the loop of prosperity.jpg"
           />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-8">
@@ -207,3 +207,4 @@ export default function MissionVision() {
     </div>
   );
 }
+

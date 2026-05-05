@@ -6,7 +6,7 @@ export default function Portfolio() {
       {/* Hero Section */}
       <header className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-primary-container">
         <div className="absolute inset-0 z-0">
-          <img className="w-full h-full object-cover opacity-30 mix-blend-overlay" alt="Uganda aerial landscape" src="/images/Gulu marathon kick-off.jpg"/>
+          <img className="w-full h-full object-cover opacity-30 mix-blend-overlay" alt="Uganda aerial landscape" src="/images/portfolio feature image.jpg"/>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-8 py-24">
           <div className="max-w-3xl">
@@ -137,7 +137,7 @@ export default function Portfolio() {
       {/* Call to Action */}
       <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-primary-container">
-          <img className="w-full h-full object-cover opacity-20" alt="Sustainable Ugandan plantation" src="/images/TRJ_8792.jpg"/>
+          <img className="w-full h-full object-cover opacity-20" alt="Sustainable Ugandan plantation" src="/images/circular economy.jpg"/>
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-8 text-center text-white">
           <h2 className="font-display-lg text-headline-xl md:text-display-lg mb-12">Join the Circular Revolution.</h2>
@@ -153,3 +153,4 @@ export default function Portfolio() {
     </div>
   );
 }
+

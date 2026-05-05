@@ -15,7 +15,7 @@ export default function Contact() {
           </p>
         </div>
         <div className="relative h-[500px] w-full rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
-          <img className="w-full h-full object-cover" alt="Sustainable office" src="/images/portfolio feature image.jpg"/>
+          <img className="w-full h-full object-cover" alt="Sustainable office" src="/images/mission feature image.jpg"/>
         </div>
       </section>
 
@@ -81,7 +81,7 @@ export default function Contact() {
               </div>
 
               <div className="h-64 rounded-xl overflow-hidden border border-white/10 relative">
-                <img className="w-full h-full object-cover opacity-80" alt="Kampala Industrial Area" src="/images/TRJ_8792.jpg"/>
+                <img className="w-full h-full object-cover opacity-80" alt="Kampala Industrial Area" src="/images/Importer.png"/>
                 <div className="absolute inset-0 bg-primary-container/40 flex items-center justify-center">
                   <a className="bg-white text-primary px-4 py-2 rounded-full font-label-sm text-label-sm uppercase tracking-widest flex items-center gap-2 hover:scale-105 transition-transform" href="#">
                     <MapPin className="w-4 h-4" />
@@ -126,3 +126,4 @@ export default function Contact() {
     </div>
   );
 }
+

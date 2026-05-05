@@ -53,7 +53,7 @@ export default function VideoHero() {
           className="max-w-3xl pb-24"
         >
           <span className="mb-6 inline-block rounded-full border border-white/18 bg-white/12 px-4 py-2 font-label-sm uppercase tracking-widest text-white shadow-sm backdrop-blur-xl">
-            Uganda Circular Initiative
+            Uganda's First EPR
           </span>
           <h1 className="mb-8 max-w-4xl font-display-lg text-[clamp(3.25rem,8vw,6.8rem)] leading-[0.94] text-white">
             Accelerating Uganda's Transition to a Circular Economy.

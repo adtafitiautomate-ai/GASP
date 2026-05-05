@@ -34,7 +34,7 @@ const MassFlows = () => {
         {/* Decorative Visual Flow */}
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-full hidden lg:block opacity-40">
           <img 
-            src="/images/TRJ_8799.jpg" 
+            src="/images/the loop of prosperity.jpg" 
             alt="Data streams" 
             className="w-full h-full object-cover grayscale opacity-50 mix-blend-screen" 
           />
@@ -73,7 +73,7 @@ const MassFlows = () => {
             </div>
             <div className="mt-auto pt-8 border-t border-outline-variant/30">
               <img 
-                src="/images/TRJ_8792.jpg" 
+                src="/images/linear economy.png" 
                 alt="Linear Economy" 
                 className="w-full h-48 object-cover rounded grayscale" 
               />
@@ -95,7 +95,7 @@ const MassFlows = () => {
             </div>
             <div className="mt-auto pt-8 border-t border-outline-variant/30">
               <img 
-                src="/images/elephant with plastic bottles recycle.jpg" 
+                src="/images/recycling economy.jpg" 
                 alt="Recycling Economy" 
                 className="w-full h-48 object-cover rounded grayscale" 
               />
@@ -117,7 +117,7 @@ const MassFlows = () => {
             </div>
             <div className="mt-auto pt-8 border-t border-emerald-900">
               <img 
-                src="/images/TRJ_8801.jpg" 
+                src="/images/circular economy.jpg" 
                 alt="Circular Economy" 
                 className="w-full h-48 object-cover rounded brightness-110 contrast-110" 
               />
@@ -165,7 +165,7 @@ const MassFlows = () => {
             <div className="md:col-span-7 relative">
               <div className="aspect-[4/5] bg-surface-container rounded-3xl overflow-hidden relative group">
                 <img 
-                  src="/images/TRJ_8793.jpg" 
+                  src="/images/circular economy.jpg" 
                   alt="Integrated Supply Chain" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                 />
@@ -200,3 +200,4 @@ const MassFlows = () => {
 };
 
 export default MassFlows;
+

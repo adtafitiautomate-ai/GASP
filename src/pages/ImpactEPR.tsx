@@ -9,7 +9,7 @@ export default function ImpactEPR() {
           <img 
             className="w-full h-full object-cover opacity-40 mix-blend-luminosity" 
             alt="Hero Background" 
-            src="/images/Gulu marathon kick-off.jpg"
+            src="/images/impact feature pic.jpg"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-primary-container via-transparent to-transparent"></div>
         </div>
@@ -112,7 +112,7 @@ export default function ImpactEPR() {
             <img 
               className="w-full h-full object-cover opacity-60" 
               alt="Global Reach Map" 
-              src="/images/portfolio feature image.jpg"
+              src="/images/circular economy.jpg"
             />
             <div className="absolute bottom-8 left-8 glass-panel p-6 rounded-lg max-w-xs backdrop-blur-xl bg-white/30 border border-white/20 shadow-xl">
               <h4 className="font-headline-md text-headline-md mb-2 text-primary">Global Reach</h4>
@@ -180,33 +180,33 @@ export default function ImpactEPR() {
       {/* Transparency & Reporting */}
       <section className="py-section-padding px-8 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center">
         <div>
-          <h2 className="font-headline-xl text-headline-xl mb-stack-md">Live Accountability Dashboard</h2>
+          <h2 className="font-headline-xl text-headline-xl mb-stack-md">Shared Responsibility for Sustainable Outcomes</h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg">
-            We believe in radical transparency. Our dashboard provides real-time access to the tonnage of waste processed, the energy consumed in recycling, and the exact destination of regenerated outputs.
+            Our Extended Producer Responsibility (EPR) model ensures that producers take accountability for the lifecycle of their products.We work with organizations to:
           </p>
           <ul className="space-y-4 mb-stack-lg">
             <li className="flex items-center gap-4 py-4 border-b border-outline-variant">
               <CheckCircle2 className="w-6 h-6 text-emerald-600" />
-              <span className="font-body-md font-bold">Third-party Audited Impact Reports</span>
+              <span className="font-body-md font-bold">Track material flows</span>
             </li>
             <li className="flex items-center gap-4 py-4 border-b border-outline-variant">
               <ShieldCheck className="w-6 h-6 text-emerald-600" />
-              <span className="font-body-md font-bold">Immutable Ledger Tracking</span>
+              <span className="font-body-md font-bold">Ensure compliance with environmental regulations</span>
             </li>
             <li className="flex items-center gap-4 py-4 border-b border-outline-variant">
               <Globe className="w-6 h-6 text-emerald-600" />
-              <span className="font-body-md font-bold">Open Data API for Partners</span>
+              <span className="font-body-md font-bold">Build sustainable waste management systems</span>
             </li>
           </ul>
           <button className="bg-primary text-on-primary px-10 py-4 rounded-full font-label-sm uppercase hover:scale-105 transition-transform">
-            View Live Dashboard
+            View Portfolio
           </button>
         </div>
         <div className="bg-surface-container rounded-3xl p-stack-md aspect-square flex items-center justify-center relative">
           <img 
             className="w-full h-full object-cover rounded-2xl" 
             alt="Dashboard visual" 
-            src="/images/marathon start.jpg" 
+            src="/images/recycling economy.jpg" 
           />
         </div>
       </section>
@@ -229,3 +229,4 @@ export default function ImpactEPR() {
     </div>
   );
 }
+

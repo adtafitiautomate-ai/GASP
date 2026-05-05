@@ -1,4 +1,5 @@
 import VideoHero from '../components/home/VideoHero';
+import LogoMarquee from '../components/LogoMarquee';
 import { ArrowRight, Recycle, RefreshCw } from 'lucide-react';
 
 export default function Home() {
@@ -27,6 +28,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <LogoMarquee eyebrow="GASP Partner Network" />
 
       {/* Core Pillars */}
       <section className="py-section-padding bg-surface-container">
@@ -122,9 +125,9 @@ export default function Home() {
                 <button className="bg-primary-container text-white px-10 py-5 rounded-full font-bold hover:scale-[1.02] transition-all">
                   Become a Partner
                 </button>
-                <button className="bg-white text-primary px-10 py-5 rounded-full font-bold border border-outline-variant hover:bg-surface transition-all">
+                <a href="/docs/GASP%20Strategy%20Roadmap%20and%20Portfolio%202023-2030.pdf" download className="bg-white text-primary px-10 py-5 rounded-full font-bold border border-outline-variant hover:bg-surface transition-all">
                   Download Portfolio
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -133,3 +136,6 @@ export default function Home() {
     </>
   );
 }
+
+
+

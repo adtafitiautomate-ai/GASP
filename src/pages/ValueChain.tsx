@@ -62,7 +62,7 @@ export default function ValueChain() {
           </div>
           <div className="md:col-span-7 order-1 md:order-2">
             <div className="aspect-[16/9] w-full overflow-hidden rounded-xl border border-outline-variant">
-              <img className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Raw Materials" src="/images/TRJ_8792.jpg"/>
+              <img className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Raw Materials" src="/images/Raw Material Suppliers.png"/>
             </div>
           </div>
         </div>
@@ -71,7 +71,7 @@ export default function ValueChain() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
           <div className="md:col-span-7">
             <div className="aspect-[16/9] w-full overflow-hidden rounded-xl border border-outline-variant">
-              <img className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Convertors" src="/images/portfolio feature image.jpg"/>
+              <img className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Convertors" src="/images/Convetor.png"/>
             </div>
           </div>
           <div className="md:col-span-5 md:pl-12">
@@ -109,7 +109,7 @@ export default function ValueChain() {
             <h3 className="font-headline-md text-headline-md text-primary-container mb-4">Manufacturers</h3>
             <p className="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Primary producers creating final consumer goods using circular design principles.</p>
             <div className="h-40 overflow-hidden rounded-lg mb-6">
-              <img className="w-full h-full object-cover" alt="Manufacturers" src="/images/Gulu marathon kick-off.jpg"/>
+              <img className="w-full h-full object-cover" alt="Manufacturers" src="/images/Manufacturers.png"/>
             </div>
             <ul className="text-sm space-y-2 text-on-surface-variant">
               <li>• Modular design for repairability</li>
@@ -127,7 +127,7 @@ export default function ValueChain() {
             <h3 className="font-headline-md text-headline-md text-primary-container mb-4">Packers</h3>
             <p className="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Entities responsible for primary and secondary packaging of finished goods.</p>
             <div className="h-40 overflow-hidden rounded-lg mb-6">
-              <img className="w-full h-full object-cover" alt="Packers" src="/images/TRJ_8793.jpg"/>
+              <img className="w-full h-full object-cover" alt="Packers" src="/images/Packers.png"/>
             </div>
             <ul className="text-sm space-y-2 text-on-surface-variant">
               <li>• Zero-plastic packaging mandates</li>
@@ -145,7 +145,7 @@ export default function ValueChain() {
             <h3 className="font-headline-md text-headline-md text-primary-container mb-4">Fillers</h3>
             <p className="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">High-speed processing facilities that integrate products into containers.</p>
             <div className="h-40 overflow-hidden rounded-lg mb-6">
-              <img className="w-full h-full object-cover" alt="Fillers" src="/images/marathon start.jpg"/>
+              <img className="w-full h-full object-cover" alt="Fillers" src="/images/Filler.png"/>
             </div>
             <ul className="text-sm space-y-2 text-on-surface-variant">
               <li>• Closed-loop water filtration systems</li>
@@ -171,7 +171,7 @@ export default function ValueChain() {
           </div>
           <div className="md:col-span-7 order-1 md:order-2">
             <div className="aspect-video w-full overflow-hidden rounded-xl">
-              <img className="w-full h-full object-cover" alt="Importers" src="/images/man standing on car with uganda flag.jpg"/>
+              <img className="w-full h-full object-cover" alt="Importers" src="/images/Importer.png"/>
             </div>
           </div>
         </div>
@@ -180,7 +180,7 @@ export default function ValueChain() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
           <div className="md:col-span-7">
             <div className="aspect-video w-full overflow-hidden rounded-xl">
-              <img className="w-full h-full object-cover" alt="Retail Traders" src="/images/TRJ_8792.jpg"/>
+              <img className="w-full h-full object-cover" alt="Retail Traders" src="/images/Retail Traders.png"/>
             </div>
           </div>
           <div className="md:col-span-5 md:pl-12">
@@ -221,7 +221,7 @@ export default function ValueChain() {
                 <span className="text-xs uppercase tracking-widest text-on-primary-container">FIXED RATE</span>
               </div>
               <div className="h-64 rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
-                <img className="w-full h-full object-cover" alt="Waste Collectors" src="/images/elephant with plastic bottles recycle.jpg"/>
+                <img className="w-full h-full object-cover" alt="Waste Collectors" src="/images/Waste Collectors.png"/>
               </div>
               <h3 className="font-headline-md text-2xl">Waste Collectors</h3>
               <p className="text-on-primary-container text-sm leading-relaxed">Infrastructure for the systematic gathering of post-consumer materials from urban and industrial centers.</p>
@@ -233,7 +233,7 @@ export default function ValueChain() {
                 <span className="text-xs uppercase tracking-widest text-on-primary-container">ANNUAL VOLUME</span>
               </div>
               <div className="h-64 rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
-                <img className="w-full h-full object-cover" alt="Waste Sorters" src="/images/community_outreach.jpg"/>
+                <img className="w-full h-full object-cover" alt="Waste Sorters" src="/images/Waste Sorters.png"/>
               </div>
               <h3 className="font-headline-md text-2xl">Waste Sorters</h3>
               <p className="text-on-primary-container text-sm leading-relaxed">High-tech facilities utilizing AI and optical sorting to purify material streams for high-grade recycling.</p>
@@ -245,7 +245,7 @@ export default function ValueChain() {
                 <span className="text-xs uppercase tracking-widest text-on-primary-container">ANNUAL VOLUME</span>
               </div>
               <div className="h-64 rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
-                <img className="w-full h-full object-cover" alt="Waste Recyclers" src="/images/Gulu marathon kick-off.jpg"/>
+                <img className="w-full h-full object-cover" alt="Waste Recyclers" src="/images/Waste Recyclers.png"/>
               </div>
               <h3 className="font-headline-md text-2xl">Waste Recyclers</h3>
               <p className="text-on-primary-container text-sm leading-relaxed">Processing centers that convert sorted waste back into industry-ready raw materials, completing the circle.</p>
@@ -267,3 +267,5 @@ export default function ValueChain() {
     </div>
   );
 }
+
+

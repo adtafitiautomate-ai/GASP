@@ -7,7 +7,7 @@ const EPRModels = () => {
       <section className="relative min-h-screen flex items-center overflow-hidden bg-primary-container">
         <div className="absolute inset-0 opacity-40">
           <img 
-            src="/images/TRJ_8795.jpg" 
+            src="/images/impact feature pic.jpg" 
             alt="High-tech industrial recycling facility" 
             className="w-full h-full object-cover mix-blend-screen opacity-50 grayscale" 
           />
@@ -146,7 +146,7 @@ const EPRModels = () => {
         <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <div className="order-2 lg:order-1">
             <img 
-              src="/images/TRJ_8796.jpg" 
+              src="/images/circular economy.jpg" 
               alt="Circular waste sorting line" 
               className="w-full h-full object-cover mix-blend-multiply opacity-20 grayscale" 
             />
@@ -200,3 +200,4 @@ const EPRModels = () => {
 };
 
 export default EPRModels;
+
