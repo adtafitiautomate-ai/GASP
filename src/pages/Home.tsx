@@ -22,7 +22,7 @@ export default function Home() {
             </div>
             <div className="relative">
               <div className="aspect-[4/3] rounded-3xl overflow-hidden border border-outline-variant">
-                <img className="w-full h-full object-cover" alt="Community Outreach" src="/images/community_outreach.jpg"/>
+                <img className="w-full h-full object-cover" alt="Community Outreach" src="/images/home.jpg"/>
               </div>
             </div>
           </div>
