@@ -5,7 +5,7 @@ const partnershipCards = [
   {
     title: 'National & Local Government',
     label: '01 / Governance',
-    image: '/images/man standing on car with uganda flag.jpg',
+    image: '/images/local.jpeg',
     icon: Building2,
     tone: 'bg-surface-container-low',
     text: 'Engage to partner with private sector voluntary in EPR development and national EPR legislation, regulation, compliance, and implementation support.',
@@ -13,7 +13,7 @@ const partnershipCards = [
   {
     title: 'Business Membership Organisations (BMO)',
     label: '02 / Alliances',
-    image: '/images/portfolio feature image.jpg',
+    image: '/images/bmo.jpg',
     icon: Handshake,
     tone: 'bg-surface-container',
     text: 'Support BMO members as Uganda shifts to recycling and circular economy models through GASP membership, alignment, and shared opportunities.',
@@ -29,7 +29,7 @@ const partnershipCards = [
   {
     title: 'Consumer',
     label: '04 / End-user',
-    image: '/images/community_outreach.jpg',
+    image: '/images/edu.jpg',
     icon: Users,
     tone: 'bg-primary-fixed',
     text: 'Run education and behavior-change campaigns that help consumers understand recycling, circular production, and sustainable brand choices.',
@@ -45,7 +45,7 @@ const partnershipCards = [
   {
     title: 'General Public',
     label: '06 / Society',
-    image: '/images/Gulu marathon kick-off.jpg',
+    image: '/images/recy.jpeg',
     icon: Users2,
     tone: 'bg-secondary-container',
     text: 'Increase public awareness about how Uganda can improve environmental outcomes through recycling and circular economy action.',
