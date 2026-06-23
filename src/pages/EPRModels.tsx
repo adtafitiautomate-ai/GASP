@@ -1,4 +1,5 @@
 import { Recycle, ShieldCheck, Heart, Users, Handshake, FileCheck, Leaf, ArrowRight } from 'lucide-react';
+import MemberPortalButton from '../components/MemberPortalButton';
 
 const EPRModels = () => {
   return (
@@ -186,9 +187,9 @@ const EPRModels = () => {
         <div className="max-w-5xl mx-auto text-center border-t border-outline-variant pt-24">
           <h2 className="font-display-lg text-4xl md:text-6xl mb-12">Join the Collective Responsibility</h2>
           <div className="flex flex-wrap justify-center gap-6">
-            <button className="bg-primary text-on-primary px-10 py-5 rounded-full font-label-sm uppercase tracking-widest text-xs hover:scale-105 transition-transform">
+            <MemberPortalButton className="bg-primary text-on-primary px-10 py-5 rounded-full font-label-sm uppercase tracking-widest text-xs hover:scale-105 transition-transform">
               Become a Member
-            </button>
+            </MemberPortalButton>
             <button className="bg-secondary-container text-on-secondary-container px-10 py-5 rounded-full font-label-sm uppercase tracking-widest text-xs hover:scale-105 transition-transform">
               EPR Fee Schedule
             </button>

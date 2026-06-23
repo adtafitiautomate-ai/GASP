@@ -1,4 +1,6 @@
 import { Factory, Truck, Layers, Leaf, CheckCircle2, ShieldCheck, Globe, Recycle, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import MemberPortalButton from '../components/MemberPortalButton';
 
 export default function ImpactEPR() {
   return (
@@ -20,7 +22,7 @@ export default function ImpactEPR() {
           <h1 className="font-display-lg text-display-lg text-white max-w-4xl mb-stack-md">
             Closing the Loop with <span className="text-on-primary-container">Extended Responsibility.</span>
           </h1>
-          <p className="font-body-lg text-body-lg text-on-primary-fixed-variant max-w-2xl mb-stack-lg">
+          <p className="font-body-lg text-body-lg text-white max-w-2xl mb-stack-lg drop-shadow-[0_2px_14px_rgba(0,0,0,0.45)]">
             GASP pioneers the world’s first integrated EPR framework for industrial waste, holding producers accountable while regenerating ecosystems through a unified circular economy.
           </p>
         </div>
@@ -30,37 +32,29 @@ export default function ImpactEPR() {
       <div className="bg-primary text-on-primary py-12 overflow-hidden border-y border-white/5">
         <div className="flex items-center gap-24 whitespace-nowrap animate-[marquee_30s_linear_infinite]">
           <div className="flex items-center gap-stack-md">
-            <span className="font-headline-xl text-headline-xl text-primary-fixed">1.2M</span>
-            <span className="font-label-sm text-label-sm opacity-60">TONS WASTE DIVERTED</span>
+            <span className="font-headline-xl text-headline-xl text-primary-fixed">5</span>
+            <span className="font-label-sm text-label-sm opacity-60">FOUNDING PARTNERS</span>
           </div>
           <div className="flex items-center gap-stack-md">
-            <span className="font-headline-xl text-headline-xl text-primary-fixed">450+</span>
-            <span className="font-label-sm text-label-sm opacity-60">PARTNER FACILITIES</span>
+            <span className="font-headline-xl text-4xl md:text-headline-xl text-primary-fixed">Nationwide</span>
+            <span className="font-label-sm text-label-sm opacity-60">OPERATIONS ACROSS UGANDA</span>
           </div>
           <div className="flex items-center gap-stack-md">
-            <span className="font-headline-xl text-headline-xl text-primary-fixed">85%</span>
-            <span className="font-label-sm text-label-sm opacity-60">RESOURCE RECOVERY RATE</span>
-          </div>
-          <div className="flex items-center gap-stack-md">
-            <span className="font-headline-xl text-headline-xl text-primary-fixed">$14M</span>
-            <span className="font-label-sm text-label-sm opacity-60">COMMUNITY REINVESTMENT</span>
+            <span className="font-headline-xl text-headline-xl text-primary-fixed">EPR</span>
+            <span className="font-label-sm text-label-sm opacity-60">COMPLIANCE & SUSTAINABILITY FOCUS</span>
           </div>
           {/* Duplicate for seamless loop */}
           <div className="flex items-center gap-stack-md">
-            <span className="font-headline-xl text-headline-xl text-primary-fixed">1.2M</span>
-            <span className="font-label-sm text-label-sm opacity-60">TONS WASTE DIVERTED</span>
+            <span className="font-headline-xl text-headline-xl text-primary-fixed">5</span>
+            <span className="font-label-sm text-label-sm opacity-60">FOUNDING PARTNERS</span>
           </div>
           <div className="flex items-center gap-stack-md">
-            <span className="font-headline-xl text-headline-xl text-primary-fixed">450+</span>
-            <span className="font-label-sm text-label-sm opacity-60">PARTNER FACILITIES</span>
+            <span className="font-headline-xl text-4xl md:text-headline-xl text-primary-fixed">Nationwide</span>
+            <span className="font-label-sm text-label-sm opacity-60">OPERATIONS ACROSS UGANDA</span>
           </div>
           <div className="flex items-center gap-stack-md">
-            <span className="font-headline-xl text-headline-xl text-primary-fixed">85%</span>
-            <span className="font-label-sm text-label-sm opacity-60">RESOURCE RECOVERY RATE</span>
-          </div>
-          <div className="flex items-center gap-stack-md">
-            <span className="font-headline-xl text-headline-xl text-primary-fixed">$14M</span>
-            <span className="font-label-sm text-label-sm opacity-60">COMMUNITY REINVESTMENT</span>
+            <span className="font-headline-xl text-headline-xl text-primary-fixed">EPR</span>
+            <span className="font-label-sm text-label-sm opacity-60">COMPLIANCE & SUSTAINABILITY FOCUS</span>
           </div>
         </div>
       </div>
@@ -198,9 +192,9 @@ export default function ImpactEPR() {
               <span className="font-body-md font-bold">Build sustainable waste management systems</span>
             </li>
           </ul>
-          <button className="bg-primary text-on-primary px-10 py-4 rounded-full font-label-sm uppercase hover:scale-105 transition-transform">
+          <Link to="/portfolio" className="inline-flex bg-primary text-on-primary px-10 py-4 rounded-full font-label-sm uppercase hover:scale-105 transition-transform">
             View Portfolio
-          </button>
+          </Link>
         </div>
         <div className="bg-surface-container rounded-3xl p-stack-md aspect-square flex items-center justify-center relative">
           <img 
@@ -220,8 +214,8 @@ export default function ImpactEPR() {
               Join 200+ global brands already enrolled in our EPR scheme. Transform your waste liability into a regenerative asset.
             </p>
             <div className="flex flex-col md:flex-row gap-6 justify-center">
-              <button className="bg-secondary text-on-secondary px-12 py-5 rounded-full font-label-sm uppercase hover:scale-105 transition-transform">Become a Partner</button>
-              <button className="bg-white/10 text-white backdrop-blur-md border border-white/20 px-12 py-5 rounded-full font-label-sm uppercase hover:bg-white/20 transition-all">Download 2024 Report</button>
+              <MemberPortalButton className="bg-secondary text-on-secondary px-12 py-5 rounded-full font-label-sm uppercase hover:scale-105 transition-transform">Become a Member</MemberPortalButton>
+              <a href="/docs/GASP%20Strategy%20Roadmap%20and%20Portfolio%202023-2030.pdf" download className="bg-white/10 text-white backdrop-blur-md border border-white/20 px-12 py-5 rounded-full font-label-sm uppercase hover:bg-white/20 transition-all">Download Portfolio</a>
             </div>
           </div>
         </div>

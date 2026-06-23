@@ -92,6 +92,19 @@ export default function GalleryEvents() {
   const visiblePage = Math.min(currentPage, pageCount);
   const pageStart = (visiblePage - 1) * IMAGES_PER_PAGE;
   const paginatedAlbums = filteredAlbums.slice(pageStart, pageStart + IMAGES_PER_PAGE);
+  const selectedAlbumIndex = selectedAlbum ? filteredAlbums.findIndex((album) => album._id === selectedAlbum._id) : -1;
+
+  const showPreviousAlbum = () => {
+    if (selectedAlbumIndex < 0 || filteredAlbums.length < 2) return;
+    const previousIndex = (selectedAlbumIndex - 1 + filteredAlbums.length) % filteredAlbums.length;
+    setSelectedAlbum(filteredAlbums[previousIndex]);
+  };
+
+  const showNextAlbum = () => {
+    if (selectedAlbumIndex < 0 || filteredAlbums.length < 2) return;
+    const nextIndex = (selectedAlbumIndex + 1) % filteredAlbums.length;
+    setSelectedAlbum(filteredAlbums[nextIndex]);
+  };
 
   return (
     <div className="pt-20">
@@ -280,11 +293,43 @@ export default function GalleryEvents() {
             <X className="h-5 w-5" />
           </button>
 
+          {filteredAlbums.length > 1 && (
+            <>
+              <button
+                type="button"
+                aria-label="View previous image"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  showPreviousAlbum();
+                }}
+                className="absolute left-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/12 text-white backdrop-blur-xl transition-all hover:bg-white/24 sm:left-6 sm:h-14 sm:w-14"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+              <button
+                type="button"
+                aria-label="View next image"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  showNextAlbum();
+                }}
+                className="absolute right-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/12 text-white backdrop-blur-xl transition-all hover:bg-white/24 sm:right-6 sm:h-14 sm:w-14"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
+            </>
+          )}
+
           <figure className="relative max-h-[90vh] max-w-[92vw]" onClick={(event) => event.stopPropagation()}>
             <img src={selectedAlbum.image} alt={selectedAlbum.alt || selectedAlbum.title} className="max-h-[90vh] max-w-[92vw] object-contain shadow-[0_30px_100px_rgba(0,0,0,0.45)]" />
             <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/78 via-black/26 to-transparent p-6 text-white">
               <span className="mb-2 block font-label-sm uppercase text-white/72">{selectedAlbum.event}</span>
               <h2 className="font-headline-md text-2xl sm:text-3xl">{selectedAlbum.title}</h2>
+              {filteredAlbums.length > 1 && selectedAlbumIndex >= 0 && (
+                <p className="mt-2 font-label-sm uppercase text-white/60">
+                  {selectedAlbumIndex + 1} / {filteredAlbums.length}
+                </p>
+              )}
             </figcaption>
           </figure>
         </div>

@@ -34,11 +34,10 @@ export default function Navbar() {
   return (
     <nav className="fixed inset-x-0 top-4 z-50 px-4 sm:top-6">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-full border border-white/18 bg-primary-container/52 px-3 py-2 text-white shadow-[0_18px_60px_rgba(0,23,14,0.18)] backdrop-blur-2xl supports-[backdrop-filter]:bg-primary-container/42">
-        <Link to="/" className="group flex min-w-0 items-center gap-2 rounded-full bg-white/94 py-1.5 pl-2 pr-4 text-primary shadow-sm transition-transform hover:scale-[1.01]">
-          <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-white">
-            <img src="/images/logo.png" alt="GASP logo" className="h-full w-full object-contain p-1" />
+        <Link to="/" className="group flex min-w-0 items-center rounded-full bg-white/94 p-1.5 text-primary shadow-sm transition-transform hover:scale-[1.01]">
+          <span className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-full bg-white">
+            <img src="/images/logo.png" alt="GASP logo" className="h-full w-full object-contain" />
           </span>
-          <span className="hidden text-sm font-black tracking-[0.18em] sm:inline">GASP</span>
         </Link>
 
         <div className="hidden items-center rounded-full border border-white/10 bg-white/8 p-1 xl:flex">

@@ -1,6 +1,8 @@
 import VideoHero from '../components/home/VideoHero';
 import LogoMarquee from '../components/LogoMarquee';
-import { ArrowRight, Recycle, RefreshCw } from 'lucide-react';
+import { ArrowRight, Images, Recycle, RefreshCw } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import MemberPortalButton from '../components/MemberPortalButton';
 
 export default function Home() {
   return (
@@ -29,7 +31,7 @@ export default function Home() {
         </div>
       </section>
 
-      <LogoMarquee eyebrow="GASP Partner Network" />
+      <LogoMarquee eyebrow="GASP Founding Members" />
 
       {/* Core Pillars */}
       <section className="py-section-padding bg-surface-container">
@@ -95,18 +97,65 @@ export default function Home() {
               <p className="font-body-md text-on-primary-container">Live data tracking from our partner network and EPR monitoring systems.</p>
             </div>
             <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-12">
-              <div className="border-l border-white/20 pl-8 py-4">
-                <div className="font-display-lg text-6xl mb-2">42+</div>
-                <div className="font-label-sm text-on-primary-container uppercase tracking-widest">Partner Facilities</div>
+              <div className="border-l border-white/20 pl-8 py-4 min-w-0">
+                <div className="font-display-lg text-5xl lg:text-6xl mb-2 leading-none">5</div>
+                <div className="font-label-sm text-on-primary-container uppercase tracking-widest">Founding Partners</div>
               </div>
-              <div className="border-l border-white/20 pl-8 py-4">
-                <div className="font-display-lg text-6xl mb-2">85%</div>
-                <div className="font-label-sm text-on-primary-container uppercase tracking-widest">Resource Recovery Rate</div>
+              <div className="border-l border-white/20 pl-8 py-4 min-w-0">
+                <div className="font-display-lg text-4xl lg:text-5xl mb-3 leading-tight break-words">Nationwide</div>
+                <div className="font-label-sm text-on-primary-container uppercase tracking-widest">Operations Across Uganda</div>
               </div>
-              <div className="border-l border-white/20 pl-8 py-4">
-                <div className="font-display-lg text-6xl mb-2">$1.2M</div>
-                <div className="font-label-sm text-on-primary-container uppercase tracking-widest">Community Reinvestment</div>
+              <div className="border-l border-white/20 pl-8 py-4 min-w-0">
+                <div className="font-display-lg text-5xl lg:text-6xl mb-2 leading-none">EPR</div>
+                <div className="font-label-sm text-on-primary-container uppercase tracking-widest">Compliance & Sustainability Focus</div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Events Preview */}
+      <section className="py-section-padding bg-surface">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div>
+              <span className="font-label-sm text-on-secondary-fixed-variant uppercase tracking-widest">Events Gallery</span>
+              <h2 className="font-headline-xl text-headline-xl text-primary mt-4">Moments from the circular movement.</h2>
+            </div>
+            <Link to="/gallery" className="inline-flex items-center gap-2 rounded-full bg-primary-container px-7 py-4 font-label-sm uppercase text-white transition-all hover:-translate-y-0.5 hover:bg-primary">
+              <Images className="h-5 w-5" />
+              Show More
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
+            <Link to="/gallery" className="group relative min-h-[420px] overflow-hidden rounded-3xl border border-outline-variant bg-primary-container lg:col-span-7">
+              <img className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Gulu Marathon kick-off" src="/images/Gulu marathon kick-off.jpg" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary-container/86 via-primary-container/10 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-8 text-white">
+                <span className="mb-3 inline-flex rounded-full bg-white/14 px-3 py-1 font-label-sm uppercase text-white/80 backdrop-blur-md">Gulu Marathon</span>
+                <h3 className="font-headline-md text-3xl">Gulu Marathon Kick-off</h3>
+              </div>
+            </Link>
+
+            <div className="grid gap-6 lg:col-span-5">
+              <Link to="/gallery" className="group relative min-h-[200px] overflow-hidden rounded-3xl border border-outline-variant bg-primary-container">
+                <img className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Community Outreach" src="/images/community_outreach.jpg" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-container/78 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 p-6 text-white">
+                  <span className="mb-2 inline-flex rounded-full bg-white/14 px-3 py-1 font-label-sm uppercase text-white/80 backdrop-blur-md">Outreach</span>
+                  <h3 className="font-headline-md text-2xl">Community Outreach</h3>
+                </div>
+              </Link>
+
+              <Link to="/gallery" className="group relative min-h-[260px] overflow-hidden rounded-3xl border border-outline-variant bg-primary-container">
+                <img className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Awareness campaign sorting moment" src="/images/TRJ_8792.jpg" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-container/78 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 p-6 text-white">
+                  <span className="mb-2 inline-flex rounded-full bg-white/14 px-3 py-1 font-label-sm uppercase text-white/80 backdrop-blur-md">Awareness</span>
+                  <h3 className="font-headline-md text-2xl">Sorting Moment</h3>
+                </div>
+              </Link>
             </div>
           </div>
         </div>
@@ -122,9 +171,9 @@ export default function Home() {
                 Whether you are a manufacturer, recycler, or community leader, your action defines the future of Ugandan production.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <button className="bg-primary-container text-white px-10 py-5 rounded-full font-bold hover:scale-[1.02] transition-all">
-                  Become a Partner
-                </button>
+                <MemberPortalButton className="bg-primary-container text-white px-10 py-5 rounded-full font-bold hover:scale-[1.02] transition-all">
+                  Become a Member
+                </MemberPortalButton>
                 <a href="/docs/GASP%20Strategy%20Roadmap%20and%20Portfolio%202023-2030.pdf" download className="bg-white text-primary px-10 py-5 rounded-full font-bold border border-outline-variant hover:bg-surface transition-all">
                   Download Portfolio
                 </a>
@@ -136,6 +185,3 @@ export default function Home() {
     </>
   );
 }
-
-
-

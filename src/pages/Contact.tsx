@@ -1,6 +1,26 @@
 import { MapPin, Mail, Phone, Link2, Share2, Globe2 } from 'lucide-react';
 
+const locationUrl = 'https://www.google.com/maps/place/90+Kanjokya+St,+Kampala/data=!4m2!3m1!1s0x177dbbb1d1165707:0x13fae9069bbce84f?sa=X&ved=1t:242&ictx=111';
+const mapPreviewUrl = 'https://www.google.com/maps?q=90%20Kanjokya%20St%2C%20Kampala&output=embed';
+
 export default function Contact() {
+  const copyLocationLink = async () => {
+    await navigator.clipboard?.writeText(locationUrl);
+  };
+
+  const shareLocation = async () => {
+    if (navigator.share) {
+      await navigator.share({
+        title: 'GASP Headquarters',
+        text: 'Plot 90 Kanjokya Street, Kanjokya House',
+        url: locationUrl,
+      });
+      return;
+    }
+
+    await navigator.clipboard?.writeText(locationUrl);
+  };
+
   return (
     <div>
       {/* Hero Section */}
@@ -65,8 +85,8 @@ export default function Contact() {
                   <div className="flex gap-4 items-start">
                     <MapPin className="text-emerald-400 w-6 h-6 shrink-0" />
                     <div>
-                      <p className="font-body-md">Plot 42, Industrial Area</p>
-                      <p className="font-body-md">Kampala, Uganda</p>
+                      <p className="font-body-md">Plot 90 Kanjokya Street</p>
+                      <p className="font-body-md">Kanjokya House</p>
                     </div>
                   </div>
                   <div className="flex gap-4 items-start">
@@ -81,9 +101,21 @@ export default function Contact() {
               </div>
 
               <div className="h-64 rounded-xl overflow-hidden border border-white/10 relative">
-                <img className="w-full h-full object-cover opacity-80" alt="Kampala Industrial Area" src="/images/Importer.png"/>
-                <div className="absolute inset-0 bg-primary-container/40 flex items-center justify-center">
-                  <a className="bg-white text-primary px-4 py-2 rounded-full font-label-sm text-label-sm uppercase tracking-widest flex items-center gap-2 hover:scale-105 transition-transform" href="#">
+                <iframe
+                  className="h-full w-full border-0 opacity-80"
+                  src={mapPreviewUrl}
+                  title="Map preview of GASP headquarters"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-primary-container/20" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <a
+                    className="bg-white text-primary px-4 py-2 rounded-full font-label-sm text-label-sm uppercase tracking-widest flex items-center gap-2 hover:scale-105 transition-transform"
+                    href={locationUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <MapPin className="w-4 h-4" />
                     View Map
                   </a>
@@ -91,13 +123,32 @@ export default function Contact() {
               </div>
 
               <div className="flex gap-4">
-                <a className="h-12 w-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-emerald-400 hover:text-primary transition-all" href="#">
+                <button
+                  type="button"
+                  aria-label="Copy location link"
+                  title="Copy location link"
+                  onClick={copyLocationLink}
+                  className="h-12 w-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-emerald-400 hover:text-primary transition-all"
+                >
                   <Link2 className="w-5 h-5" />
-                </a>
-                <a className="h-12 w-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-emerald-400 hover:text-primary transition-all" href="#">
+                </button>
+                <button
+                  type="button"
+                  aria-label="Share location"
+                  title="Share location"
+                  onClick={shareLocation}
+                  className="h-12 w-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-emerald-400 hover:text-primary transition-all"
+                >
                   <Share2 className="w-5 h-5" />
-                </a>
-                <a className="h-12 w-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-emerald-400 hover:text-primary transition-all" href="#">
+                </button>
+                <a
+                  aria-label="Open maps"
+                  title="Open maps"
+                  className="h-12 w-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-emerald-400 hover:text-primary transition-all"
+                  href={locationUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <Globe2 className="w-5 h-5" />
                 </a>
               </div>
@@ -126,6 +177,3 @@ export default function Contact() {
     </div>
   );
 }
-
-
-

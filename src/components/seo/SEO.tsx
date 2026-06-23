@@ -86,6 +86,7 @@ export default function SEO() {
             telephone: '+256753444777',
             address: {
               '@type': 'PostalAddress',
+              streetAddress: 'Plot 90 Kanjokya Street, Kanjokya House',
               addressLocality: 'Kampala',
               addressCountry: 'UG',
             },

@@ -69,7 +69,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-12 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-emerald-200/40 text-sm">
         <div>© 2026 GASP (Green Action for Sustainable Production). All rights reserved.</div>
         <div className="mt-4 md:mt-0">
-          Developed By <a href="https://www.linkedin.com/in/japhal-kibirige-402459245/" target="_blank" rel="noreferrer" className="hover:text-emerald-200 transition-colors">Jpher</a>
+          Developed By <a href="https://tafitiautomate.tech" target="_blank" rel="noreferrer" className="hover:text-emerald-200 transition-colors">Jpher</a>
         </div>
       </div>
     </footer>
