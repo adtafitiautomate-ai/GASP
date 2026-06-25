@@ -1,5 +1,5 @@
 import type {StructureResolver} from 'sanity/structure'
-import {ImageIcon, PlayIcon} from '@sanity/icons'
+import {ImageIcon, PlayIcon, UserIcon} from '@sanity/icons'
 
 export const structure: StructureResolver = (S) =>
   S.list()
@@ -7,4 +7,5 @@ export const structure: StructureResolver = (S) =>
     .items([
       S.documentTypeListItem('eventMedia').title('Event Images').icon(ImageIcon),
       S.documentTypeListItem('eventVideo').title('Event Videos').icon(PlayIcon),
+      S.documentTypeListItem('membershipApplication').title('Membership Applications').icon(UserIcon),
     ])

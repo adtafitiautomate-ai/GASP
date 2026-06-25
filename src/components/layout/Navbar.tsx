@@ -4,10 +4,12 @@ import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, X } from 'lucide-react';
 
 const navItems = [
-  { to: '/', label: 'Explore' },
-  { to: '/team', label: 'Team' },
+  { to: '/', label: 'Home' },
   { to: '/impact', label: 'Impact' },
   { to: '/gallery', label: 'Events' },
+];
+
+const secondaryNavItems = [
   { to: '/contact', label: 'Contact' },
 ];
 
@@ -41,6 +43,16 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden items-center rounded-full border border-white/10 bg-white/8 p-1 xl:flex">
+          {navItems.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              className={`rounded-full px-3.5 py-2 text-sm font-bold transition-all duration-300 ${isActive(item.to)}`}
+            >
+              {item.label}
+            </Link>
+          ))}
+
           <div
             className="relative"
             onMouseEnter={() => setIsFrameworkOpen(true)}
@@ -83,7 +95,7 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          {navItems.map((item) => (
+          {secondaryNavItems.map((item) => (
             <Link
               key={item.to}
               to={item.to}
@@ -120,6 +132,17 @@ export default function Navbar() {
             className="mx-auto mt-3 max-w-7xl overflow-hidden rounded-[2rem] border border-white/16 bg-primary-container/76 p-3 text-white shadow-[0_18px_60px_rgba(0,23,14,0.26)] backdrop-blur-2xl xl:hidden"
           >
             <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
+              {navItems.map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setIsOpen(false)}
+                  className={`rounded-full px-4 py-3 text-sm font-bold transition-all ${isActive(item.to)}`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+
               <div className="rounded-[1.4rem] border border-white/12 bg-white/8 p-2 sm:col-span-2">
                 <div className="px-3 py-2 text-xs font-black uppercase text-white/48">Framework</div>
                 <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
@@ -136,7 +159,7 @@ export default function Navbar() {
                 </div>
               </div>
 
-              {navItems.map((item) => (
+              {secondaryNavItems.map((item) => (
                 <Link
                   key={item.to}
                   to={item.to}

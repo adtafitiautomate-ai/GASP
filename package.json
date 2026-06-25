@@ -11,7 +11,7 @@
         "studio": "sanity dev",
         "schema:deploy": "sanity schema deploy",
         "deploy:sanity": "sanity schema deploy",
-        "deploy:studio": "sanity deploy --url gasp-studio --yes"
+        "deploy:studio": "sanity deploy"
     },
     "dependencies": {
         "@oclif/core": "^4.11.0",

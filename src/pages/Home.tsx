@@ -101,8 +101,8 @@ export default function Home() {
                 <div className="font-display-lg text-5xl lg:text-6xl mb-2 leading-none">5</div>
                 <div className="font-label-sm text-on-primary-container uppercase tracking-widest">Founding Partners</div>
               </div>
-              <div className="border-l border-white/20 pl-8 py-4 min-w-0">
-                <div className="font-display-lg text-4xl lg:text-5xl mb-3 leading-tight break-words">Nationwide</div>
+              <div className="border-l border-white/20 pl-8 py-4 min-w-0 overflow-visible">
+                <div className="font-display-lg text-3xl lg:text-[2.4rem] xl:text-5xl mb-4 leading-[1.15] whitespace-nowrap overflow-visible">Nationwide</div>
                 <div className="font-label-sm text-on-primary-container uppercase tracking-widest">Operations Across Uganda</div>
               </div>
               <div className="border-l border-white/20 pl-8 py-4 min-w-0">
