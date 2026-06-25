@@ -114,6 +114,68 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Membership Tiers */}
+      <section id="membership-tiers" className="scroll-mt-28 py-section-padding bg-surface-container">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="mb-12 max-w-3xl">
+            <span className="font-label-sm text-on-secondary-fixed-variant uppercase tracking-widest">Membership Tier</span>
+            <h2 className="font-headline-xl text-headline-xl text-primary mt-4">Choose the right EPR membership tier.</h2>
+          </div>
+
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {[
+              {
+                name: 'Platinum',
+                price: 'UGX 25M / year',
+                scale: 'For producers placing 500T+ of plastic on the market annually',
+                benefits: ['Board Observer Seat', 'Dedicated Account Manager', 'Cover of Annual Report', 'Priority recycler allocation', 'PR co-branding on campaigns'],
+              },
+              {
+                name: 'Diamond',
+                price: 'UGX 15M / year',
+                scale: 'For producers placing 200-500T on the market annually',
+                benefits: ['Named in Annual Report', 'Priority technical support', 'Recycler network access', 'Compliance certificate', 'Quarterly compliance reports'],
+              },
+              {
+                name: 'Gold',
+                price: 'UGX 10M / year',
+                scale: 'For producers placing 50-200T on the market annually',
+                benefits: ['Named in Annual Report', 'Recycler matching service', 'Compliance certificate', 'Member portal access', 'EPR training workshops'],
+              },
+              {
+                name: 'Silver',
+                price: 'UGX 5M / year',
+                scale: 'For producers placing under 50T on the market annually',
+                benefits: ['Full compliance certificate', 'Member portal access', 'Recycler network access', 'GASP directory listing', 'EPR compliance support'],
+              },
+              {
+                name: 'Bronze',
+                price: 'UGX 2M / year',
+                scale: 'For emerging producers and organisations starting their EPR compliance journey',
+                benefits: ['Starter compliance support', 'Member portal access', 'GASP directory listing', 'Introductory EPR guidance', 'Annual membership confirmation'],
+              },
+            ].map((tier) => (
+              <article key={tier.name} className="flex h-full min-h-[500px] flex-col rounded-2xl border border-outline-variant bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(0,23,14,0.10)]">
+                <span className="font-label-sm uppercase text-secondary">{tier.name}</span>
+                <h3 className="mt-3 font-headline-md text-2xl text-primary">{tier.price}</h3>
+                <p className="mt-4 text-sm leading-6 text-on-surface-variant">{tier.scale}</p>
+                <ul className="mt-7 space-y-3">
+                  {tier.benefits.map((benefit) => (
+                    <li key={benefit} className="flex gap-3 text-sm text-on-surface-variant">
+                      <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+                <MemberPortalButton className="mt-auto inline-flex justify-center rounded-full bg-primary-container px-5 py-4 font-label-sm uppercase text-white transition-all hover:bg-primary">
+                  Subscribe
+                </MemberPortalButton>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Events Preview */}
       <section className="py-section-padding bg-surface">
         <div className="max-w-7xl mx-auto px-8">

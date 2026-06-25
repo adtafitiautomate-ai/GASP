@@ -1,4 +1,48 @@
-import { Recycle, Leaf, Globe } from 'lucide-react';
+import { ClipboardCheck, Leaf, MapPin, Megaphone, Network, PackageCheck, Recycle, Users, Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+const programs = [
+  {
+    title: 'Producer Compliance Management',
+    text: 'Simplified, real-time compliance tracking for producers. Monthly volume declarations, automatic levy calculations, and compliance certificates - all in one portal.',
+    cta: 'Manage Compliance',
+    to: '/impact',
+    icon: ClipboardCheck,
+  },
+  {
+    title: 'Recycler Network Development',
+    text: "Building Uganda's formal recycling sector by certifying collectors, funding infrastructure, and connecting recyclers to offtake markets.",
+    cta: 'Join the Network',
+    to: '/partnerships',
+    icon: Network,
+  },
+  {
+    title: 'Circular Design Accelerator',
+    text: 'Supporting Ugandan manufacturers in redesigning packaging for recyclability - from material selection to supplier engagement and eco-design audits.',
+    icon: PackageCheck,
+  },
+  {
+    title: 'GASP Youth Champions',
+    text: 'Equipping university students and young professionals with recycling entrepreneurship skills across 10 Ugandan districts. The next generation of circular economy leaders.',
+    cta: 'Get Involved',
+    to: '/contact',
+    icon: Users,
+  },
+  {
+    title: 'Take-Back Collection Points',
+    text: 'A growing network of registered plastic take-back points in supermarkets, schools, and fuel stations - making responsible disposal easy and accessible.',
+    cta: 'Find a Point',
+    to: '/contact',
+    icon: MapPin,
+  },
+  {
+    title: 'Consumer Awareness Campaigns',
+    text: 'Radio, digital, and community-level campaigns promoting plastic sorting, reuse, and responsible disposal - in English, Luganda, Runyankole, and Luo.',
+    cta: 'See Campaigns',
+    to: '/gallery',
+    icon: Megaphone,
+  },
+];
 
 export default function MissionVision() {
   return (
@@ -107,6 +151,37 @@ export default function MissionVision() {
                 <Globe className="w-12 h-12 text-on-secondary-container" />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Programs Section */}
+      <section className="py-section-padding px-8 bg-surface-container">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16 max-w-3xl">
+            <span className="font-label-sm text-primary uppercase tracking-widest">Programs</span>
+            <h2 className="font-headline-xl text-headline-xl text-primary mt-4">Programs That Drive Real Impact</h2>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {programs.map((program) => {
+              const Icon = program.icon;
+
+              return (
+                <article key={program.title} className="flex min-h-[360px] flex-col rounded-xl border border-outline-variant bg-white p-8 transition-all hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(0,23,14,0.10)]">
+                  <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-fixed text-primary">
+                    <Icon className="h-7 w-7" />
+                  </div>
+                  <h3 className="font-headline-md text-2xl text-primary">{program.title}</h3>
+                  <p className="mt-5 font-body-md text-on-surface-variant">{program.text}</p>
+                  {program.cta && program.to && (
+                    <Link to={program.to} className="mt-auto inline-flex items-center gap-2 pt-8 font-label-sm uppercase text-primary hover:text-secondary">
+                      {program.cta} <span aria-hidden="true">-&gt;</span>
+                    </Link>
+                  )}
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>

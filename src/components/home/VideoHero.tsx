@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, PlayCircle } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const videos = [
   '/videos/hero1.mp4',
@@ -66,10 +66,10 @@ export default function VideoHero() {
               Get Involved
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <button className="glass-panel flex items-center gap-2 rounded-full px-8 py-4 font-bold text-white transition-all hover:bg-white/14 active:scale-[0.98]">
-              <PlayCircle className="h-5 w-5 fill-white text-primary-container" />
-              Watch our Vision
-            </button>
+            <a href="#membership-tiers" className="glass-panel flex items-center gap-2 rounded-full px-8 py-4 font-bold text-white transition-all hover:bg-white/14 active:scale-[0.98]">
+              Join Us
+              <ArrowRight className="h-5 w-5" />
+            </a>
           </div>
         </motion.div>
       </div>

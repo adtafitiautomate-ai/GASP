@@ -74,6 +74,7 @@ const plasticTypes = ['PET (Code 1)', 'HDPE (Code 2)', 'PVC (Code 3)', 'LDPE (Co
 const paymentMethods = ['Bank Transfer', 'Mobile Money (MTN / Airtel)', 'Cheque payable to GASP Uganda', 'Other'];
 const capacities = ['Director / Board Member', 'CEO', 'Managing Director', 'Company Secretary', 'Duly Authorised Representative'];
 const tiers = [
+  { name: 'Bronze', price: 'UGX 2,000,000 / year', scale: 'Starter membership' },
   { name: 'Silver', price: 'UGX 5,000,000 / year', scale: 'Under 50 tonnes / year' },
   { name: 'Gold', price: 'UGX 10,000,000 / year', scale: '50-200 tonnes / year' },
   { name: 'Diamond', price: 'UGX 15,000,000 / year', scale: '200-500 tonnes / year' },
@@ -176,13 +177,14 @@ export default function MemberPortalButton({ className, children = 'Become a Mem
       });
 
       if (!response.ok) {
-        throw new Error('Submission failed');
+        const result = await response.json().catch(() => null);
+        throw new Error(result?.message || 'Submission failed');
       }
 
       setReference(nextReference);
       setStep(4);
-    } catch {
-      setSubmitError('We could not submit your application. Please try again or contact info@gasp.co.ug.');
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : 'We could not submit your application. Please try again or contact info@gasp.co.ug.');
     } finally {
       setIsSubmitting(false);
     }

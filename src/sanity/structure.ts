@@ -8,4 +8,8 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem('eventMedia').title('Event Images').icon(ImageIcon),
       S.documentTypeListItem('eventVideo').title('Event Videos').icon(PlayIcon),
       S.documentTypeListItem('membershipApplication').title('Membership Applications').icon(UserIcon),
+      S.divider(),
+      ...S.documentTypeListItems().filter(
+        (item) => !['eventMedia', 'eventVideo', 'membershipApplication'].includes(item.getId() || ''),
+      ),
     ])
