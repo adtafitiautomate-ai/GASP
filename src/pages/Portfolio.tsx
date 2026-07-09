@@ -145,8 +145,8 @@ export default function Portfolio() {
             Access our full 2023-2030 Roadmap and Impact Framework. Discover how we're transforming production across the region.
           </p>
           <a
-            href="/docs/GASP Strategy Roadmap and Portfolio 2023-2030.pdf"
-            download="GASP Strategy Roadmap and Portfolio 2023-2030.pdf"
+            href="/docs/GASP Membership Value Proposition 2026.pdf"
+            download="GASP Membership Value Proposition 2026.pdf"
             className="bg-secondary text-white px-12 py-5 rounded-full font-headline-md text-lg uppercase tracking-widest hover:scale-[1.05] transition-all shadow-2xl flex items-center gap-4 mx-auto w-fit"
           >
             <Download className="w-6 h-6" />

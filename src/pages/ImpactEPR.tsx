@@ -215,7 +215,7 @@ export default function ImpactEPR() {
             </p>
             <div className="flex flex-col md:flex-row gap-6 justify-center">
               <MemberPortalButton className="bg-secondary text-on-secondary px-12 py-5 rounded-full font-label-sm uppercase hover:scale-105 transition-transform">Become a Member</MemberPortalButton>
-              <a href="/docs/GASP%20Strategy%20Roadmap%20and%20Portfolio%202023-2030.pdf" download className="bg-white/10 text-white backdrop-blur-md border border-white/20 px-12 py-5 rounded-full font-label-sm uppercase hover:bg-white/20 transition-all">Download Portfolio</a>
+              <a href="/docs/GASP%20Membership%20Value%20Proposition%202026.pdf" download className="bg-white/10 text-white backdrop-blur-md border border-white/20 px-12 py-5 rounded-full font-label-sm uppercase hover:bg-white/20 transition-all">Download Portfolio</a>
             </div>
           </div>
         </div>

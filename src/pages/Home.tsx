@@ -236,7 +236,7 @@ export default function Home() {
                 <MemberPortalButton className="bg-primary-container text-white px-10 py-5 rounded-full font-bold hover:scale-[1.02] transition-all">
                   Become a Member
                 </MemberPortalButton>
-                <a href="/docs/GASP%20Strategy%20Roadmap%20and%20Portfolio%202023-2030.pdf" download className="bg-white text-primary px-10 py-5 rounded-full font-bold border border-outline-variant hover:bg-surface transition-all">
+                <a href="/docs/GASP%20Membership%20Value%20Proposition%202026.pdf" download className="bg-white text-primary px-10 py-5 rounded-full font-bold border border-outline-variant hover:bg-surface transition-all">
                   Download Portfolio
                 </a>
               </div>
