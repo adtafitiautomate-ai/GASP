@@ -6,6 +6,7 @@ import { ChevronDown, Menu, X } from 'lucide-react';
 const navItems = [
   { to: '/', label: 'Home' },
   { to: '/impact', label: 'Impact' },
+  { to: '/news', label: 'News' },
   { to: '/gallery', label: 'Events' },
 ];
 
@@ -28,7 +29,10 @@ export default function Navbar() {
   const isFrameworkActive = frameworkItems.some((item) => item.to === location.pathname);
   
   const isActive = (path: string) => {
-    return location.pathname === path 
+    // Keep the section highlighted on nested routes such as /news/:slug.
+    const matches = path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
+
+    return matches
       ? "bg-white text-primary shadow-sm"
       : "text-white/74 hover:bg-white/10 hover:text-white";
   };

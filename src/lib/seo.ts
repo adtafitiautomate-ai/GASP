@@ -106,6 +106,14 @@ export const pageSeo: Record<string, PageSeo> = {
     image: '/images/circular economy.jpg',
     keywords: ['EPR models Uganda', 'extended producer responsibility', 'producer responsibility schemes'],
   },
+  '/news': {
+    title: 'News and Updates | GASP Uganda',
+    description:
+      'Announcements, field reports, and research notes from GASP Uganda on extended producer responsibility, recovery data, partnerships, and circular economy programs.',
+    path: '/news',
+    image: '/images/portfolio feature image.jpg',
+    keywords: ['GASP news', 'EPR news Uganda', 'circular economy updates Uganda', 'GASP announcements'],
+  },
 };
 
 export function getPageSeo(pathname: string) {
@@ -116,4 +124,46 @@ export function getPageSeo(pathname: string) {
 export function absoluteUrl(path: string) {
   if (path.startsWith('http')) return path;
   return `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
+}
+
+/** Single news article routes manage their own head tags, see NewsArticle. */
+export function isArticleRoute(pathname: string) {
+  return /^\/news\/[^/]+/.test(pathname);
+}
+
+export function setMeta(attribute: 'name' | 'property', key: string, content: string) {
+  let element = document.head.querySelector<HTMLMetaElement>(`meta[${attribute}="${key}"]`);
+
+  if (!element) {
+    element = document.createElement('meta');
+    element.setAttribute(attribute, key);
+    document.head.appendChild(element);
+  }
+
+  element.setAttribute('content', content);
+}
+
+export function setLink(rel: string, href: string) {
+  let element = document.head.querySelector<HTMLLinkElement>(`link[rel="${rel}"]`);
+
+  if (!element) {
+    element = document.createElement('link');
+    element.setAttribute('rel', rel);
+    document.head.appendChild(element);
+  }
+
+  element.setAttribute('href', href);
+}
+
+export function setStructuredData(data: object) {
+  let element = document.getElementById('structured-data') as HTMLScriptElement | null;
+
+  if (!element) {
+    element = document.createElement('script');
+    element.id = 'structured-data';
+    element.type = 'application/ld+json';
+    document.head.appendChild(element);
+  }
+
+  element.textContent = JSON.stringify(data);
 }

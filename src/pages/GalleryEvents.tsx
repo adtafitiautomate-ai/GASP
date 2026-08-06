@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { ChevronLeft, ChevronRight, Grid, Play, X } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
+import { ChevronLeft, ChevronRight, Grid, Images, Play, X } from 'lucide-react';
 import { sanityClient } from '../sanity/lib/client';
 import { EVENT_IMAGES_QUERY, EVENT_VIDEOS_QUERY, type EventImage, type EventVideo } from '../sanity/lib/queries';
 
@@ -20,7 +20,12 @@ const fallbackVideos: EventVideo[] = [
   { _id: 'local-video-partner-network', title: 'Partner Network in Motion', event: 'Stakeholder Engagement', youtubeId: 'dQw4w9WgXcQ', thumbnail: '/images/portfolio feature image.jpg' },
 ];
 
-const IMAGES_PER_PAGE = 6;
+const ALBUMS_PER_PAGE = 8;
+
+type EventAlbum = {
+  event: string;
+  images: EventImage[];
+};
 
 function getYouTubeId(value: string) {
   const trimmed = value.trim();
@@ -48,9 +53,9 @@ function getYouTubeId(value: string) {
 }
 
 export default function GalleryEvents() {
-  const [activeEvent, setActiveEvent] = useState('All Events');
   const [currentPage, setCurrentPage] = useState(1);
-  const [selectedAlbum, setSelectedAlbum] = useState<EventImage | null>(null);
+  const [openAlbum, setOpenAlbum] = useState<EventAlbum | null>(null);
+  const [imageIndex, setImageIndex] = useState(0);
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
   const [albums, setAlbums] = useState<EventImage[]>(fallbackAlbums);
   const [videos, setVideos] = useState<EventVideo[]>(fallbackVideos);
@@ -86,25 +91,66 @@ export default function GalleryEvents() {
     };
   }, []);
 
-  const events = ['All Events', ...Array.from(new Set(albums.map((album) => album.event)))];
-  const filteredAlbums = activeEvent === 'All Events' ? albums : albums.filter((album) => album.event === activeEvent);
-  const pageCount = Math.max(1, Math.ceil(filteredAlbums.length / IMAGES_PER_PAGE));
+  const groupedAlbums = useMemo<EventAlbum[]>(() => {
+    const grouped = new Map<string, EventImage[]>();
+
+    albums
+      .filter((album) => album.image)
+      .forEach((album) => {
+        const event = album.event?.trim() || 'Other Events';
+        const bucket = grouped.get(event);
+
+        if (bucket) {
+          bucket.push(album);
+        } else {
+          grouped.set(event, [album]);
+        }
+      });
+
+    return Array.from(grouped, ([event, images]) => ({ event, images }));
+  }, [albums]);
+
+  const totalImages = groupedAlbums.reduce((count, album) => count + album.images.length, 0);
+  const pageCount = Math.max(1, Math.ceil(groupedAlbums.length / ALBUMS_PER_PAGE));
   const visiblePage = Math.min(currentPage, pageCount);
-  const pageStart = (visiblePage - 1) * IMAGES_PER_PAGE;
-  const paginatedAlbums = filteredAlbums.slice(pageStart, pageStart + IMAGES_PER_PAGE);
-  const selectedAlbumIndex = selectedAlbum ? filteredAlbums.findIndex((album) => album._id === selectedAlbum._id) : -1;
+  const pageStart = (visiblePage - 1) * ALBUMS_PER_PAGE;
+  const paginatedAlbums = groupedAlbums.slice(pageStart, pageStart + ALBUMS_PER_PAGE);
+  const activeImage = openAlbum ? openAlbum.images[imageIndex] : null;
 
-  const showPreviousAlbum = () => {
-    if (selectedAlbumIndex < 0 || filteredAlbums.length < 2) return;
-    const previousIndex = (selectedAlbumIndex - 1 + filteredAlbums.length) % filteredAlbums.length;
-    setSelectedAlbum(filteredAlbums[previousIndex]);
+  const openAlbumAt = (album: EventAlbum) => {
+    setOpenAlbum(album);
+    setImageIndex(0);
   };
 
-  const showNextAlbum = () => {
-    if (selectedAlbumIndex < 0 || filteredAlbums.length < 2) return;
-    const nextIndex = (selectedAlbumIndex + 1) % filteredAlbums.length;
-    setSelectedAlbum(filteredAlbums[nextIndex]);
+  const showPreviousImage = () => {
+    if (!openAlbum || openAlbum.images.length < 2) return;
+    setImageIndex((index) => (index - 1 + openAlbum.images.length) % openAlbum.images.length);
   };
+
+  const showNextImage = () => {
+    if (!openAlbum || openAlbum.images.length < 2) return;
+    setImageIndex((index) => (index + 1) % openAlbum.images.length);
+  };
+
+  useEffect(() => {
+    if (!openAlbum) return;
+
+    const total = openAlbum.images.length;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpenAlbum(null);
+      if (event.key === 'ArrowLeft') setImageIndex((index) => (index - 1 + total) % total);
+      if (event.key === 'ArrowRight') setImageIndex((index) => (index + 1) % total);
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [openAlbum]);
 
   return (
     <div className="pt-20">
@@ -121,53 +167,52 @@ export default function GalleryEvents() {
             </div>
             <div className="flex items-center gap-4 rounded-full border border-outline-variant bg-white px-5 py-3 text-primary shadow-sm">
               <Grid className="h-5 w-5 text-secondary" />
-              <span className="font-label-sm uppercase">{filteredAlbums.length} images</span>
+              <span className="font-label-sm uppercase">
+                {groupedAlbums.length} albums &middot; {totalImages} images
+              </span>
             </div>
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-8 pb-28">
-        <div className="mb-10 flex gap-3 overflow-x-auto pb-2">
-          {events.map((event) => (
-            <button
-              key={event}
-              type="button"
-              onClick={() => {
-                setActiveEvent(event);
-                setCurrentPage(1);
-              }}
-              className={`shrink-0 rounded-full border px-5 py-3 font-label-sm uppercase transition-all ${
-                activeEvent === event
-                  ? 'border-primary bg-primary text-white shadow-sm'
-                  : 'border-outline-variant bg-white text-on-surface-variant hover:border-primary hover:text-primary'
-              }`}
-            >
-              {event}
-            </button>
-          ))}
-        </div>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {paginatedAlbums.map((album) => {
+            const cover = album.images[0];
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {paginatedAlbums.map((album) => (
-            <button
-              key={album._id}
-              type="button"
-              onClick={() => setSelectedAlbum(album)}
-              className="group overflow-hidden rounded-2xl border border-outline-variant bg-white text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(0,23,14,0.12)]"
-            >
-              <div className="aspect-[4/3] overflow-hidden bg-surface-variant">
-                <img className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0" alt={album.alt || album.title} src={album.image} />
-              </div>
-              <div className="p-5">
-                <span className="mb-3 inline-flex rounded-full bg-primary-fixed px-3 py-1 font-label-sm uppercase text-on-primary-fixed-variant">{album.event}</span>
-                <h3 className="font-headline-md text-xl text-primary">{album.title}</h3>
-              </div>
-            </button>
-          ))}
+            return (
+              <button
+                key={album.event}
+                type="button"
+                onClick={() => openAlbumAt(album)}
+                aria-label={`Open ${album.event} album with ${album.images.length} photos`}
+                className="group overflow-hidden rounded-2xl border border-outline-variant bg-white text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(0,23,14,0.12)]"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden bg-surface-variant">
+                  <img className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0" alt={cover.alt || album.event} src={cover.image} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary-container/70 via-transparent to-transparent" />
+                  <span className="absolute right-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/16 px-3 py-1.5 font-label-sm uppercase text-white backdrop-blur-xl">
+                    <Images className="h-4 w-4" />
+                    {album.images.length}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between gap-4 p-5">
+                  <div>
+                    <h3 className="font-headline-md text-xl text-primary">{album.event}</h3>
+                    <p className="mt-1 font-label-sm uppercase text-on-surface-variant">
+                      {album.images.length} {album.images.length === 1 ? 'photo' : 'photos'}
+                    </p>
+                  </div>
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-outline-variant text-primary transition-all group-hover:border-primary group-hover:bg-primary group-hover:text-white">
+                    <ChevronRight className="h-5 w-5" />
+                  </span>
+                </div>
+              </button>
+            );
+          })}
         </div>
         {pageCount > 1 && (
-          <nav className="mt-12 flex flex-col items-center justify-between gap-5 rounded-[2rem] border border-outline-variant bg-white px-5 py-4 shadow-sm sm:flex-row" aria-label="Event image pages">
+          <nav className="mt-12 flex flex-col items-center justify-between gap-5 rounded-[2rem] border border-outline-variant bg-white px-5 py-4 shadow-sm sm:flex-row" aria-label="Event album pages">
             <p className="font-label-sm uppercase text-on-surface-variant">
               Page {visiblePage} of {pageCount}
             </p>
@@ -178,7 +223,7 @@ export default function GalleryEvents() {
                 onClick={() => setCurrentPage(Math.max(1, visiblePage - 1))}
                 disabled={visiblePage === 1}
                 className="flex h-11 w-11 items-center justify-center rounded-full border border-outline-variant text-primary transition-all hover:border-primary hover:bg-primary hover:text-white disabled:pointer-events-none disabled:opacity-35"
-                aria-label="Previous image page"
+                aria-label="Previous album page"
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
@@ -193,7 +238,7 @@ export default function GalleryEvents() {
                       ? 'bg-primary text-white shadow-sm'
                       : 'border border-outline-variant bg-white text-primary hover:border-primary hover:bg-primary-fixed'
                   }`}
-                  aria-label={`Go to image page ${page}`}
+                  aria-label={`Go to album page ${page}`}
                   aria-current={visiblePage === page ? 'page' : undefined}
                 >
                   {page}
@@ -205,7 +250,7 @@ export default function GalleryEvents() {
                 onClick={() => setCurrentPage(Math.min(pageCount, visiblePage + 1))}
                 disabled={visiblePage === pageCount}
                 className="flex h-11 w-11 items-center justify-center rounded-full border border-outline-variant text-primary transition-all hover:border-primary hover:bg-primary hover:text-white disabled:pointer-events-none disabled:opacity-35"
-                aria-label="Next image page"
+                aria-label="Next album page"
               >
                 <ChevronRight className="h-5 w-5" />
               </button>
@@ -277,30 +322,42 @@ export default function GalleryEvents() {
         </div>
       </section>
 
-      {selectedAlbum && (
+      {openAlbum && activeImage && (
         <div
-          className="fixed inset-0 z-[80] flex items-center justify-center bg-black/88 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[80] flex flex-col items-center justify-center bg-black/88 p-4 backdrop-blur-sm"
           role="dialog"
           aria-modal="true"
-          onClick={() => setSelectedAlbum(null)}
+          aria-label={`${openAlbum.event} album`}
+          onClick={() => setOpenAlbum(null)}
         >
-          <button
-            type="button"
-            aria-label="Close image viewer"
-            onClick={() => setSelectedAlbum(null)}
-            className="absolute right-5 top-5 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/12 text-white backdrop-blur-xl transition-all hover:bg-white/24"
-          >
-            <X className="h-5 w-5" />
-          </button>
+          <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-between gap-4 p-5 text-white">
+            <div>
+              <span className="block font-label-sm uppercase text-white/72">{openAlbum.event}</span>
+              <span className="font-label-sm uppercase text-white/50">
+                {imageIndex + 1} / {openAlbum.images.length}
+              </span>
+            </div>
+            <button
+              type="button"
+              aria-label="Close album viewer"
+              onClick={(event) => {
+                event.stopPropagation();
+                setOpenAlbum(null);
+              }}
+              className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full bg-white/12 text-white backdrop-blur-xl transition-all hover:bg-white/24"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
 
-          {filteredAlbums.length > 1 && (
+          {openAlbum.images.length > 1 && (
             <>
               <button
                 type="button"
                 aria-label="View previous image"
                 onClick={(event) => {
                   event.stopPropagation();
-                  showPreviousAlbum();
+                  showPreviousImage();
                 }}
                 className="absolute left-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/12 text-white backdrop-blur-xl transition-all hover:bg-white/24 sm:left-6 sm:h-14 sm:w-14"
               >
@@ -311,7 +368,7 @@ export default function GalleryEvents() {
                 aria-label="View next image"
                 onClick={(event) => {
                   event.stopPropagation();
-                  showNextAlbum();
+                  showNextImage();
                 }}
                 className="absolute right-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/12 text-white backdrop-blur-xl transition-all hover:bg-white/24 sm:right-6 sm:h-14 sm:w-14"
               >
@@ -320,18 +377,34 @@ export default function GalleryEvents() {
             </>
           )}
 
-          <figure className="relative max-h-[90vh] max-w-[92vw]" onClick={(event) => event.stopPropagation()}>
-            <img src={selectedAlbum.image} alt={selectedAlbum.alt || selectedAlbum.title} className="max-h-[90vh] max-w-[92vw] object-contain shadow-[0_30px_100px_rgba(0,0,0,0.45)]" />
+          <figure className="relative max-h-[74vh] max-w-[82vw]" onClick={(event) => event.stopPropagation()}>
+            <img src={activeImage.image} alt={activeImage.alt || activeImage.title} className="max-h-[74vh] max-w-[82vw] object-contain shadow-[0_30px_100px_rgba(0,0,0,0.45)]" />
             <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/78 via-black/26 to-transparent p-6 text-white">
-              <span className="mb-2 block font-label-sm uppercase text-white/72">{selectedAlbum.event}</span>
-              <h2 className="font-headline-md text-2xl sm:text-3xl">{selectedAlbum.title}</h2>
-              {filteredAlbums.length > 1 && selectedAlbumIndex >= 0 && (
-                <p className="mt-2 font-label-sm uppercase text-white/60">
-                  {selectedAlbumIndex + 1} / {filteredAlbums.length}
-                </p>
-              )}
+              <h2 className="font-headline-md text-2xl sm:text-3xl">{activeImage.title}</h2>
             </figcaption>
           </figure>
+
+          {openAlbum.images.length > 1 && (
+            <div
+              className="mt-5 flex max-w-[82vw] gap-3 overflow-x-auto pb-1"
+              onClick={(event) => event.stopPropagation()}
+            >
+              {openAlbum.images.map((image, index) => (
+                <button
+                  key={image._id}
+                  type="button"
+                  onClick={() => setImageIndex(index)}
+                  aria-label={`View image ${index + 1}: ${image.title}`}
+                  aria-current={index === imageIndex ? 'true' : undefined}
+                  className={`h-16 w-24 shrink-0 overflow-hidden rounded-xl border transition-all ${
+                    index === imageIndex ? 'border-white opacity-100' : 'border-white/20 opacity-55 hover:opacity-100'
+                  }`}
+                >
+                  <img src={image.image} alt="" className="h-full w-full object-cover" />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       )}
     </div>

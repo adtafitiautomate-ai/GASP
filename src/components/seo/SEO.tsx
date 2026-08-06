@@ -1,48 +1,22 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { absoluteUrl, getPageSeo, SITE_URL } from '../../lib/seo';
-
-function setMeta(attribute: 'name' | 'property', key: string, content: string) {
-  let element = document.head.querySelector<HTMLMetaElement>(`meta[${attribute}="${key}"]`);
-
-  if (!element) {
-    element = document.createElement('meta');
-    element.setAttribute(attribute, key);
-    document.head.appendChild(element);
-  }
-
-  element.setAttribute('content', content);
-}
-
-function setLink(rel: string, href: string) {
-  let element = document.head.querySelector<HTMLLinkElement>(`link[rel="${rel}"]`);
-
-  if (!element) {
-    element = document.createElement('link');
-    element.setAttribute('rel', rel);
-    document.head.appendChild(element);
-  }
-
-  element.setAttribute('href', href);
-}
-
-function setStructuredData(data: object) {
-  let element = document.getElementById('structured-data') as HTMLScriptElement | null;
-
-  if (!element) {
-    element = document.createElement('script');
-    element.id = 'structured-data';
-    element.type = 'application/ld+json';
-    document.head.appendChild(element);
-  }
-
-  element.textContent = JSON.stringify(data);
-}
+import {
+  absoluteUrl,
+  getPageSeo,
+  isArticleRoute,
+  setLink,
+  setMeta,
+  setStructuredData,
+  SITE_URL,
+} from '../../lib/seo';
 
 export default function SEO() {
   const location = useLocation();
 
   useEffect(() => {
+    // Single news articles set their own title, description and Article schema.
+    if (isArticleRoute(location.pathname)) return;
+
     const isStudio = location.pathname.startsWith('/studio');
     const seo = getPageSeo(location.pathname);
     const canonical = absoluteUrl(seo.path);

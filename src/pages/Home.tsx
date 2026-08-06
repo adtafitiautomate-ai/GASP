@@ -1,4 +1,5 @@
 import VideoHero from '../components/home/VideoHero';
+import LatestNews from '../components/home/LatestNews';
 import LogoMarquee from '../components/LogoMarquee';
 import { ArrowRight, Images, Recycle, RefreshCw } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -222,6 +223,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Latest News */}
+      <LatestNews />
 
       {/* CTA Section */}
       <section className="py-section-padding bg-surface-bright">

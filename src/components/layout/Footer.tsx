@@ -60,6 +60,7 @@ export default function Footer() {
         <div>
           <h4 className="text-white font-bold mb-6">Connect</h4>
           <ul className="space-y-4">
+            <li><Link to="/news" className="text-emerald-200/60 hover:text-white transition-colors hover:translate-x-1 inline-block">News & Updates</Link></li>
             <li><Link to="/contact" className="text-emerald-200/60 hover:text-white transition-colors hover:translate-x-1 inline-block">Contact Us</Link></li>
             <li><Link to="/partnerships" className="text-emerald-200/60 hover:text-white transition-colors hover:translate-x-1 inline-block">Partnerships</Link></li>
             <li><Link to="/gallery" className="text-emerald-200/60 hover:text-white transition-colors hover:translate-x-1 inline-block">Gallery & Events</Link></li>

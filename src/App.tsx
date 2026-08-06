@@ -14,6 +14,8 @@ import Portfolio from './pages/Portfolio';
 import Team from './pages/Team';
 import MassFlows from './pages/MassFlows';
 import EPRModels from './pages/EPRModels';
+import News from './pages/News';
+import NewsArticle from './pages/NewsArticle';
 import ScrollToTop from './components/layout/ScrollToTop';
 import SEO from './components/seo/SEO';
 
@@ -47,6 +49,8 @@ function AnimatedRoutes() {
           <Route path="/value-chain" element={<ValueChain />} />
           <Route path="/partnerships" element={<Partnerships />} />
           <Route path="/gallery" element={<GalleryEvents />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/news/:slug" element={<NewsArticle />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/team" element={<Team />} />
