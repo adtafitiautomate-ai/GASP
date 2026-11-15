@@ -1,9 +1,37 @@
+import { useState, type FormEvent } from 'react';
 import { MapPin, Mail, Phone, Link2, Share2, Globe2 } from 'lucide-react';
 
 const locationUrl = 'https://www.google.com/maps/place/90+Kanjokya+St,+Kampala/data=!4m2!3m1!1s0x177dbbb1d1165707:0x13fae9069bbce84f?sa=X&ved=1t:242&ictx=111';
 const mapPreviewUrl = 'https://www.google.com/maps?q=90%20Kanjokya%20St%2C%20Kampala&output=embed';
 
 export default function Contact() {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
+
+  const submitInquiry = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formElement = event.currentTarget;
+    const data = Object.fromEntries(new FormData(formElement).entries());
+    setStatus('sending');
+    setStatusMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const result = await response.json().catch(() => null);
+      if (!response.ok) throw new Error(result?.message || 'Submission failed');
+      formElement.reset();
+      setStatus('sent');
+      setStatusMessage("Thanks for your inquiry! We'll be in touch soon.");
+    } catch (error) {
+      setStatus('error');
+      setStatusMessage(error instanceof Error ? error.message : 'We could not send your message. Please email info@gasp.co.ug directly.');
+    }
+  };
+
   const copyLocationLink = async () => {
     await navigator.clipboard?.writeText(locationUrl);
   };
@@ -47,20 +75,21 @@ export default function Contact() {
             {/* Form Column */}
             <div className="md:col-span-7 bg-white/5 backdrop-blur-md p-12 rounded-xl border border-white/10">
               <h2 className="font-headline-xl text-headline-xl mb-12">Send an Inquiry</h2>
-              <form className="space-y-8" onSubmit={(e) => { e.preventDefault(); alert("Thanks for your inquiry! We'll be in touch soon."); }}>
+              <form className="space-y-8" onSubmit={submitInquiry}>
+                <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="group">
                     <label className="font-label-sm text-label-sm text-white/50 block mb-2">Full Name</label>
-                    <input required className="w-full bg-transparent border-b border-white/20 py-3 font-body-md text-white focus:outline-none focus:border-on-primary-container transition-all" placeholder="John Doe" type="text"/>
+                    <input required className="w-full bg-transparent border-b border-white/20 py-3 font-body-md text-white focus:outline-none focus:border-on-primary-container transition-all" placeholder="John Doe" type="text" name="name" maxLength={200}/>
                   </div>
                   <div className="group">
                     <label className="font-label-sm text-label-sm text-white/50 block mb-2">Email Address</label>
-                    <input required className="w-full bg-transparent border-b border-white/20 py-3 font-body-md text-white focus:outline-none focus:border-on-primary-container transition-all" placeholder="john@company.com" type="email"/>
+                    <input required className="w-full bg-transparent border-b border-white/20 py-3 font-body-md text-white focus:outline-none focus:border-on-primary-container transition-all" placeholder="john@company.com" type="email" name="email" maxLength={320}/>
                   </div>
                 </div>
                 <div className="group">
                   <label className="font-label-sm text-label-sm text-white/50 block mb-2">Interest</label>
-                  <select className="w-full bg-transparent border-b border-white/20 py-3 font-body-md text-white focus:outline-none focus:border-on-primary-container appearance-none">
+                  <select name="interest" className="w-full bg-transparent border-b border-white/20 py-3 font-body-md text-white focus:outline-none focus:border-on-primary-container appearance-none">
                     <option className="bg-primary-container">Partnerships</option>
                     <option className="bg-primary-container">Media Inquiry</option>
                     <option className="bg-primary-container">Impact Reporting</option>
@@ -69,11 +98,16 @@ export default function Contact() {
                 </div>
                 <div className="group pt-4">
                   <label className="font-label-sm text-label-sm text-white/50 block mb-2">Message</label>
-                  <textarea required className="w-full bg-transparent border-b border-white/20 py-3 font-body-md text-white focus:outline-none focus:border-on-primary-container transition-all resize-none" placeholder="How can we collaborate?" rows={4}></textarea>
+                  <textarea required className="w-full bg-transparent border-b border-white/20 py-3 font-body-md text-white focus:outline-none focus:border-on-primary-container transition-all resize-none" placeholder="How can we collaborate?" rows={4} name="message" maxLength={10000}></textarea>
                 </div>
-                <button type="submit" className="bg-secondary text-on-tertiary-fixed px-10 py-4 rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:scale-[1.02] transition-transform active:scale-95 duration-150 mt-8">
-                  Submit Inquiry
+                <button type="submit" disabled={status === 'sending'} className="bg-secondary text-on-tertiary-fixed px-10 py-4 rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:scale-[1.02] transition-transform active:scale-95 duration-150 mt-8 disabled:opacity-60 disabled:hover:scale-100">
+                  {status === 'sending' ? 'Sending…' : 'Submit Inquiry'}
                 </button>
+                {statusMessage && (
+                  <p role="status" className={`font-body-md ${status === 'error' ? 'text-red-300' : 'text-emerald-300'}`}>
+                    {statusMessage}
+                  </p>
+                )}
               </form>
             </div>
 

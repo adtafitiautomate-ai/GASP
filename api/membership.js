@@ -1,4 +1,5 @@
 import {createClient} from '@sanity/client'
+import {EMAIL_RE, mailConfigured, rows, sendMail} from './_lib/mail.js'
 
 const client = createClient({
   projectId: process.env.SANITY_PROJECT_ID || process.env.VITE_SANITY_PROJECT_ID || '9cpfuau7',
@@ -78,6 +79,37 @@ export default async function handler(req, res) {
         capacity: form.capacity,
       },
     })
+
+    // Notify the team. The application is already saved, so a mail failure is only logged.
+    if (mailConfigured()) {
+      const {text, html} = rows([
+        ['Reference', reference],
+        ['Company', form.companyName],
+        ['Organisation email', form.organisationEmail],
+        ['Contact', `${form.contactName}${form.contactTitle ? ` (${form.contactTitle})` : ''}`],
+        ['Contact email', form.contactEmail],
+        ['Contact phone', form.contactPhone],
+        ['Category', form.category],
+        ['Tier', form.tier],
+        ['Payment method', form.paymentMethod],
+        ['District', form.district],
+        ['Signatory', form.signatoryName],
+      ])
+      try {
+        await sendMail({
+          subject: `New membership application ${reference} – ${form.companyName}`,
+          text: `${text}
+
+The full application is in Sanity Studio (/studio).`,
+          html: `${html}<p style="font-family:sans-serif">The full application is in Sanity Studio (/studio).</p>`,
+          replyTo: EMAIL_RE.test(String(form.contactEmail).trim())
+            ? {name: String(form.contactName), address: String(form.contactEmail).trim()}
+            : undefined,
+        })
+      } catch (error) {
+        console.error('Membership notification email failed', error)
+      }
+    }
 
     return send(res, 200, {id: document._id, reference})
   } catch (error) {
